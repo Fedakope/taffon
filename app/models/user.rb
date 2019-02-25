@@ -5,5 +5,5 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :applies
   has_many :events
-  has_many :have_skills
+  has_many :skills, through: :have_skill
 end
