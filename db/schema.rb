@@ -10,10 +10,72 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_25_153419) do
+ActiveRecord::Schema.define(version: 2019_02_25_170858) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "applies", force: :cascade do |t|
+    t.string "status"
+    t.bigint "job_id"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["job_id"], name: "index_applies_on_job_id"
+    t.index ["user_id"], name: "index_applies_on_user_id"
+  end
+
+  create_table "events", force: :cascade do |t|
+    t.string "name"
+    t.string "full_address"
+    t.string "description"
+    t.string "picture_url"
+    t.string "company"
+    t.bigint "user_id"
+    t.date "start_date"
+    t.date "end_date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_events_on_user_id"
+  end
+
+  create_table "have_skills", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "skill_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["skill_id"], name: "index_have_skills_on_skill_id"
+    t.index ["user_id"], name: "index_have_skills_on_user_id"
+  end
+
+  create_table "jobs", force: :cascade do |t|
+    t.string "description"
+    t.string "category"
+    t.date "start_date"
+    t.date "end_date"
+    t.time "start_time"
+    t.time "end_time"
+    t.bigint "event_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["event_id"], name: "index_jobs_on_event_id"
+  end
+
+  create_table "requierd_skills", force: :cascade do |t|
+    t.bigint "skill_id"
+    t.bigint "job_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["job_id"], name: "index_requierd_skills_on_job_id"
+    t.index ["skill_id"], name: "index_requierd_skills_on_skill_id"
+  end
+
+  create_table "skills", force: :cascade do |t|
+    t.string "name"
+    t.string "category"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -23,8 +85,20 @@ ActiveRecord::Schema.define(version: 2019_02_25_153419) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "first_name"
+    t.string "last_name"
+    t.string "phone_number"
+    t.boolean "organizer", default: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "applies", "jobs"
+  add_foreign_key "applies", "users"
+  add_foreign_key "events", "users"
+  add_foreign_key "have_skills", "skills"
+  add_foreign_key "have_skills", "users"
+  add_foreign_key "jobs", "events"
+  add_foreign_key "requierd_skills", "jobs"
+  add_foreign_key "requierd_skills", "skills"
 end
