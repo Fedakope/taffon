@@ -1,18 +1,20 @@
-<%= simple_form_for @review do |f| %>
-  <div class="form-inputs">
-    <%= f.input :rating, as: :score,
-                required: true,
-                autofocus: false,
-                input_html: { value: @review.rating} %>
-    <%= f.input :content,
-                as: :text,
-                required: true,
-                autofocus: true,
-                input_html: { @review.content},
-                placeholder: 'Please add a small message...' %>
-  </div>
+<% if @apply.status == 'done' %>
+  <%= simple_form_for @review do |f| %>
+    <div class="form-inputs">
+      <%= f.input :rating, as: :score,
+                  required: true,
+                  autofocus: false,
+                  input_html: { value: @review.rating} %>
+      <%= f.input :content,
+                  as: :text,
+                  required: true,
+                  autofocus: true,
+                  input_html: { @review.content},
+                  placeholder: 'Please add a small message...' %>
+    </div>
 
-  <div class="form-actions">
-    <%= f.button :submit, "Reserve!", class: 'btn btn-resa btn-primary' %>
-  </div>
+    <div class="form-actions">
+      <%= f.button :submit, "Reserve!", class: 'btn btn-resa btn-primary' %>
+    </div>
+  <% end %>
 <% end %>

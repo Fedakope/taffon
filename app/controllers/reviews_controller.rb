@@ -1,22 +1,12 @@
 class ReviewsController < ApplicationController
-  before_action :set_apply
-  before_action :set_job, only: [:create] # :set_organiser
+  before_action :set_apply, only: [create]
+  before_action :set_job, :set_organizer
 
   def index
-    @reviews = Review.where(destinator_id: current_user.id) # list all reviews of an user
+    @reviews = Review.where(destinator_id: @organizer.id) # list all reviews of an user
   end
 
   def create
-    if @job.status == 'done' # you can only create a review when the job is done
-      create_review
-    else
-      alert 'Sorry you can\'t write a review before the job done'
-    end
-  end
-
-  private
-
-  def create_review
     set_destinator
     @review = Review.new(
       review_params,
@@ -26,6 +16,8 @@ class ReviewsController < ApplicationController
     )
     @review.save
   end
+
+  private
 
   def set_destinator
     if current_user.oragnizer # if the current user is an organizer he had to review the technician that do the job
@@ -41,7 +33,11 @@ class ReviewsController < ApplicationController
   end
 
   def set_job
-    @job = Job.find(@apply.job_id)
+    if @apply
+      @job = Job.find(@apply.job_id)
+    else
+      @job = Job.find(params[:id])
+    end
   end
 
   def set_organizer
