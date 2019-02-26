@@ -18,11 +18,10 @@ Rails.application.routes.draw do
 
   resources :jobs, only: [:index, :show] do
     resources :applies, only: [:create]
-    resources :reviews, only: [:index]
+    resources :reviews, only: [:index] # see all reviews (~ cause the organizer user instance is linked to the job ~) when showing jobs
   end
 
   resources :applies, only: [:index, :destroy] do
-    # Routes for Reviews :
-    resources :reviews, only: [:create]
+    resources :reviews, only: [:create] # create a review from the list of applies (either organizerr and technicians)
   end
 end
