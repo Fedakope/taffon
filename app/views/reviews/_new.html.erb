@@ -1,7 +1,8 @@
 <% if @apply.status == 'done' %>
   <%= simple_form_for @review do |f| %>
     <div class="form-inputs">
-      <%= f.input :rating, as: :score,
+      <%= f.input :rating, as: :integer,
+                  collection: 0..5,
                   required: true,
                   autofocus: false,
                   input_html: { value: @review.rating} %>
