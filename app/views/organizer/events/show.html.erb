@@ -7,3 +7,18 @@
   <li>Company: <%= @event.company %></li>
   <li>User email: <%= @event.user.email %></li>
 </ul>
+
+
+
+<%= simple_form_for [:organizer, @event, @job] do |f| %>
+
+  <%= f.input :category %>
+  <%= f.input :description %>
+  <%= f.input :start_date %>
+  <%= f.input :end_date %>
+  <%= f.input :start_time %>
+  <%= f.input :end_time %>
+
+  <%= f.submit "Create", class: "btn btn-primary" %>
+<% end %>
+

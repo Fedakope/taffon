@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
   namespace :organizer do
     resources :events do
-      resources :jobs, only: [:create]
+      resources :jobs, only: [:new, :create]
     end
     resources :jobs, only: [:destroy] do
       resources :applies, only: [:index]

@@ -6,6 +6,7 @@ class Organizer::EventsController < ApplicationController
   end
 
   def show
+    @job = Job.new
   end
 
   def new

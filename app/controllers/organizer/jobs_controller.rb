@@ -1,23 +1,17 @@
-class JobsController < ApplicationController
-  def index
-    @jobs = Job.all
-  end
-
-  def show
-    @job = Job.find(params[:id])
-  end
-
+class Organizer::JobsController < ApplicationController
   def new
     @job = Job.new
   end
 
   def create
+    @event = Event.find(params[:event_id])
     @job = Job.new(job_params)
     @job.event = @event
-    if @job.save!
-      redirect_to event_path(@event)
+
+    if @job.save
+      redirect_to organizer_event_path(@event)
     else
-      render :index
+      render 'organizers/events/show'
     end
   end
 
