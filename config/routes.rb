@@ -3,6 +3,10 @@ Rails.application.routes.draw do
 
   devise_for :users
 
+  resources :users, only: [:show] do
+    resources :reviews, only: [:index]
+  end
+
   namespace :organizer do
     resources :events do
       resources :jobs, only: [:create]
