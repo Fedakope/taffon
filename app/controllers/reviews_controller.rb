@@ -3,7 +3,15 @@ class ReviewsController < ApplicationController
   before_action :set_job, :set_organizer
 
   def index
-    @reviews = Review.where(destinator_id: @organizer.id) # list all reviews of an organizer
+    if @organizer
+      @reviews = Review.where(destinator_id: @organizer.id) # list all reviews of an organizer
+    elsif @user
+      @reviews = Review.where(destinator_id: @user.id) # list all reviews of an user
+    else
+      # reviews writted by current user
+      # reviews about current user...
+      @reviews = Review.where(destinator_id: current_user.id)
+    end
   end
 
   def create
