@@ -9,6 +9,7 @@ class ReviewsController < ApplicationController
       @reviews = Review.where(destinator_id: @user.id) # list all reviews of an user
     else
       # reviews writted by current user
+      @reviews = Review.where(creator_id: current_user.id)
       # reviews about current user...
       @reviews = Review.where(destinator_id: current_user.id)
     end
