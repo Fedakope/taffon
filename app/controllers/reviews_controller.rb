@@ -3,7 +3,7 @@ class ReviewsController < ApplicationController
   before_action :set_job, :set_organizer
 
   def index
-    @reviews = Review.where(destinator_id: @organizer.id) # list all reviews of an user
+    @reviews = Review.where(destinator_id: @organizer.id) # list all reviews of an organizer
   end
 
   def create
@@ -14,7 +14,7 @@ class ReviewsController < ApplicationController
       creator: current_user, # the current_user is always the creator of the review
       destinator: @destinator
     )
-    @review.save
+    @review.save ? (redirect_to applies_path) : (render apply_path(@apply))
   end
 
   private
