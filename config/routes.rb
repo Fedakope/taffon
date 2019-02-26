@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   root to: "pages#home"
+
   devise_for :users
 
   namespace :organizer do
@@ -9,10 +10,12 @@ Rails.application.routes.draw do
     resources :jobs, only: [:destroy] do
       resources :applies, only: [:index]
     end
+
     resources :applies, only: [] do
       patch :accept
       patch :decline
     end
+
   end
 
   resources :jobs, only: [:index, :show] do
