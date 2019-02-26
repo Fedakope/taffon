@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   devise_for :users
 
   resources :users, only: [:show] do
-    resources :reviews, only: [:index]
+    resources :reviews, only: [:create]
   end
 
   namespace :organizer do
@@ -22,10 +22,7 @@ Rails.application.routes.draw do
 
   resources :jobs, only: [:index, :show] do
     resources :applies, only: [:create]
-    resources :reviews, only: [:index] # see all reviews (~ cause the organizer user instance is linked to the job ~) when showing jobs
   end
 
-  resources :applies, only: [:index, :destroy] do
-    resources :reviews, only: [:create] # create a review from the list of applies (either organizerr and technicians)
-  end
+  resources :applies, only: [:index, :destroy]
 end
