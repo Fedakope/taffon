@@ -1,7 +1,88 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+require 'faker'
+
+
+User.destroy_all
+
+organizer1 = User.create!(
+  email: "organizer1@gmail.com",
+  password: "azerty",
+  first_name: "orga1-firstname",
+  last_name: "orga1-lastname",
+  phone_number: 0424242424,
+  organizer:true)
+
+technician1 = User.create!(
+  email: "technician1@gmail.com",
+  password: "azerty",
+  first_name: "tech1-firstname",
+  last_name: "tech1-lastname",
+  phone_number: 0424242426,
+  organizer: false)
+
+event1 = Event.create!(
+  name: "event1",
+  full_address: "adress...",
+  description: "description...",
+  picture_url: "picture_url...",
+  company: "company...",
+  user_id: organizer1.id,
+  start_date: 1.day.from_now,
+  end_date: 2.day.from_now)
+
+
+
+######################## FAKE DATA
+
+
+users = []
+events = []
+
+10.times do |n|
+  users << User.create!(
+    email: Faker::Internet.email,
+    password: "azerty",
+    first_name: "tech1-firstname",
+    last_name: "tech1-lastname",
+    phone_number: 0424242426,
+    organizer: n.odd?)
+end
+
+organizer_users = users.select {|u| u.organizer }
+
+organizer_users.each do |u|
+  rand(5).times do |n|
+  events << Event.create!(
+    name: "event1",
+    full_address: "adress...",
+    description: "description...",
+    picture_url: "picture_url...",
+    company: "company...",
+    user_id: u.id,
+    start_date: 1.day.from_now,
+    end_date: 2.day.from_now)
+  end
+end
+
+
+
+# jobs
+#    description:
+#    category:
+#    start_date:
+#    end_date:
+#    start_time:
+#    end_time:
+#    event_id: job1.event=event1??
+
+
+# Applies
+
+
+# Skills   .... List of skils tableau>>???????
+
+# Have_skills
+
+# required_skills
+
+# reviews
+
