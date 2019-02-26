@@ -3,13 +3,11 @@ class ReviewsController < ApplicationController
   before_action :set_job, only: [:create] # :set_organiser
 
   def index
-    # list all reviews of an user
-    @reviews = Review.where(destinator_id: current_user.id)
+    @reviews = Review.where(destinator_id: current_user.id) # list all reviews of an user
   end
 
   def create
-    # you can only create a review when the job is done
-    if @job.status == 'done'
+    if @job.status == 'done' # you can only create a review when the job is done
       create_review
     else
       alert 'Sorry you can\'t write a review before the job done'
@@ -52,7 +50,6 @@ class ReviewsController < ApplicationController
   end
 
   def review_params
-    # strong params
-    params.require(:review).permit(:rating, :content)
+    params.require(:review).permit(:rating, :content) # strong params
   end
 end
