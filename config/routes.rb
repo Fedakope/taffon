@@ -1,5 +1,24 @@
 Rails.application.routes.draw do
-  devise_for :users
   root to: 'pages#home'
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  
+  devise_for :users
+
+  namespace :organizer do
+    resources :events do 
+      resources :jobs, only: [:create]
+    end
+    resources :jobs, only: [:destroy] do
+      resources :applies, only: [:index]
+    end
+      resources :applies, only: [] do 
+        patch :accept
+        patch :decline
+      end
+  end
+
+  resources :jobs, only: [:index, :show] do 
+    resources :applies, only: [:create]
+  end
+
+  resources :applies, only: [:index, :destroy]
 end
