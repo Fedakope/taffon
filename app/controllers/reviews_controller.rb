@@ -1,50 +1,58 @@
 class ReviewsController < ApplicationController
-  before_action :set_apply, :set_job, :set_organiser
+  before_action :set_apply
+  before_action :set_job, only: [:create] # :set_organiser
 
   def index
-    set_organizer
-    @reviews = Review.where(destinator_id: @organizer.id)
+    # list all reviews of an user
+    @reviews = Review.where(destinator_id: current_user.id)
   end
 
   def create
-    @review = Review.new(review_params)
-    set_destinator
-    @review = {
-      apply: @apply,
-      creator: @current_user, # the current_user is always the creator of the review
-      destinator: @destinator
-    }
+    # you can only create a review when the job is done
+    if @job.status == 'done'
+      create_review
+    else
+      alert 'Sorry you can\'t write a review before the job done'
+    end
   end
 
   private
 
-  # set the destinator of the review
+  def create_review
+    set_destinator
+    @review = Review.new(
+      review_params,
+      apply: @apply,
+      creator: current_user, # the current_user is always the creator of the review
+      destinator: @destinator
+    )
+    @review.save
+  end
+
   def set_destinator
-    if @creator == @organizer
-      @destinator = @apply.user # if the current user is an organizer he had to review the technician
+    if current_user.oragnizer # if the current user is an organizer he had to review the technician that do the job
+      @destinator = @apply.user
     else
-      @destinator = @organizer # if current user isn't an organizer he had to review the organizer
+      set_organizer # if current user isn't an organizer he had to review the organizer that create the job
+      @destinator = @organizer
     end
   end
 
-  # set variables
   def set_apply
     @apply = Apply.find(params[:id])
   end
 
   def set_job
-    # set_apply
     @job = Job.find(@apply.job_id)
   end
 
   def set_organizer
-    # set_job
-    event = Event.find(@job.event_id)
+    event      = Event.find(@job.event_id)
     @organizer = User.find(event.user_id)
   end
 
-  # strong params
   def review_params
+    # strong params
     params.require(:review).permit(:rating, :content)
   end
 end
