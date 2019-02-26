@@ -1,0 +1,13 @@
+<h1>Edit this event: <%= @event.name %></h1>
+
+<%= simple_form_for [:organizer, @event] do |f| %>
+
+  <%= f.input :name %>
+  <%= f.input :description %>
+  <%= f.input :full_address %>
+  <%= f.input :company %>
+  <%= f.input :start_date %>
+  <%= f.input :end_date %>
+
+  <%= f.submit "Edit", class: "btn btn-primary" %>
+<% end %>
