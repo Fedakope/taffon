@@ -1,5 +1,15 @@
 <h1>List of technicians where organizer = fasle(viewed as an organizer)</h1>
 
-ici commande pour afficher les technicians where organizer = fasle
 
-<%= User.where("organizer = false")  %>
+<% @users.each do |user| %>
+  <% if user.organizer %>
+    <div class="col-xs-12 col-sm-6 col-md-4">
+      <%= user.id %>
+      <%= user.first_name %>
+      <%= user.last_name %>
+      <%= user.email %>
+      <%= user.phone_number %>
+    </div>
+    <br>
+  <% end %>
+<% end %>
