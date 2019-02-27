@@ -1,0 +1,39 @@
+<h1><%= @user.first_name %> <%= @user.last_name %></h1>
+
+
+<h2>Contact:</h2>
+<ul>
+  <li>id: <%= @user.id %></li>
+  <li>name: <%= @user.first_name %> <%= @user.last_name %></li>
+  <li>email: <%= @user.email %></li>
+  <li>phone:  <%= @user.phone_number %></li>
+</ul>
+
+
+<h2>Skills:</h2>
+<ul>
+  <% @user.skills.each do |skill| %>
+    <%= skill.name %>
+  <% end %>
+</ul>
+
+
+<h2>Reviews:</h2>
+<ul>
+  <% if @user.reviews.blank? %>
+    <li>No existing reviews, be the first to post a review!</li>
+  <% else %>
+
+  <% @user.reviews.each do |review| %>
+      <li>
+        <%= review.rating %>
+        <%= review.content %>
+      </li>
+    <% end %>
+  <% end%>
+</ul>
+
+
+<h2>Write a review:</h2>
+<%= render "reviews/new", user: @user, review: @review %>
+
