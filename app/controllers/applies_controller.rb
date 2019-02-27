@@ -10,4 +10,3 @@ class AppliesController < ApplicationController
   end
 end
 
-
