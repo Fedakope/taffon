@@ -5,7 +5,8 @@ class ReviewsController < ApplicationController
     @review = Review.new(review_params)
     @review.creator = current_user
     @review.destinator = @user
-    @review.save ? (redirect_to root) : (render user_path(@user))
+    @review.save
+    redirect_to user_path(@user)
   end
 
   private
