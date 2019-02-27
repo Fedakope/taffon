@@ -14,17 +14,25 @@
 <%= link_to 'Delete', organizer_event_path(@event), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-primary" %> 
 
 
+<div border-color: black; border-style:solid;
+border-width: 2px; border-radius: 10px >
+  <%= simple_form_for [:organizer, @event, @job] do |f| %>
+    <%= f.input :category %>
+    <%= f.input :description %>
+    <%= f.input :start_date %>
+    <%= f.input :end_date %>
+    <%= f.input :start_time %>
+    <%= f.input :end_time %>
+    <%= f.submit "Create", class: "btn btn-primary" %>
+  <% end %>
+</div>
 
-<%= simple_form_for [:organizer, @event, @job] do |f| %>
 
-  <%= f.input :category %>
-  <%= f.input :description %>
-  <%= f.input :start_date %>
-  <%= f.input :end_date %>
-  <%= f.input :start_time %>
-  <%= f.input :end_time %>
-
-  <%= f.submit "Create", class: "btn btn-primary" %>
-<% end %>
-
+<h2>Ici la liste des job position correspondants à cet event :</h2>
+  <% @event.jobs.each do |job| %>
+  Category : <%= job.category %>
+  Description : <%= job.description %>
+  Start : <%= job.start_date %> : <%= job.start_time %>
+  End : <%= job.end_date %> : <%= job.end_time %>
+  <% end %>
 
