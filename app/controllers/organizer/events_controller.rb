@@ -3,21 +3,12 @@ class Organizer::EventsController < ApplicationController
 
   def index
     @events = Event.all
-
-
-    @events = Event.where.not(latitude: nil, longitude: nil)
-    @markers = @events.map do |event|
-      {
-        lng: event.longitude,
-        lat: event.latitude,
-        infoWindow: render_to_string(partial: "infowindow", locals: { event: event })
-      }
-    end
+    set_markers
   end
 
   def show
     @job = Job.new
-
+    set_marker
   end
 
   def new
@@ -60,4 +51,23 @@ class Organizer::EventsController < ApplicationController
     params.require(:event).permit(:name, :full_address, :description, :picture_url, :company, :start_date, :end_date)
   end
 
+  def set_marker
+    @events = Event.where.not(latitude: nil, longitude: nil)
+    @markers = []
+    @markers << {
+        lng: @event.longitude,
+        lat: @event.latitude,
+      }
+  end
+
+  def set_markers
+    @events = Event.where.not(latitude: nil, longitude: nil)
+    @markers = @events.map do |event|
+      {
+        lng: event.longitude,
+        lat: event.latitude,
+        infoWindow: render_to_string(partial: "infowindow", locals: { event: event })
+      }
+    end
+  end
 end
