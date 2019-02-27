@@ -32,10 +32,13 @@ border-width: 2px; border-radius: 10px >
 </div>
 
 
-<h2>Ici la liste des job position correspondants à cet event :</h2>
-  <% @event.jobs.each do |job| %>
-  Category : <%= job.category %>
-  Description : <%= job.description %>
-  Start : <%= job.start_at %> : <%= job.end_at %>
-  <% end %>
+<h2> Jobs list for <%= @event.name %>:</h2>
+  <ul>
+    <% @event.jobs.each do |job| %>
+      <li><%= link_to 'See details', job_path(job) %> | <%= job.status %> | <%= job.event.name %> | <%= job.category %> | <%= job.start_at %> | <%= job.end_at %></li>
 
+    <% end %>
+  </ul>
+
+
+[see more details] Job status | Event | Job category | Start --> End 

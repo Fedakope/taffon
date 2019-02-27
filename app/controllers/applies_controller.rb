@@ -9,4 +9,3 @@ class AppliesController < ApplicationController
     redirect_to applies_path
   end
 end
-
