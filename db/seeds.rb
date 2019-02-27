@@ -1,7 +1,27 @@
 require 'faker'
-
+Apply.destroy_all
+RequiredSkill.destroy_all
+Job.destroy_all
 Event.destroy_all
 User.destroy_all
+Skill.destroy_all
+
+Skill.create!([
+  {name: "Concepteur son", category: "Son - Lumière"},
+  {name: "Régisseur son", category: "Son - Lumière"},
+  {name: "Téchnicien son ", category: "Son - Lumière"},
+  {name: "Régisseur lumière", category: "Son - Lumière"},
+  {name: "Technicien lumière", category: "Son - Lumière"},
+  {name: "Électricien", category: "Son - Lumière"},
+  {name: "Technicien des effets spéciaux", category: "Son - Lumière"},
+
+  {name: "Concepteur vidéo - image", category: "Vidéo - Image"},
+  {name: "Régisseur vidéo - image", category: "Vidéo - Image"},
+  {name: "Technicien vidéo - image", category: "Vidéo - Image"},
+])
+
+
+
 
 
 
@@ -21,7 +41,7 @@ technician1 = User.create!(
   phone_number: 0424242426,
   organizer: false)
 
-event1 = Event.create!(
+e1 = Event.create!(
   name: "event1",
   full_address: "adress...",
   description: "description...",
@@ -31,13 +51,33 @@ event1 = Event.create!(
   start_date: 1.day.from_now,
   end_date: 2.day.from_now)
 
+e1_job1 = Job.create!(
+  description: "ingenieur son",
+  category: "son-lumiere",
+  start_date: 1.day.from_now,
+  end_date: 2.day.from_now,
+  # start_time:,
+  # end_time:,
+  event_id: e1.id
+)
+
+RequiredSkill.create!(job: e1_job1, skill: Skill.find_by(name: "Concepteur son"))
+RequiredSkill.create!(job: e1_job1, skill: Skill.find_by(name: "Régisseur lumière"))
+
+
+apply1 = Apply.create(
+  status: "pending",
+  job_id: e1_job1.id,
+  user_id: technician1.id
+)
 
 
 ######################## FAKE DATA
-
+exit
 
 users = []
 events = []
+jobs =[]
 
 10.times do |n|
   users << User.create!(
@@ -66,15 +106,18 @@ organizer_users.each do |u|
 end
 
 
-
-# jobs
-#    description:
-#    category:
-#    start_date:
-#    end_date:
-#    start_time:
-#    end_time:
-#    event_id: job1.event=event1??
+# events.each do |e|
+#   rand(3).times do |j|
+#   jobs << Job.create!(
+#     description:
+#     category:
+#     start_date:
+#     end_date:
+#     start_time:
+#     end_time:
+#     event_id: e.id, ??
+#   end
+# end
 
 
 # Applies
