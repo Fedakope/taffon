@@ -18,10 +18,17 @@ Skill.create!([
   {name: "Concepteur vidéo - image", category: "Vidéo - Image"},
   {name: "Régisseur vidéo - image", category: "Vidéo - Image"},
   {name: "Technicien vidéo - image", category: "Vidéo - Image"},
+
+  {name: "Régisseur", category: "Structure - Rigger - Plateau"},
+  {name: "Technicien", category: "Structure - Rigger - Plateau"},
+
+  {name: "Gardiennage", category: "Emplois techniques des services généraux"},
+  {name: "Sécurité", category: "Emplois techniques des services généraux"},
+  {name: "Entretien", category: "Emplois techniques des services généraux"},
+  {name: "Informatique", category: "Emplois techniques des services généraux"},
+
+  {name: "Décorateur-costumier", category: "Décors - Costume"},
 ])
-
-
-
 
 
 
@@ -54,10 +61,8 @@ e1 = Event.create!(
 e1_job1 = Job.create!(
   description: "ingenieur son",
   category: "son-lumiere",
-  start_date: 1.day.from_now,
-  end_date: 2.day.from_now,
-  # start_time:,
-  # end_time:,
+  start_at: 1.day.from_now,
+  end_at: 2.day.from_now,
   event_id: e1.id
 )
 
@@ -65,12 +70,36 @@ RequiredSkill.create!(job: e1_job1, skill: Skill.find_by(name: "Concepteur son")
 RequiredSkill.create!(job: e1_job1, skill: Skill.find_by(name: "Régisseur lumière"))
 
 
-apply1 = Apply.create(
+apply1 = Apply.create!(
   status: "pending",
   job_id: e1_job1.id,
   user_id: technician1.id
 )
+apply2 = Apply.create!(
+  status: "approved",
+  job_id: e1_job1.id,
+  user_id: technician1.id
+)
+apply3 = Apply.create!(
+  status: "declined",
+  job_id: e1_job1.id,
+  user_id: technician1.id
+)
 
+
+skill1 = Skill.find_by(name: "Concepteur son")
+
+
+HaveSkill.create!(user: technician1, skill: Skill.find_by(name: "Concepteur son"))
+
+
+reviews1 = Review.create!(
+  rating: "4",
+  content: "cool",
+  apply_id: apply2.id,
+  creator_id: organizer1.id,
+  destinator_id: technician1.id
+)
 
 ######################## FAKE DATA
 exit
@@ -115,7 +144,7 @@ end
 #     end_date:
 #     start_time:
 #     end_time:
-#     event_id: e.id, ??
+#     event_id: e.id,
 #   end
 # end
 
