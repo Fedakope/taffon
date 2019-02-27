@@ -1,10 +1,14 @@
 require 'faker'
+
+Review.destroy_all
+HaveSkill.destroy_all
 Apply.destroy_all
 RequiredSkill.destroy_all
 Job.destroy_all
 Event.destroy_all
 User.destroy_all
 Skill.destroy_all
+
 
 Skill.create!([
   {name: "Concepteur son", category: "Son - Lumière"},
@@ -99,6 +103,7 @@ reviews1 = Review.create!(
   creator_id: organizer1.id,
   destinator_id: technician1.id
 )
+  puts "DB SEEDED THX YOU MAXKRAK"
 
 ######################## FAKE DATA
 exit
@@ -132,7 +137,6 @@ organizer_users.each do |u|
     end_date: 2.day.from_now)
   end
 end
-
 
 # events.each do |e|
 #   rand(3).times do |j|
