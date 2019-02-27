@@ -1,0 +1,14 @@
+<h1> List of Technicians:</h1>
+
+<% @users.each do |user| %>
+  <% if user.organizer %>
+    <div class="col-xs-12 col-sm-6 col-md-4">
+      <%= user.id %>
+      <%= user.first_name %>
+      <%= user.last_name %>
+      <%= user.email %>
+      <%= user.phone_number %>
+    </div>
+    <br>
+  <% end %>
+<% end %>
