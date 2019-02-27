@@ -52,7 +52,6 @@ class Organizer::EventsController < ApplicationController
   end
 
   def set_marker
-    @events = Event.where.not(latitude: nil, longitude: nil)
     @markers = []
     @markers << {
         lng: @event.longitude,
