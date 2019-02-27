@@ -8,6 +8,11 @@
   <li>User email: <%= @event.user.email %></li>
 </ul>
 
+<br>
+
+<%= link_to 'Edit', edit_organizer_event_path(@event), class: "btn btn-primary" %>
+<%= link_to 'Delete', organizer_event_path(@event), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-primary" %> 
+
 
 <div border-color: black; border-style:solid;
 border-width: 2px; border-radius: 10px >
@@ -24,11 +29,10 @@ border-width: 2px; border-radius: 10px >
 
 
 <h2>Ici la liste des job position correspondants à cet event :</h2>
-
-
   <% @event.jobs.each do |job| %>
   Category : <%= job.category %>
   Description : <%= job.description %>
   Start : <%= job.start_date %> : <%= job.start_time %>
   End : <%= job.end_date %> : <%= job.end_time %>
   <% end %>
+
