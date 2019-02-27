@@ -5,6 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable, :omniauthable, omniauth_providers: [:google_oauth2]
   has_many :applies
   has_many :events
+  has_many :have_skill
   has_many :skills, through: :have_skill
   has_many :reviews, foreign_key: :creator_id
   has_many :reviews, foreign_key: :destinator_id
