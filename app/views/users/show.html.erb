@@ -9,13 +9,13 @@
   <li>phone:  <%= @user.phone_number %></li>
 </ul>
 
+
 <h2>Skills:</h2>
 <ul>
   <% @user.skills.each do |skill| %>
     <%= skill.name %>
   <% end %>
 </ul>
-
 
 
 <h2>Reviews:</h2>
