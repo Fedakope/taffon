@@ -6,15 +6,13 @@ flatpickr(".datepicker", {
   altFormat: "j F, Y",
   dateFormat: "Y-m-d",
   minDate: "today",
-  defaultDate: ["today"]
-
+  inline: true,
 })
 
 
 flatpickr(".datetimepicker", {
   enableTime: true,
   dateFormat: "Y-m-d H:i",
+  inline: true,
   minDate: "today",
-  defaultDate: ["today"]
-
 })
