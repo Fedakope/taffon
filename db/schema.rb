@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_27_101640) do
+ActiveRecord::Schema.define(version: 2019_02_27_125431) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,6 +36,8 @@ ActiveRecord::Schema.define(version: 2019_02_27_101640) do
     t.date "end_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.float "latitude"
+    t.float "longitude"
     t.index ["user_id"], name: "index_events_on_user_id"
   end
 
@@ -51,14 +53,12 @@ ActiveRecord::Schema.define(version: 2019_02_27_101640) do
   create_table "jobs", force: :cascade do |t|
     t.string "description"
     t.string "category"
-    t.date "start_date"
-    t.date "end_date"
-    t.time "start_time"
-    t.time "end_time"
     t.bigint "event_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "status"
+    t.datetime "start_at"
+    t.datetime "end_at"
     t.index ["event_id"], name: "index_jobs_on_event_id"
   end
 

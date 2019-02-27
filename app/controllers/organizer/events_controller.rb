@@ -3,10 +3,21 @@ class Organizer::EventsController < ApplicationController
 
   def index
     @events = Event.all
+
+
+    @events = Event.where.not(latitude: nil, longitude: nil)
+    @markers = @events.map do |event|
+      {
+        lng: event.longitude,
+        lat: event.latitude,
+        infoWindow: render_to_string(partial: "infowindow", locals: { event: event })
+      }
+    end
   end
 
   def show
     @job = Job.new
+
   end
 
   def new
