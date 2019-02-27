@@ -19,7 +19,7 @@ Rails.application.routes.draw do
       patch :accept
       patch :decline
     end
-
+    resources :users, only: [:index, :show]
   end
 
   resources :jobs, only: [:index, :show] do
