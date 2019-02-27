@@ -10,6 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema.define(version: 2019_02_27_101640) do
 
   # These are extensions that must be enabled in order to support this database
@@ -74,12 +75,10 @@ ActiveRecord::Schema.define(version: 2019_02_27_101640) do
   create_table "reviews", force: :cascade do |t|
     t.integer "rating"
     t.text "content"
-    t.bigint "apply_id"
     t.bigint "creator_id"
     t.bigint "destinator_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["apply_id"], name: "index_reviews_on_apply_id"
     t.index ["creator_id"], name: "index_reviews_on_creator_id"
     t.index ["destinator_id"], name: "index_reviews_on_destinator_id"
   end
@@ -117,7 +116,6 @@ ActiveRecord::Schema.define(version: 2019_02_27_101640) do
   add_foreign_key "jobs", "events"
   add_foreign_key "required_skills", "jobs"
   add_foreign_key "required_skills", "skills"
-  add_foreign_key "reviews", "applies"
   add_foreign_key "reviews", "users", column: "creator_id"
   add_foreign_key "reviews", "users", column: "destinator_id"
 end
