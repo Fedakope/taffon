@@ -16,9 +16,9 @@ gem 'sassc-rails'
 gem 'simple_form'
 gem 'uglifier'
 gem 'webpacker'
-gem 'therubyracer'
 gem 'omniauth-google-oauth2'
 gem 'omniauth-facebook'
+gem "geocoder"
 
 group :development do
   gem 'web-console', '>= 3.3.0'
