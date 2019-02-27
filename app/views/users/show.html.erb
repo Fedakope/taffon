@@ -1,0 +1,14 @@
+<h1><%= @user.first_name %> <%= @user.last_name %></h1>
+
+
+<h2>Contact:</h2>
+  <%= @user.id %>
+  <%= @user.first_name %>
+  <%= @user.last_name %>
+  <%= @user.email %>
+  <%= @user.phone_number %>
+
+<h2>Skills:</h2>
+  <% @user.skills.each do |skill| %>
+    <%= skill.name %>
+<% end %>
