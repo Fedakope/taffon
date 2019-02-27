@@ -96,7 +96,6 @@ HaveSkill.create!(user: technician1, skill: Skill.find_by(name: "Concepteur son"
 reviews1 = Review.create!(
   rating: "4",
   content: "cool",
-  apply_id: apply2.id,
   creator_id: organizer1.id,
   destinator_id: technician1.id
 )
