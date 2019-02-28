@@ -24,8 +24,14 @@
 
 <div border-color: black; border-style:solid;
 border-width: 2px; border-radius: 10px >
+<% category=[] %>
+<% skills=Skill.all %>
+<% skills.each do |s| %>
+<% category << s.category %>
+<% end %>
+
   <%= simple_form_for [:organizer, @event, @job] do |f| %>
-    <%= f.input :category %>
+    <%= f.input :category, collection: category.uniq, include_blank: false, include_hidden: false %>
     <%= f.input :description %>
     <%= f.input :start_at, as: :string, input_html: {class: "datetimepicker"} %>
     <%= f.input :end_at, as: :string, input_html: {class: "datetimepicker"} %>
