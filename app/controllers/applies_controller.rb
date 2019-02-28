@@ -11,9 +11,18 @@ class AppliesController < ApplicationController
     @apply.user = @user
     @apply.job = @job
     if @apply.save
-      redirect_to user_path(@user)
+      redirect_to user_path(@user), :alert => 'You applied for the position'
     else
       redirect_to job_path(@job), :alert => 'Your aleardy applied for this job'
+    end
+  end
+
+  def update
+    @apply = Apply.find(params[:id])
+    if @apply.update(apply_params)
+      redirect_to profile_path
+    else
+      redirect_to profile_path
     end
   end
 
