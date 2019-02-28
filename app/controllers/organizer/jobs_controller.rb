@@ -9,6 +9,7 @@ class Organizer::JobsController < ApplicationController
     @job.event = @event
 
     if @job.save
+      flash[:notice] = "Your event #{@event.name} has been sucessfully created ! Now, add jobs !"
       redirect_to organizer_event_path(@event)
     else
       render 'organizers/events/show'

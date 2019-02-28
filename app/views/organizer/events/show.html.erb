@@ -1,5 +1,9 @@
 <h1>Details of: <%= @event.name %></h1>
 
+<% if flash[:notice] %>
+  <div class="notice"><%= flash[:notice] %></div>
+<% end %>
+
 <ul>
   <li>Address: <%= @event.full_address %></li>
   <li>Picture: <%= @event.picture_url %></li>
