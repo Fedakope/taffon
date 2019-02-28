@@ -19,8 +19,7 @@ class Organizer::EventsController < ApplicationController
     @event = Event.new(event_params)
     @event.user = current_user
     if @event.save
-      flash[:notice] = "Your event #{@event.name} has been sucessfully created ! Now, add jobs !"
-      redirect_to organizer_event_path(@event)
+      redirect_to organizer_event_path(@event), :notice => "Your event #{@event.name} has been sucessfully created ! Now, add jobs !"
     else
       render :new
     end
