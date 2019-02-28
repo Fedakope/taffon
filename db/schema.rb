@@ -10,11 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 2019_02_28_163644) do
-=======
-ActiveRecord::Schema.define(version: 2019_02_28_141426) do
->>>>>>> 20a464d7d75c12301d4b9ff98ad00b636bc2ab61
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -99,7 +95,6 @@ ActiveRecord::Schema.define(version: 2019_02_28_141426) do
     t.boolean "organizer", default: false
     t.string "provider"
     t.string "uid"
-    t.string "photo"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

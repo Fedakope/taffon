@@ -37,11 +37,9 @@ border-width: 2px; border-radius: 10px >
 <% end %>
 
   <%= simple_form_for [:organizer, @event, @job] do |f| %>
-<<<<<<< HEAD
+
     <%= f.input :description, collection: category.uniq %>
-=======
-    <%= f.input :category, collection: category.uniq %>
->>>>>>> 20a464d7d75c12301d4b9ff98ad00b636bc2ab61
+
     <%= f.input :description, label:'Choose a skill', collection: name.uniq %>
     <%= f.input :description, placeholder: "Add some free text to provide additional information.." %>
     <%= f.input :start_at, as: :string, input_html: {class: "datetimepicker"} %>
