@@ -11,7 +11,7 @@ class Organizer::JobsController < ApplicationController
     if @job.save
       redirect_to organizer_event_path(@event)
     else
-      render 'organizers/events/show'
+      render 'organizer/events/show'
     end
   end
 
