@@ -4,9 +4,7 @@
   <% @events.each do |event| %>
     <% if event.jobs.present? %>
       <%= link_to organizer_event_path(event) do %>
-        <li><%= event.name %><%= link_to organizer_event_path(event), method: :delete, data: { confirm: "Are you sure?" } do %> 
-        <i class="fa fa-trash destroy_dose"></i></li>
-        <% end %>
+        <li><%= event.name %></li>
       <% end %>
     <% end %>
   <% end %>

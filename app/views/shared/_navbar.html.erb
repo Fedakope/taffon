@@ -14,7 +14,8 @@
       <% if current_user.organizer == false %>
         <%= link_to "List Events", organizer_events_path, class: "navbar-wagon-item navbar-wagon-link" %>
         <%= link_to "Browse Jobs", jobs_path , class: "navbar-wagon-item navbar-wagon-link" %>
-      <% else %>  
+      <% else %>
+        <%= link_to "List Events", organizer_events_path, class: "navbar-wagon-item navbar-wagon-link" %>
         <%= link_to "Create Event", new_organizer_event_path , class: "navbar-wagon-item navbar-wagon-link" %>
         <%= link_to "List Technicians", users_path, class: "navbar-wagon-item navbar-wagon-link" %>
       <% end %>
