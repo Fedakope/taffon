@@ -52,13 +52,18 @@
   <br>
   <h2>Skills:</h2>
     <ul>
-      <% current_user.skills.each do |skill| %>
-        <%= skill.name %>
+      <% if @skills.blank? %>
+        <li>No skills yet, add one from the form bellow</li>
+      <% else %>
+        <% @have_skills.each do |have_skill| %>
+          <li><%= have_skill.skill.name %></li>
+        <% end %>
       <% end %>
     </ul>
+
+  <%= render 'have_skills/new', user: current_user, haveskill: @have_skill %>
 <% end %>
 
-<%= render 'have_skills/new', user: @user, haveskill: @have_skill %>
 
 <h2>Reviews:</h2>
 <ul>
