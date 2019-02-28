@@ -1,8 +1,7 @@
-<h1> Details about: <%= @job.id %></h1>
+<h1> Details about: <%= @job.skill.name %></h1>
 <%= link_to 'Back to the list', jobs_path %>
 
 <div class="col-xs-12 col-sm-6 col-md-4">
-  <li> Job: <%= @job.skill.name %></li>
   <li> Category: <%= @job.skill.category %></li>
   <li> Status: <%= @job.status %></li>
   <li> Description: <%= @job.description %></li>
