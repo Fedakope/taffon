@@ -1,13 +1,7 @@
-<h1> List of Jobs (sera vu par le technician dans "browse job"</h1>
+<h1> List of Jobs</h1>
 
-
-<% @jobs.each do |job| %>
-  <div class="col-xs-12 col-sm-6 col-md-4">
-    <%= job.id %>
-    <%= job.description %>
-    <%= job.category %>
-    <%= job.status %>
-  </div>
-  <br>
-<% end %>
-
+<ul>
+  <% @jobs.each do |job| %>
+    <li><%= link_to 'See details', job_path(job) %> | <%= job.status %> | <%= job.event.name %> | <%= job.category %> | <%= job.start_at %> | <%= job.end_at %></li>
+  <% end %>
+</ul>

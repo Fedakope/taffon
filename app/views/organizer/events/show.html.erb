@@ -16,6 +16,8 @@
 ></div>
 </ul>
 
+
+<% if @event.user == current_user %>
 <%= link_to 'Edit', edit_organizer_event_path(@event), class: "btn btn-primary" %>
 <%= link_to 'Delete', organizer_event_path(@event), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-primary" %>
 
@@ -30,12 +32,12 @@ border-width: 2px; border-radius: 10px >
     <%= f.submit "Create", class: "btn btn-primary" %>
   <% end %>
 </div>
+<% end %>
 
+<h2> Jobs list for <%= @event.name %>:</h2>
+  <ul>
+    <% @event.jobs.each do |job| %>
+      <li><%= link_to 'See details', job_path(job) %> | <%= job.status %> | <%= job.event.name %> | <%= job.category %> | <%= job.start_at %> | <%= job.end_at %></li>
 
-<h2>Ici la liste des job position correspondants à cet event :</h2>
-  <% @event.jobs.each do |job| %>
-  Category : <%= job.category %>
-  Description : <%= job.description %>
-  Start : <%= job.start_at %> : <%= job.end_at %>
-  <% end %>
-
+    <% end %>
+  </ul>

@@ -1,14 +1,13 @@
 <h1> List of Technicians:</h1>
-
-<% @users.each do |user| %>
-  <% if user.organizer %>
-    <div class="col-xs-12 col-sm-6 col-md-4">
-      <%= user.id %>
-      <%= user.first_name %>
-      <%= user.last_name %>
-      <%= user.email %>
-      <%= user.phone_number %>
-    </div>
-    <br>
+<ul>
+  <% @users.each do |user| %>
+    <% if user.organizer == false %>
+      <li><%= link_to 'See Profile', user_path(user) %> | <%= user.id %> | <%= user.first_name %> <%= user.last_name %> | <%= user.email %> | <%= user.email %></li>
+      <br>
+    <% end %>
   <% end %>
-<% end %>
+<ul>
+
+
+
+

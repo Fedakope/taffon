@@ -27,6 +27,8 @@ class JobsController < ApplicationController
     redirect_to event_path
   end
 
+  private
+  
   def job_params
     params.require(:job).permit(:description, :category, :start_date, :end_date, :start_time, :end_time)
   end

@@ -1,5 +1,6 @@
 <h1><%= @user.first_name %> <%= @user.last_name %></h1>
 
+<%= link_to 'Back to the list', users_path %>
 
 <h2>Contact:</h2>
 <ul>
@@ -9,13 +10,27 @@
   <li>phone:  <%= @user.phone_number %></li>
 </ul>
 
+<% if current_user.organizer? %>
+  <h2>My Events:</h2>
+  <ul>
+    <% @user.events.each do |event| %>
+        <%= link_to organizer_event_path(event) do %>
+        <li><%= event.name %><%= link_to organizer_event_path(event), method: :delete, data: { confirm: "Are you sure?" } do %> 
+        <i class="fa fa-trash destroy_dose"></i></li>
+        <% end %>
+      <% end %>
+    <% end %>
+  </ul>
+<% end %>
 
-<h2>Skills:</h2>
-<ul>
-  <% @user.skills.each do |skill| %>
-    <%= skill.name %>
-  <% end %>
-</ul>
+<% if current_user.organizer == false %>
+  <h2>Skills:</h2>
+  <ul>
+    <% @user.skills.each do |skill| %>
+      <%= skill.name %>
+    <% end %>
+  </ul>
+<% end %>
 
 
 <h2>Reviews:</h2>
@@ -33,7 +48,7 @@
   <% end%>
 </ul>
 
-
+<p style='color: red';><strong> Add conditions: user = organizer / this user has 1 applies related to that organizer </strong></p>
 <h2>Write a review:</h2>
 <%= render "reviews/new", user: @user, review: @review %>
 
