@@ -10,15 +10,15 @@
 
 <% if current_user.organizer? %>
   <h2>My Events:</h2>
-    <ul> 
+    <ul>
       <% current_user.events.each do |event| %>
           <%= link_to organizer_event_path(event) do %>
-            <li><%= event.name %><%= link_to organizer_event_path(event), method: :delete, data: { confirm: "Are you sure?" } do %> 
+            <li><%= event.name %><%= link_to organizer_event_path(event), method: :delete, data: { confirm: "Are you sure?" } do %>
             <i class="fa fa-trash destroy_dose"></i> ||
           <% end %>
             <% event.jobs.each do |job| %>
               <% if job.applies.present? %>
-                Number of applicants: <%= job.applies.count %> || 
+                Number of applicants: <%= job.applies.count %> ||
                   <!--modal> -->
                   <span id="modalspan">
                     <button id="myBtn" class= "btn btn-primary">See Applicants</button>
@@ -89,10 +89,16 @@
   <br>
   <h2>Skills:</h2>
     <ul>
-      <% current_user.skills.each do |skill| %>
-        <%= skill.name %>
+      <% if @have_skills.blank? %>
+        <li>No skills yet, add one from the form bellow</li>
+      <% else %>
+        <% @have_skills.each do |have_skill| %>
+          <li><%= have_skill.skill.name %></li>
+        <% end %>
       <% end %>
     </ul>
+
+  <%= render 'have_skills/new', user: current_user, haveskill: @have_skill %>
 <% end %>
 
 
@@ -101,8 +107,7 @@
   <% if current_user.reviews.blank? %>
     <li>No existing reviews, be the first to post a review!</li>
   <% else %>
-
-  <% current_user.reviews.each do |review| %>
+    <% current_user.reviews.each do |review| %>
       <li>
         <%= review.rating %>
         <%= review.content %>
