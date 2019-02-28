@@ -8,7 +8,7 @@
   <li>User email: <%= @event.user.email %></li>
 <div
   id="map"
-  
+
   style="width: 40%;
   height: 200px;"
   data-markers="<%= @markers.to_json %>"
@@ -27,8 +27,8 @@ border-width: 2px; border-radius: 10px >
   <%= simple_form_for [:organizer, @event, @job] do |f| %>
     <%= f.input :category %>
     <%= f.input :description %>
-    <%= f.input :start_at %>
-    <%= f.input :end_at %>
+    <%= f.input :start_at, as: :string, input_html: {class: "datetimepicker"} %>
+    <%= f.input :end_at, as: :string, input_html: {class: "datetimepicker"} %>
     <%= f.submit "Create", class: "btn btn-primary" %>
   <% end %>
 </div>
