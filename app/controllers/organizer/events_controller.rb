@@ -37,8 +37,11 @@ class Organizer::EventsController < ApplicationController
   end
 
   def destroy
-    @event.destroy
-    redirect_to organizer_events_path
+    if @event.destroy
+      redirect_to organizer_events_path
+    else
+      redirect_to event_path(@event), alert: "You can't delete this event, it contains jobs!"
+    end
   end
 
   private
