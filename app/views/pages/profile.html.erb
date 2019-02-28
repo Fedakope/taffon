@@ -29,19 +29,42 @@
                         <span class="close">&times;</span>
                           <ul>
                             <% job.applies.each do |apply| %>
-                              <li>
-                                <%= apply.id %> | <%= apply.user.first_name %> <%= apply.user.last_name %>| <%= apply.user.email %>| <% apply.user.skills.each do |skill| %><%= skill.name %><% end %>
-                                <!--Accept Button> -->
-                                  <%= simple_form_for (apply) do |f| %>
-                                    <%= f.hidden_field :status, value: "Accepted" %>
-                                    <%= f.submit "Accept", class: "btn btn-sm btn-success" %>
-                                  <% end %>
-                                <!--Reject Button> -->
-                                  <%= simple_form_for (apply) do |f| %>
-                                    <%= f.hidden_field :status, value: "Rejected" %>
-                                    <%= f.submit "Reject", class: "btn btn-sm btn-danger" %>
-                                  <% end %>
-                              </li>
+                            <!-- Show only pending applications in the modal -->
+                              <% if apply.status == "Pending" %>
+                                <li>
+                                  <%= apply.id %> | <%= apply.user.first_name %> <%= apply.user.last_name %> | <%= apply.user.email %>| <% apply.user.skills.each do |skill| %><%= skill.name %><% end %>| <%= apply.status %>
+                                  <!--Accept Button> -->
+                                    <%= simple_form_for (apply) do |f| %>
+                                      <%= f.hidden_field :status, value: "Accepted" %>
+                                      <%= f.submit "Accept", class: "btn btn-sm btn-success" %>
+                                    <% end %>
+                                  <!--Reject Button> -->
+                                    <%= simple_form_for (apply) do |f| %>
+                                      <%= f.hidden_field :status, value: "Rejected" %>
+                                      <%= f.submit "Reject", class: "btn btn-sm btn-danger" %>
+                                    <% end %>
+                                </li>
+                                <!-- If status is Rejected you can accept it-->
+                              <% elsif apply.status == "Rejected" %>
+                                <li>
+                                  <%= apply.id %> | <%= apply.user.first_name %> <%= apply.user.last_name %> | <%= apply.user.email %>| <% apply.user.skills.each do |skill| %><%= skill.name %><% end %>| <%= apply.status %>
+                                  <!--Accept Button> -->
+                                    <%= simple_form_for (apply) do |f| %>
+                                      <%= f.hidden_field :status, value: "Accepted" %>
+                                      <%= f.submit "Accept", class: "btn btn-sm btn-success" %>
+                                    <% end %>
+                                </li>
+                              <% else %>
+                              <!-- If status is Accepted you can reject it-->
+                                <li>
+                                  <%= apply.id %> | <%= apply.user.first_name %> <%= apply.user.last_name %> | <%= apply.user.email %>| <% apply.user.skills.each do |skill| %><%= skill.name %><% end %>| <%= apply.status %>
+                                  <!--Accept Button> -->
+                                    <%= simple_form_for (apply) do |f| %>
+                                      <%= f.hidden_field :status, value: "Rejected" %>
+                                      <%= f.submit "Reject", class: "btn btn-sm btn-danger" %>
+                                    <% end %>
+                                </li>
+                              <% end %>
                             <% end %>
                           </ul>
                       </div>
