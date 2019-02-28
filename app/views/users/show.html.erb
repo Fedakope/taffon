@@ -1,5 +1,6 @@
 <h1><%= @user.first_name %> <%= @user.last_name %></h1>
 
+<%= link_to 'Back to the list', users_path %>
 
 <h2>Contact:</h2>
 <ul>
@@ -33,7 +34,7 @@
   <% end%>
 </ul>
 
-
+<p style='color: red';><strong> Add conditions: user = organizer / this user has 1 applies related to that organizer </strong></p>
 <h2>Write a review:</h2>
 <%= render "reviews/new", user: @user, review: @review %>
 
