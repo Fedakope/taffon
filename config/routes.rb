@@ -29,7 +29,6 @@ Rails.application.routes.draw do
   end
   get  'profile', to: 'pages#profile', as: :profile
   post 'profile', to: 'have_skills#create'
-  get  'profile', to: 'have_skills#index'
 
   resources :applies, only: [:index, :destroy]
 end
