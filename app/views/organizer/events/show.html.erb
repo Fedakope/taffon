@@ -37,7 +37,7 @@ border-width: 2px; border-radius: 10px >
 <% end %>
 
   <%= simple_form_for [:organizer, @event, @job] do |f| %>
-    <%= f.input :category, collection: category.uniq %>
+    <%= f.input :description, collection: category.uniq %>
     <%= f.input :description, label:'Choose a skill', collection: name.uniq %>
     <%= f.input :description, placeholder: "Add some free text to provide additional information.." %>
     <%= f.input :start_at, as: :string, input_html: {class: "datetimepicker"} %>
@@ -50,7 +50,7 @@ border-width: 2px; border-radius: 10px >
 <h2> Jobs list for <%= @event.name %>:</h2>
   <ul>
     <% @event.jobs.each do |job| %>
-      <li><%= link_to 'See details', job_path(job) %> | <%= job.status %> | <%= job.event.name %> | <%= job.category %> | <%= job.start_at %> | <%= job.end_at %></li>
+      <li><%= link_to 'See details', job_path(job) %> | <%= job.status %> | <%= job.event.name %> | <%= job.skill.category %> | <%= job.start_at %> | <%= job.end_at %></li>
 
     <% end %>
   </ul>
