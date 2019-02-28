@@ -11,5 +11,8 @@
 </div>
 
 <% if current_user.organizer == false %>
-  <li><%= link_to 'Apply for this Job', job_applies_path(@job) %> 
+  <%= simple_form_for [@job, @apply] do |f| %>
+    <%= f.hidden_field :status, value: "Pending" %>
+    <%= f.submit "Apply for this Job", class: "btn btn-primary" %>
+  <% end %>
 <% end %>

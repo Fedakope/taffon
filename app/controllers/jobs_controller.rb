@@ -4,6 +4,7 @@ class JobsController < ApplicationController
   end
 
   def show
+    @apply = Apply.new
     @job = Job.find(params[:id])
   end
 
