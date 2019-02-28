@@ -10,15 +10,15 @@
 
 <% if current_user.organizer? %>
   <h2>My Events:</h2>
-    <ul> 
+    <ul>
       <% current_user.events.each do |event| %>
           <%= link_to organizer_event_path(event) do %>
-            <li><%= event.name %><%= link_to organizer_event_path(event), method: :delete, data: { confirm: "Are you sure?" } do %> 
+            <li><%= event.name %><%= link_to organizer_event_path(event), method: :delete, data: { confirm: "Are you sure?" } do %>
             <i class="fa fa-trash destroy_dose"></i> ||
           <% end %>
             <% event.jobs.each do |job| %>
               <% if job.applies.present? %>
-                Number of applicants: <%= job.applies.count %> || 
+                Number of applicants: <%= job.applies.count %> ||
                   <!--modal> -->
                   <button id="myBtn" class= "btn btn-primary">See Applicants</button>
                   <!-- The Modal -->
@@ -58,14 +58,14 @@
     </ul>
 <% end %>
 
+<%= render 'have_skills/new', user: @user, haveskill: @have_skill %>
 
 <h2>Reviews:</h2>
 <ul>
   <% if current_user.reviews.blank? %>
     <li>No existing reviews, be the first to post a review!</li>
   <% else %>
-
-  <% current_user.reviews.each do |review| %>
+    <% current_user.reviews.each do |review| %>
       <li>
         <%= review.rating %>
         <%= review.content %>
