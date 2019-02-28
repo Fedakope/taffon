@@ -3,7 +3,6 @@ require 'faker'
 Review.destroy_all
 HaveSkill.destroy_all
 Apply.destroy_all
-RequiredSkill.destroy_all
 Job.destroy_all
 Event.destroy_all
 User.destroy_all
@@ -70,8 +69,8 @@ e1_job1 = Job.create!(
   event_id: e1.id
 )
 
-RequiredSkill.create!(job: e1_job1, skill: Skill.find_by(name: "Concepteur son"))
-RequiredSkill.create!(job: e1_job1, skill: Skill.find_by(name: "Régisseur lumière"))
+# RequiredSkill.create!(job: e1_job1, skill: Skill.find_by(name: "Concepteur son"))
+# RequiredSkill.create!(job: e1_job1, skill: Skill.find_by(name: "Régisseur lumière"))
 
 
 apply1 = Apply.create!(

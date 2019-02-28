@@ -24,9 +24,22 @@
 
 <div border-color: black; border-style:solid;
 border-width: 2px; border-radius: 10px >
+<% category=[] %>
+<% skills=Skill.all %>
+<% skills.each do |s| %>
+<% category << s.category %>
+<% end %>
+
+<% name=[] %>
+<% skills=Skill.all %>
+<% skills.each do |s| %>
+<% name << s.name %>
+<% end %>
+
   <%= simple_form_for [:organizer, @event, @job] do |f| %>
-    <%= f.input :category %>
-    <%= f.input :description %>
+    <%= f.input :category, collection: category.uniq %>
+    <%= f.input :description, label:'Choose a skill', collection: name.uniq %>
+    <%= f.input :description, placeholder: "Add some free text to provide additional information.." %>
     <%= f.input :start_at, as: :string, input_html: {class: "datetimepicker"} %>
     <%= f.input :end_at, as: :string, input_html: {class: "datetimepicker"} %>
     <%= f.submit "Create", class: "btn btn-primary" %>
