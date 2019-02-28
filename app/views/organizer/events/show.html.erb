@@ -1,8 +1,8 @@
-<h1>Details of: <%= @event.name %></h1>
-
 <% if flash[:notice] %>
   <div class="notice"><%= flash[:notice] %></div>
 <% end %>
+
+<h1>Details of: <%= @event.name %></h1>
 
 <ul>
   <li>Address: <%= @event.full_address %></li>

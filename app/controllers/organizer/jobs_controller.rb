@@ -9,7 +9,6 @@ class Organizer::JobsController < ApplicationController
     @job.event = @event
 
     if @job.save
-      flash[:notice] = "Your event #{@event.name} has been sucessfully created ! Now, add jobs !"
       redirect_to organizer_event_path(@event)
     else
       render 'organizers/events/show'
@@ -21,7 +20,9 @@ class Organizer::JobsController < ApplicationController
     @job.destroy
     redirect_to event_path
   end
-private
+
+  private
+
   def job_params
     params.require(:job).permit(:description, :category, :start_at, :end_at)
   end
