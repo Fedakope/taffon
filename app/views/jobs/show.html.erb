@@ -10,6 +10,6 @@
   <li> Ends On: <%= @job.end_at %></li>
 </div>
 
-<% if current_user.organizer = false %>
-  <li><%= link_to 'Applu for this Job', job_applies_path(@job) %> 
+<% if current_user.organizer == false %>
+  <li><%= link_to 'Apply for this Job', job_applies_path(@job) %> 
 <% end %>

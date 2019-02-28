@@ -15,7 +15,7 @@
     <%= f.input :password_confirmation,
                 required: true,
                 input_html: { autocomplete: "new-password" } %>
-    <%= f.input :organizer, as: :radio_buttons, collection: [[false, 'TECHNICIAN: i am looking for a job'], [true, 'ORGANIZER: i look for people']], label_method: :second, value_method: :first, label: 'What are you?', required: true %>
+    <%= f.input :organizer, as: :radio_buttons, collection: [[false, 'Technician'], [true, 'Event Organizer']], label_method: :second, value_method: :first, label: 'What are you?', required: true %>
 
 
   </div>

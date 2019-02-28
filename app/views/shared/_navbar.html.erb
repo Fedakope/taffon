@@ -10,10 +10,14 @@
     <% if user_signed_in? %>
 
       <!-- Links when logged in -->
-      <%= link_to "Browse Jobs", jobs_path , class: "navbar-wagon-item navbar-wagon-link" %>
-      <%= link_to "Create Event", new_organizer_event_path , class: "navbar-wagon-item navbar-wagon-link" %>
-      <%= link_to "List Events", organizer_events_path, class: "navbar-wagon-item navbar-wagon-link" %>
-      <%= link_to "List Technicians", users_path, class: "navbar-wagon-item navbar-wagon-link" %>
+
+      <% if current_user.organizer == false %>
+        <%= link_to "List Events", organizer_events_path, class: "navbar-wagon-item navbar-wagon-link" %>
+        <%= link_to "Browse Jobs", jobs_path , class: "navbar-wagon-item navbar-wagon-link" %>
+      <% else %>  
+        <%= link_to "Create Event", new_organizer_event_path , class: "navbar-wagon-item navbar-wagon-link" %>
+        <%= link_to "List Technicians", users_path, class: "navbar-wagon-item navbar-wagon-link" %>
+      <% end %>
 
       <!-- Avatar with dropdown menu -->
       <div class="navbar-wagon-item">
