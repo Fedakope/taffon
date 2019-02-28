@@ -1,15 +1,7 @@
 <h1> List of Jobs</h1>
 
-
-<% @jobs.each do |job| %>
-  <ul>
-  <div class="col-xs-12 col-sm-6 col-md-4">
-    <li><%= job.id %></li>
-    <li><%= job.description %></li>
-    <li><%= job.category %></li>
-    <li><%= job.status %></li>
-  </div>
-  <br>
-  <ul>
-<% end %>
-
+<ul>
+  <% @jobs.each do |job| %>
+    <li><%= link_to 'See details', job_path(job) %> | <%= job.status %> | <%= job.event.name %> | <%= job.category %> | <%= job.start_at %> | <%= job.end_at %></li>
+  <% end %>
+</ul>
