@@ -34,12 +34,12 @@
                                 <!--Accept Button> -->
                                   <%= simple_form_for (apply) do |f| %>
                                     <%= f.hidden_field :status, value: "Accepted" %>
-                                    <%= f.submit "Accept", class: "btn btn-success" %>
+                                    <%= f.submit "Accept", class: "btn btn-sm btn-success" %>
                                   <% end %>
                                 <!--Reject Button> -->
                                   <%= simple_form_for (apply) do |f| %>
-                                    <%= f.hidden_field :status, value: "Accepted" %>
-                                    <%= f.submit "Reject", class: "btn btn-danger" %>
+                                    <%= f.hidden_field :status, value: "Rejected" %>
+                                    <%= f.submit "Reject", class: "btn btn-sm btn-danger" %>
                                   <% end %>
                               </li>
                             <% end %>

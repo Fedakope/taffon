@@ -17,6 +17,15 @@ class AppliesController < ApplicationController
     end
   end
 
+  def update
+    @apply = Apply.find(params[:id])
+    if @apply.update(apply_params)
+      redirect_to profile_path
+    else
+      redirect_to profile_path
+    end
+  end
+
   def destroy
     @job = Job.find(params[:job_id])
     @apply = Apply.find(params[:id])
