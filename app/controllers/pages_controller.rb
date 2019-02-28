@@ -3,4 +3,8 @@ class PagesController < ApplicationController
 
   def home
   end
+
+  def profile
+    @have_skills = HaveSkill.where(user_id: current_user.id)
+  end
 end

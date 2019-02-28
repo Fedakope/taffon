@@ -4,6 +4,7 @@ class JobsController < ApplicationController
   end
 
   def show
+    @apply = Apply.new
     @job = Job.find(params[:id])
   end
 
@@ -28,7 +29,7 @@ class JobsController < ApplicationController
   end
 
   private
-  
+
   def job_params
     params.require(:job).permit(:description, :category, :start_at, :end_at)
   end

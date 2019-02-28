@@ -16,7 +16,8 @@
                 required: true,
                 input_html: { autocomplete: "new-password" } %>
     <%= f.input :organizer, as: :radio_buttons, collection: [[false, 'Technician'], [true, 'Event Organizer']], label_method: :second, value_method: :first, label: 'What are you?', required: true %>
-
+    <%= f.input :phone_number,
+                required: true %>
 
   </div>
 
