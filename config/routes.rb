@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
 
   root to: "pages#home"
-  devise_for :users, :controllers => { omniauth_callbacks: 'users/omniauth_callbacks' } 
+  devise_for :users, :controllers => { omniauth_callbacks: 'users/omniauth_callbacks' }
+
+  devise_for :users, only: [:edit, :show] do
+    resources :have_skill, only: [:create]
+  end
 
   resources :users, only: [:index, :show] do
     resources :reviews, only: [:create]
@@ -25,6 +29,7 @@ Rails.application.routes.draw do
   resources :jobs, only: [:index, :show] do
     resources :applies, only: [:create]
   end
+  get 'profile',         to: 'pages#profile',    as: :profile
 
   resources :applies, only: [:index, :destroy]
 end
