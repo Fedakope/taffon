@@ -2,10 +2,10 @@
 <%= link_to 'Back to the list', jobs_path %>
 
 <div class="col-xs-12 col-sm-6 col-md-4">
-  <li> Job #<%= @job.id %></li>
-  <li> Status: <%= @job.status %></li>
+  <li> Job: <%= @job.skill.name %></li>
   <li> Category: <%= @job.skill.category %></li>
-  <li> Description<%= @job.description %></li>
+  <li> Status: <%= @job.status %></li>
+  <li> Description: <%= @job.description %></li>
   <li> Starts On: <%= @job.start_at %></li>
   <li> Ends On: <%= @job.end_at %></li>
 </div>
