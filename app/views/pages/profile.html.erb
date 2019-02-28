@@ -52,7 +52,7 @@
   <br>
   <h2>Skills:</h2>
     <ul>
-      <% if @skills.blank? %>
+      <% if @have_skills.blank? %>
         <li>No skills yet, add one from the form bellow</li>
       <% else %>
         <% @have_skills.each do |have_skill| %>
