@@ -18,7 +18,22 @@
           <% end %>
             <% event.jobs.each do |job| %>
               <% if job.applies.present? %>
-                Number of applicants: <%= job.applies.count %></li>
+                Number of applicants: <%= job.applies.count %> || 
+                  <!--modal> -->
+                  <button id="myBtn" class= "btn btn-primary">See Applicants</button>
+                  <!-- The Modal -->
+                  <div id="myModal" class="modal">
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                      <span class="close">&times;</span>
+                        <ul>
+                          <% job.applies.each do |apply| %>
+                            <li><%= apply.id %> | <%= apply.user.first_name %> <%= apply.user.last_name %>| <%= apply.user.email %>| <% apply.user.skills.each do |skill| %><%= skill.name %> <% end %></li>
+                          <% end %>
+                        </ul>
+                    </div>
+                  </div>
+                </li>
               <% end %>
             <% end %>
         <% end %>
@@ -58,4 +73,5 @@
     <% end %>
   <% end%>
 </ul>
+
 
