@@ -1,0 +1,5 @@
+<%= simple_form_for 'have_skills#create' do |f| %>
+  <%= f.input :skill_id, collection: Skill.all %>
+  <%= f.submit 'Add a skill', class: 'btn btn-primary' %>
+<% end %>
+
