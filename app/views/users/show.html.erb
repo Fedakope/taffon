@@ -12,24 +12,37 @@
 
 <% if current_user.organizer? %>
   <h2>My Events:</h2>
-  <ul>
-    <% @user.events.each do |event| %>
-        <%= link_to organizer_event_path(event) do %>
-        <li><%= event.name %><%= link_to organizer_event_path(event), method: :delete, data: { confirm: "Are you sure?" } do %> 
-        <i class="fa fa-trash destroy_dose"></i></li>
+    <ul> 
+      <% @user.events.each do |event| %>
+          <%= link_to organizer_event_path(event) do %>
+            <li><%= event.name %><%= link_to organizer_event_path(event), method: :delete, data: { confirm: "Are you sure?" } do %> 
+            <i class="fa fa-trash destroy_dose"></i> ||
+          <% end %>
+            <% event.jobs.each do |job| %>
+              <% if job.applies.present? %>
+                Number of applicants: <%= job.applies.count %></li>
+              <% end %>
+            <% end %>
         <% end %>
       <% end %>
-    <% end %>
-  </ul>
+    </ul>
+  <br>
 <% end %>
 
 <% if current_user.organizer == false %>
+  <h2>Applied for:</h2>
+    <ul>
+      <% @user.applies.each do |apply| %>
+        <li>Application #<%= apply.id %>|| Event name: <%= apply.job.event.name %> || Status: <%= apply.status %></li>
+      <% end %>
+    </ul>
+  <br>
   <h2>Skills:</h2>
-  <ul>
-    <% @user.skills.each do |skill| %>
-      <%= skill.name %>
-    <% end %>
-  </ul>
+    <ul>
+      <% @user.skills.each do |skill| %>
+        <%= skill.name %>
+      <% end %>
+    </ul>
 <% end %>
 
 
