@@ -4,7 +4,7 @@
 <div class="col-xs-12 col-sm-6 col-md-4">
   <li> Job #<%= @job.id %></li>
   <li> Status: <%= @job.status %></li>
-  <li> Category: <%= @job.category %></li>
+  <li> Category: <%= @job.skill.category %></li>
   <li> Description<%= @job.description %></li>
   <li> Starts On: <%= @job.start_at %></li>
   <li> Ends On: <%= @job.end_at %></li>
