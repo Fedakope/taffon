@@ -60,9 +60,13 @@
 
 <h2> Jobs list for <%= @event.name %>:</h2>
   <ul>
-    <% @event.jobs.each do |job| %>
-      <li><%= link_to 'See details', job_path(job) %> | <%= job.status %> | <%= job.event.name %> | <%= job.skill.category %> | <%= job.start_at %> | <%= job.end_at %>
-      <%= button_to "delete", organizer_event_job_path(@event, job), method: :delete %></li>
+          <% @event.jobs.each do |job| %>
+            <li><%= link_to 'See details', job_path(job) %> | <%= job.status %> | <%= job.event.name %> | <%= job.skill.category %> | <%= job.start_at %> | <%= job.end_at %>
+              <% if current_user == @event.user %>
+                <%= button_to "delete", organizer_event_job_path(@event, job), method: :delete %></li>
+              <% end %>
     <% end %>
   </ul>
+
+
 
