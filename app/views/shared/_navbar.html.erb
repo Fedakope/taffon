@@ -1,6 +1,6 @@
 <div class="navbar-wagon">
   <!-- Logo -->
-  <%= link_to root_path, class: "navbar-wagon-brand" do %>
+  <%= link_to main_app.root_path, class: "navbar-wagon-brand" do %>
     <%= image_tag "logo.png", height: 50 %>
   <% end %>
 
@@ -12,12 +12,12 @@
       <!-- Links when logged in -->
 
       <% if current_user.organizer == false %>
-        <%= link_to "List Events", organizer_events_path, class: "navbar-wagon-item navbar-wagon-link" %>
-        <%= link_to "Browse Jobs", jobs_path , class: "navbar-wagon-item navbar-wagon-link" %>
+        <%= link_to "List Events", main_app.organizer_events_path, class: "navbar-wagon-item navbar-wagon-link" %>
+        <%= link_to "Browse Jobs", main_app.jobs_path , class: "navbar-wagon-item navbar-wagon-link" %>
       <% else %>
-        <%= link_to "List Events", organizer_events_path, class: "navbar-wagon-item navbar-wagon-link" %>
-        <%= link_to "Create Event", new_organizer_event_path , class: "navbar-wagon-item navbar-wagon-link" %>
-        <%= link_to "List Technicians", users_path, class: "navbar-wagon-item navbar-wagon-link" %>
+        <%= link_to "List Events", main_app.organizer_events_path, class: "navbar-wagon-item navbar-wagon-link" %>
+        <%= link_to "Create Event", main_app.new_organizer_event_path , class: "navbar-wagon-item navbar-wagon-link" %>
+        <%= link_to "List Technicians", main_app.users_path, class: "navbar-wagon-item navbar-wagon-link" %>
       <% end %>
 
       <!-- Avatar with dropdown menu -->
@@ -27,12 +27,13 @@
           <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
             <li>
               <% user = current_user %>
-              <%= link_to profile_path do %>
+              <%= link_to main_app.profile_path do %>
                 <i class="fa fa-user"></i> <%= t(".profile", default: "Profile") %>
               <% end %>
             </li>
+            <li><%= link_to pluralize(Notification.unread_count(current_user), 'Notification'), main_app.notifications_path %></li>
             <li>
-              <%= link_to destroy_user_session_path, method: :delete do %>
+              <%= link_to main_app.destroy_user_session_path, method: :delete do %>
                 <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Log out") %>
               <% end %>
             </li>
@@ -41,7 +42,7 @@
       </div>
     <% else %>
       <!-- Login link (when logged out) -->
-      <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
+      <%= link_to t(".sign_in", default: "Login"), main_app.new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
     <% end %>
   </div>
 
