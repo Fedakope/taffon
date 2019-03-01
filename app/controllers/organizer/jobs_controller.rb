@@ -9,6 +9,8 @@ class Organizer::JobsController < ApplicationController
     @job.event = @event
 
     @job.save!
+
+
   end
 
   def destroy
