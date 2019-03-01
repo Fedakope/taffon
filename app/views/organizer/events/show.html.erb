@@ -51,6 +51,5 @@ border-width: 2px; border-radius: 10px >
   <ul>
     <% @event.jobs.each do |job| %>
       <li><%= link_to 'See details', job_path(job) %> | <%= job.status %> | <%= job.event.name %> | <%= job.skill.category %> | <%= job.start_at %> | <%= job.end_at %></li>
-
     <% end %>
   </ul>
