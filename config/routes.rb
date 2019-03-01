@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
+  mount Notifications::Engine => "/notifications"
+
   root to: "pages#home"
+  
   devise_for :users, controllers: { omniauth_callbacks: "users/omniauth_callbacks", :registrations => "my_registrations" }
+
 
   devise_for :users, only: [:edit, :show]
 
