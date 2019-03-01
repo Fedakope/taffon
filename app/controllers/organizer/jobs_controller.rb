@@ -5,10 +5,15 @@ class Organizer::JobsController < ApplicationController
 
   def create
     @event = Event.find(params[:event_id])
+    @skill = Skill.find_by(name: params[:job][:skill_id])
     @job = Job.new(job_params)
     @job.event = @event
-
-    @job.save!
+    @job.skill = @skill
+    if @job.save!
+      redirect_to organizer_event_path(@event), :notice => "Your job has been sucessfully created !"
+    else
+      render :new
+    end
   end
 
   def destroy
@@ -19,7 +24,11 @@ class Organizer::JobsController < ApplicationController
 
   private
 
+  def skill_params
+    params.require(:skill).permit(:name, :category)
+  end
+
   def job_params
-    params.require(:job).permit(:description, :status, :start_at, :end_at)
+    params.require(:job).permit(:description, :skill, :status, :start_at, :end_at)
   end
 end
