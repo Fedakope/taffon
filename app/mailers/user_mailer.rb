@@ -8,7 +8,7 @@ class UserMailer < ApplicationMailer
 
   def new_job(user)
     @user = user
-    mail(to: @user.email, subject: "Test 3 on Taff'on")
+    mail(to: @user.email, subject: "New job on Taff'on")
   end
     
 end
