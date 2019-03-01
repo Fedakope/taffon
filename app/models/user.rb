@@ -9,6 +9,7 @@ class User < ApplicationRecord
   has_many :skills, through: :have_skill
   has_many :reviews, foreign_key: :creator_id
   has_many :reviews, foreign_key: :destinator_id
+  has_many :jobs, through: :events 
 
   def self.from_omniauth_g(access_token)
     data = access_token.info
