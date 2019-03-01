@@ -2,6 +2,6 @@
 
 <ul>
   <% @jobs.each do |job| %>
-    <li><%= link_to 'See details', job_path(job) %> | <%= job.status %> | <%= job.event.name %> | <%= job.category %> | <%= job.start_at %> | <%= job.end_at %></li>
+    <li><%= link_to 'See details', job_path(job) %> | <%= job.status %> | <%= job.event.name %> | <%= job.skill.category %> | <%= job.start_at %> | <%= job.end_at %></li>
   <% end %>
 </ul>
