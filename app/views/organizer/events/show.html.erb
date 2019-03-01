@@ -36,9 +36,10 @@
 <% name << s.name %>
 <% end %>
 -------------------------------------------------------------------------
-   
+
 
   <%= simple_form_for [:organizer, @event, @job] do |f| %>
+<<<<<<< HEAD
  <div id="list" data-job-categories="<%= Skill.all.to_json %>">
     <select class="form-control select optional" id="job_category">
       <option value=""></option>
@@ -52,6 +53,7 @@
     <%= f.input :description, placeholder: "Add some free text to provide additional information.." %>
     <%= f.input :start_at, as: :string, input_html: {class: "datetimepicker"} %>
     <%= f.input :end_at, as: :string, input_html: {class: "datetimepicker"} %>
+
     <%= f.submit "Create", class: "btn btn-primary" %>
   <% end %>
 </div>

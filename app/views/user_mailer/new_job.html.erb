@@ -1,6 +1,7 @@
-<%# <p>Hello <%= user.first_name %>
+<p>Hello <%= @user.first_name %></p>
 
 <p>A New job on Taff'On has been added</p>
+<p>Job #<% Job.last.id %> -- details: <% Job.last.description %></p>
 <p>Check our website: www.taffon.fr and apply now</p>
 <p>Also, you can check the list of our events here: www.taffon.fr/events</p>
 

@@ -12,6 +12,9 @@ Rails.application.routes.draw do
     resources :events do
       resources :jobs, only: [:new, :create, :destroy]
     end
+    resources :applies, only: [:create] do
+      resources :users, only: []
+    end
 
     resources :applies, only: [] do
       patch :accept
