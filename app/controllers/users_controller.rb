@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
-  # after_create :send_welcome_mail
   
   def index
     @users = User.all
@@ -16,12 +15,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @reviews = Review.where(destinator: @user)
     @review = Review.new
+    @apply = Apply.new
   end
-  
-  # private
-  
-  # def send_welcome_mail
-  #   user = User.last
-  #   UserMailer.welcome(user).deliver_now
-  # end
+
 end
