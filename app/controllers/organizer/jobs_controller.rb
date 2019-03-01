@@ -8,12 +8,15 @@ class Organizer::JobsController < ApplicationController
     @skill = Skill.find_by(name: params[:job][:skill_id])
     @job = Job.new(job_params)
     @job.event = @event
+
     @job.skill = @skill
     if @job.save!
+      send_new_job_email
       redirect_to organizer_event_path(@event), :notice => "Your job has been sucessfully created !"
     else
       render :new
     end
+
   end
 
   def destroy
@@ -23,6 +26,12 @@ class Organizer::JobsController < ApplicationController
   end
 
   private
+
+  def send_new_job_email
+    @user = User.where(organizer: false)
+    @user.each do |user|
+      UserMailer.new_job(user).deliver_later
+    end
 
   def skill_params
     params.require(:skill).permit(:name, :category)
