@@ -21,8 +21,9 @@ class Organizer::JobsController < ApplicationController
 
   def destroy
     @job = Job.find(params[:id])
+    @event = @job.event
     @job.destroy
-    redirect_to event_path
+    redirect_to organizer_event_path(@event)
   end
 
   private
@@ -32,6 +33,7 @@ class Organizer::JobsController < ApplicationController
     @user.each do |user|
       UserMailer.new_job(user).deliver_later
     end
+  end
 
   def skill_params
     params.require(:skill).permit(:name, :category)
