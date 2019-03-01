@@ -4,6 +4,7 @@
 
 <ul>
   <% @events.each do |event| %>
+
     <% if event.jobs.present? %>
       <%= link_to organizer_event_path(event) do %>
         <li><%= event.name %></li>
