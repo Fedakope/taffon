@@ -11,6 +11,8 @@
   <li> Skill: <%= @job.skill.category %></li>
 </div>
 
+
+
 <% if current_user.organizer == false %>
   <%= simple_form_for [@job, @apply] do |f| %>
     <%= f.hidden_field :status, value: "Pending" %>

@@ -20,8 +20,9 @@ class Organizer::JobsController < ApplicationController
 
   def destroy
     @job = Job.find(params[:id])
+    @event = @job.event
     @job.destroy
-    redirect_to event_path
+    redirect_to organizer_event_path(@event)
   end
 
   private

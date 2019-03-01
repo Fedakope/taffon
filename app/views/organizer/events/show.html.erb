@@ -22,44 +22,53 @@
 <%= link_to 'Delete', organizer_event_path(@event), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-primary" %>
 
 
-<div border-color: black; border-style:solid;
-border-width: 2px; border-radius: 10px >
+
 <% category=[] %>
 <% skills=Skill.all %>
 <% skills.each do |s| %>
 <% category << s.category %>
 <% end %>
 
+
 <% name=[] %>
 <% skills=Skill.all %>
 <% skills.each do |s| %>
 <% name << s.name %>
 <% end %>
+-------------------------------------------------------------------------
+   
 
   <%= simple_form_for [:organizer, @event, @job] do |f| %>
-    <%= f.input :description,
-                required: true,
-                autofocus: true, collection: category.uniq %>
-    <%= f.input :skill_id, label:'Choose a skill',
-                required: true,
-                autofocus: true, collection: name.uniq %>
-    <%= f.input :description,
-                required: true,
-                autofocus: true, placeholder: "Add some free text to provide additional information.." %>
-    <%= f.input :start_at, as: :string,
-                required: true,
-                autofocus: true, input_html: {class: "datetimepicker"} %>
-    <%= f.input :end_at, as: :string,
-                required: true,
-                autofocus: true, input_html: {class: "datetimepicker"} %>
+
+ <div id="list" data-job-categories="<%= Skill.all.to_json %>">
+    <select class="form-control select optional" id="job_category">
+      <option value=""></option>
+      <option value="Son - Lumière">Son - Lumière</option>
+      <option value="Vidéo - Image">Vidéo - Image</option>
+      <option value="Structure - Rigger - Plateau">Structure - Rigger - Plateau</option>
+      <option value="Emplois techniques des services généraux">Emplois techniques des services généraux</option>
+      <option value="Décors - Costume">Décors - Costume</option>
+    </select>
+    <%= f.association :skill, label:'Choose a skill', collection: name.uniq %>
+    <%= f.input :description, placeholder: "Add some free text to provide additional information.." %>
+    <%= f.input :start_at, as: :string, input_html: {class: "datetimepicker"} %>
+    <%= f.input :end_at, as: :string, input_html: {class: "datetimepicker"} %>
+
     <%= f.submit "Create", class: "btn btn-primary" %>
   <% end %>
 </div>
 <% end %>
 
+
 <h2> Jobs list for <%= @event.name %>:</h2>
   <ul>
-    <% @event.jobs.each do |job| %>
-      <li><%= link_to 'See details', job_path(job) %> | <%= job.status %> | <%= job.event.name %> | <%= job.skill.category %> | <%= job.start_at %> | <%= job.end_at %></li>
+          <% @event.jobs.each do |job| %>
+            <li><%= link_to 'See details', job_path(job) %> | <%= job.status %> | <%= job.event.name %> | <%= job.skill.category %> | <%= job.start_at %> | <%= job.end_at %>
+              <% if current_user == @event.user %>
+                <%= button_to "delete", organizer_event_job_path(@event, job), method: :delete %></li>
+              <% end %>
     <% end %>
   </ul>
+
+
+

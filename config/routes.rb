@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   root to: "pages#home"
   devise_for :users, controllers: { omniauth_callbacks: "users/omniauth_callbacks", :registrations => "my_registrations" }
-  
+
   devise_for :users, only: [:edit, :show]
 
   resources :users, only: [:index, :show] do
@@ -10,10 +10,7 @@ Rails.application.routes.draw do
 
   namespace :organizer do
     resources :events do
-      resources :jobs, only: [:new, :create]
-    end
-    resources :jobs, only: [:destroy] do
-      resources :applies, only: [:index]
+      resources :jobs, only: [:new, :create, :destroy]
     end
     resources :applies, only: [:create] do
       resources :users, only: []
