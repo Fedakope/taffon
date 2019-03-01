@@ -37,11 +37,21 @@ border-width: 2px; border-radius: 10px >
 <% end %>
 
   <%= simple_form_for [:organizer, @event, @job] do |f| %>
-    <%= f.input :description, collection: category.uniq %>
-    <%= f.input :skill_id, label:'Choose a skill', collection: name.uniq %>
-    <%= f.input :description, placeholder: "Add some free text to provide additional information.." %>
-    <%= f.input :start_at, as: :string, input_html: {class: "datetimepicker"} %>
-    <%= f.input :end_at, as: :string, input_html: {class: "datetimepicker"} %>
+    <%= f.input :description,
+                required: true,
+                autofocus: true, collection: category.uniq %>
+    <%= f.input :skill_id, label:'Choose a skill',
+                required: true,
+                autofocus: true, collection: name.uniq %>
+    <%= f.input :description,
+                required: true,
+                autofocus: true, placeholder: "Add some free text to provide additional information.." %>
+    <%= f.input :start_at, as: :string,
+                required: true,
+                autofocus: true, input_html: {class: "datetimepicker"} %>
+    <%= f.input :end_at, as: :string,
+                required: true,
+                autofocus: true, input_html: {class: "datetimepicker"} %>
     <%= f.submit "Create", class: "btn btn-primary" %>
   <% end %>
 </div>
