@@ -39,4 +39,11 @@
     </li>
 <% end %>
 
+<% if current_user.organizer? %>
+  <div class="div">
+    -------------------------------------------<br>
+    <h2>Write a review:</h2>
+    <%= render "reviews/new", user: current_user, review: @review %>
+  </div>
+<% end %>
 
