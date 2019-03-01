@@ -6,8 +6,9 @@ class UserMailer < ApplicationMailer
   end
 
 
-  def new_job
-    @user = User.all
-      mail(to: @user.map(&:email).uniq, subject: "New Job on Taff'on")
+  def new_job(user)
+    @user = user
+    mail(to: @user.email, subject: "Test 3 on Taff'on")
   end
+    
 end
