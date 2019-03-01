@@ -52,7 +52,6 @@ ActiveRecord::Schema.define(version: 2019_03_01_082850) do
 
   create_table "jobs", force: :cascade do |t|
     t.string "description"
-    t.string "category"
     t.bigint "event_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

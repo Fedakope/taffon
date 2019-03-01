@@ -1,13 +1,14 @@
-<h1> Details about: <%= @job.id %></h1>
+<h1> Details about: <%= @job.skill.name %></h1>
 <%= link_to 'Back to the list', jobs_path %>
 
 <div class="col-xs-12 col-sm-6 col-md-4">
-  <li> Job #<%= @job.id %></li>
+
+  <li> Category: <%= @job.skill.category %></li>
   <li> Status: <%= @job.status %></li>
-  <li> Category: <%= @job.category %></li>
-  <li> Description<%= @job.description %></li>
+  <li> Description: <%= @job.description %></li>
   <li> Starts On: <%= @job.start_at %></li>
   <li> Ends On: <%= @job.end_at %></li>
+  <li> Skill: <%= @job.skills.category %></li>
 </div>
 
 <% if current_user.organizer == false %>

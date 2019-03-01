@@ -3,7 +3,6 @@ require 'faker'
 Review.destroy_all
 HaveSkill.destroy_all
 Apply.destroy_all
-RequiredSkill.destroy_all
 Job.destroy_all
 Event.destroy_all
 User.destroy_all
@@ -62,16 +61,18 @@ e1 = Event.create!(
   start_date: 1.day.from_now,
   end_date: 2.day.from_now)
 
+skill1 = Skill.find_by(name: "Concepteur son")
+
 e1_job1 = Job.create!(
   description: "ingenieur son",
-  category: "son-lumiere",
   start_at: 1.day.from_now,
   end_at: 2.day.from_now,
-  event_id: e1.id
+  event_id: e1.id,
+  skill_id:skill1.id
 )
 
-RequiredSkill.create!(job: e1_job1, skill: Skill.find_by(name: "Concepteur son"))
-RequiredSkill.create!(job: e1_job1, skill: Skill.find_by(name: "Régisseur lumière"))
+# RequiredSkill.create!(job: e1_job1, skill: Skill.find_by(name: "Concepteur son"))
+# RequiredSkill.create!(job: e1_job1, skill: Skill.find_by(name: "Régisseur lumière"))
 
 
 apply1 = Apply.create!(
@@ -79,19 +80,19 @@ apply1 = Apply.create!(
   job_id: e1_job1.id,
   user_id: technician1.id
 )
-apply2 = Apply.create!(
-  status: "approved",
-  job_id: e1_job1.id,
-  user_id: technician1.id
-)
-apply3 = Apply.create!(
-  status: "declined",
-  job_id: e1_job1.id,
-  user_id: technician1.id
-)
+# apply2 = Apply.create!(
+#   status: "approved",
+#   job_id: e1_job1.id,
+#   user_id: technician1.id
+# )
+# apply3 = Apply.create!(
+#   status: "declined",
+#   job_id: e1_job1.id,
+#   user_id: technician1.id
+# )
 
 
-skill1 = Skill.find_by(name: "Concepteur son")
+
 
 
 HaveSkill.create!(user: technician1, skill: Skill.find_by(name: "Concepteur son"))
