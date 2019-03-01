@@ -8,13 +8,12 @@ class Organizer::JobsController < ApplicationController
     @skill = Skill.find_by(name: params[:job][:skill_id])
     @job = Job.new(job_params)
     @job.event = @event
-
     @job.skill = @skill
-    if @job.save!
+    if @job.save
       send_new_job_email
-      redirect_to organizer_event_path(@event), :notice => "Your job has been sucessfully created !"
+      redirect_to organizer_event_path(@event), notice: "Your job has been sucessfully created !"
     else
-      render :new
+      redirect_to organizer_event_path(@event), alert: "You need to select at least one skill"
     end
 
   end
