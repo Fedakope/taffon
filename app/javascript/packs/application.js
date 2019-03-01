@@ -9,7 +9,10 @@ import "../plugins/flatpickr"
 import "../plugins/modal";
 import { modalEvents } from "../plugins/modal";
 
+import { updateCategories } from '../plugins/cat';
+
 
 initMapbox();
 initAutocomplete();
 modalEvents();
+updateCategories();
