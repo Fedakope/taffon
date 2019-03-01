@@ -8,7 +8,7 @@
   <li> Description: <%= @job.description %></li>
   <li> Starts On: <%= @job.start_at %></li>
   <li> Ends On: <%= @job.end_at %></li>
-  <li> Skill: <%= @job.skills.category %></li>
+  <li> Skill: <%= @job.skill.category %></li>
 </div>
 
 <% if current_user.organizer == false %>

@@ -8,11 +8,7 @@ class Organizer::JobsController < ApplicationController
     @job = Job.new(job_params)
     @job.event = @event
 
-    if @job.save
-      redirect_to organizer_event_path(@event)
-    else
-      render 'organizer/events/show'
-    end
+    @job.save!
   end
 
   def destroy
@@ -24,6 +20,6 @@ class Organizer::JobsController < ApplicationController
   private
 
   def job_params
-    params.require(:job).permit(:description, :category, :start_at, :end_at)
+    params.require(:job).permit(:description, :status, :start_at, :end_at)
   end
 end
