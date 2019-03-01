@@ -4,6 +4,13 @@ class Organizer::EventsController < ApplicationController
   def index
     @events = Event.all
     set_markers
+    if params[:query].present?
+      sql_query = " \
+        full_address ILIKE :query"
+      @events = Event.where(sql_query, query: "%#{params[:query]}%")
+    else
+      @events = Event.all
+    end
   end
 
   def show
