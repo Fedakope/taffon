@@ -2,7 +2,7 @@ class Organizer::EventsController < ApplicationController
   before_action :set_event, only: [:show, :edit, :update, :destroy]
 
   def index
-    @events = Event.all
+    @events = Event.last
     set_markers
     if params[:query].present?
       sql_query = " \
