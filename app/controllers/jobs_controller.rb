@@ -1,6 +1,13 @@
 class JobsController < ApplicationController
   def index
-    @jobs = Job.all
+    if params[:query].present?
+      sql_query = " \
+        events.full_address ILIKE :query"
+      @jobs = Job.joins(:event).where(sql_query, query: "%#{params[:query]}%")
+      # @jobs = Job.where(sql_query, query: "%#{params[:query]}%")
+    else
+      @jobs = Job.all
+    end
   end
 
   def show
