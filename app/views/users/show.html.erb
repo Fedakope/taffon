@@ -17,4 +17,26 @@
   <% end %>
 </ul>
 
+-------------------------------------------<br>
+<% if current_user.organizer? %>
+  <!--modal> -->
+      <span id="modalspan">
+        <button id="myBtn" class= "btn btn-primary">Hire this candidate</button>
+        <!-- The Modal -->
+        <div id="myModal" class="modal">
+          <!-- Modal content -->
+          <div class="modal-content">
+            <span class="close">&times;</span>
+              <p>Hire <strong><%= @user.first_name %></strong> for:</p>
+              <%= simple_form_for [:organizer, @apply] do |f| %>
+                <%= f.association :job, collection: current_user.jobs, label_method: :description, value_method: :id %>
+                <%= f.hidden_field :user, value: @user.id %>
+                <%= f.submit 'Select this job', class: 'btn btn-primary' %>
+              <% end %>
+          </div>
+        </span>
+      </div>
+    </li>
+<% end %>
+
 
