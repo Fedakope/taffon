@@ -7,9 +7,10 @@ import { initAutocomplete } from '../plugins/init_autocomplete';
 import { modalEvents } from "../plugins/modal";
 import { updateCategories } from '../plugins/cat';
 import { initUpdateNavbarOnScroll } from '../components/navbar';
-
+import { loadDynamicBannerText } from '../components/banner';
 
 initUpdateNavbarOnScroll();
+loadDynamicBannerText();
 initMapbox();
 initAutocomplete();
 modalEvents();
