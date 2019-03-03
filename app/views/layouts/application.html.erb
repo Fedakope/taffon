@@ -13,12 +13,6 @@
   </head>
   <body>
 
-    <!-- DEBUG STATUS: TO DELETE WHEN FINAL PUSH -->
-    <% if user_signed_in? %>
-      <p> You are connected as: <%= current_user.email %> || Organizer: <%= current_user.organizer? %></p>
-    <% end %>
-
-
     <%= render 'shared/navbar' %>
     <%= render 'shared/flashes' %>
     <%= yield %>
