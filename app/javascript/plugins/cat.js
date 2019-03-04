@@ -22,7 +22,7 @@ const updateCategories = () => {
 };
 export { updateCategories };
 
-//const testjs = () => { 
+//const testjs = () => {
 //const pickcat = document.getElementById("pickcat");
 //var strUser = pickcat.options[pickcat.selectedIndex].value;
 //console.log(strUser);
