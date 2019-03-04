@@ -11,7 +11,7 @@
 <!-- main cards section -->
   <div class="all-events-cards">
   <% @events.each do |event| %>
-      <div class="events-cards">
+      <div class="col-lg-12 events-cards">
 <!-- card iteration section -->
       <% if event.jobs.present? %>
         <%# <div class="card-product-events"> %>
@@ -63,7 +63,7 @@
     class="map"
     id="map"
     style="width: 100%;
-    height: 400px;"
+    height: 99%;"
     data-markers="<%= @markers.to_json %>"
     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
   ></div>
@@ -72,34 +72,42 @@
   <div class="featured-job">
 
     <div class="notification">
+      <img src='https://kitt.lewagon.com/placeholder/users/arthur-littm' class="avatar-large"/>
       <div class="notification-content">
         <p><small>14th January</small></p>
         <p>Lorem ipsum dolor sit amet, <strong>consectetur</strong> adipisicing elit.</p>
       </div>
 
       <div class="notification-actions">
-        <a href="#">Edit <i class="fas fa-pencil-alt"></i></a>
-        <a href="#">Delete <i class="far fa-trash-alt"></i></a>
+        <a href="#">Details <i class="fas fa-info-circle"></i></a>
+        <a href="#">Apply <i class="fas fa-file-signature"></i></a>
       </div>
     </div>
 
     <div class="notification">
+      <img src='https://kitt.lewagon.com/placeholder/users/Eschults' class="avatar-large"/>
       <div class="notification-content">
         <p><small>9th January</small></p>
         <p>Lorem ipsum dolor sit amet, <strong>consectetur</strong> adipisicing elit.</p>
       </div>
 
       <div class="notification-actions">
-        <a href="#">Edit <i class="fas fa-pencil-alt"></i></a>
-        <a href="#">Delete <i class="far fa-trash-alt"></i></a>
+        <a href="#">Details <i class="fas fa-info-circle"></i></a>
+        <a href="#">Apply <i class="fas fa-file-signature"></i></a>
       </div>
     </div>
 
-  </div>
-  <!-- Map container -->
-  <div class="job-category">
 
+  </div>
+  <!-- job category section -->
+  <div class="job-category">
+    <div class="title-job-category">
+      <h4>Search by category:</h4>
+    </div>
+    <div class="skills-category"> 
+      <% @skills.each do |skill| %>
+        <a class="space-between badge badge-pill badge-default" href="/organizer/events"><p><%= skill.name%></p></a>
+      <% end %>
+    </div>
   </div>
 </div>
-
-

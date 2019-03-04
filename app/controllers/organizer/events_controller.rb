@@ -2,6 +2,7 @@ class Organizer::EventsController < ApplicationController
   before_action :set_event, only: [:show, :edit, :update, :destroy]
 
   def index
+    @skills = Skill.all
     @events = Event.all
     set_markers
     if params[:query].present?
