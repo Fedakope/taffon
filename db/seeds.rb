@@ -67,14 +67,16 @@ technician1 = User.create!(
   password: "azerty",
   first_name: "tech1-firstname",
   last_name: "tech1-lastname",
-  phone_number: 0424242426,
+  full_address: "147 Avenue du Maréchal Juin, 76230 Bois-Guillaume",
+  phone_number: 0424242432,
   organizer: false)
 
 technician2 = User.create!(
   email: "max@gmail.com",
   password: "azerty",
-  first_name: "Maximne",
+  first_name: "Maxime",
   last_name: "Legras",
+  full_address: "15 Rue Bossuet, 69006 Lyon",
   phone_number: 0424242427,
   organizer: false)
 
@@ -83,6 +85,7 @@ technician3 = User.create!(
   password: "azerty",
   first_name: "Alexis",
   last_name: "Dewerdt",
+  full_address: "Place de la Mairie, 01960 Péronnas",
   phone_number: 0424242437,
   organizer: false)
 
@@ -113,7 +116,7 @@ e2 = Event.create!(
 e3 = Event.create!(
   name: "Grizou Party",
   full_address: "1038 Avenue Maréchal de Lattre de Tassigny, 71000 Mâcon",
-  description: "4 créations de spectacles et d'évènements sur l'ensemble du village",
+  description: "Soiree privee pour diffusion video des meilleurs buts",
   picture_url: "picture_url...",
   company: "Striker",
   user_id: organizer3.id,
@@ -189,6 +192,12 @@ apply1 = Apply.create!(
 
 #---------------------------------
 HaveSkill.create!(user: technician1, skill: Skill.find_by(name: "Concepteur son"))
+HaveSkill.create!(user: technician1, skill: Skill.find_by(name: "Technicien des effets spéciaux"))
+HaveSkill.create!(user: technician2, skill: Skill.find_by(name: "Technicien lumière"))
+HaveSkill.create!(user: technician2, skill: Skill.find_by(name: "Technicien"))
+HaveSkill.create!(user: technician3, skill: Skill.find_by(name: "Informatique"))
+HaveSkill.create!(user: technician3, skill: Skill.find_by(name: "Concepteur vidéo - image"))
+
 
 #---------------------------------
 reviews1 = Review.create!(
