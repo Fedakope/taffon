@@ -1,15 +1,13 @@
-<%= render "shared/search", path: users_path %>
+<div class="container margin-top">
+  <%= render "shared/search", path: users_path %>
 
-<h1> List of Technicians:</h1>
-<ul>
-  <% @users.each do |user| %>
-    <% if user.organizer == false %>
-      <li><%= link_to 'See Profile', user_path(user) %> | <%= user.id %> | <%= user.first_name %> <%= user.last_name %> | <%= user.email %> | <%= user.email %></li>
-      <br>
+  <h1> List of Technicians:</h1>
+  <ul>
+    <% @users.each do |user| %>
+      <% if user.organizer == false %>
+        <li><%= link_to 'See Profile', user_path(user) %> | <%= user.id %> | <%= user.first_name %> <%= user.last_name %> | <%= user.email %> | <%= user.email %></li>
+        <br>
+      <% end %>
     <% end %>
-  <% end %>
-<ul>
-
-
-
-
+  <ul>
+</div>
