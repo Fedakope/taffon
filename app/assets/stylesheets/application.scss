@@ -11,6 +11,10 @@
 
 // Your CSS partials
 @import "layouts/index";
+@import "common";
 @import "components/index";
 @import "pages/index";
+@import "components/tabs";
+@import "components/avatar";
+@import "pages/profile";
 @import "pages/newevent";
