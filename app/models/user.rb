@@ -36,4 +36,8 @@ class User < ApplicationRecord
       # user.skip_confirmation!
     end
   end
+
+  def categories
+    have_skill.map(&:skill).map(&:category)
+  end
 end
