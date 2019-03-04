@@ -1,0 +1,7 @@
+<h2>Applied for:</h2>
+  <ul>
+    <% current_user.applies.each do |apply| %>
+      <li>Application #<%= apply.id %>|| Event name: <%= apply.job.event.name %> || Status: <%= apply.status %></li>
+    <% end %>
+  </ul>
+<br>
