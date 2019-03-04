@@ -1,25 +1,35 @@
-<h1>Details of: <%= @event.name %></h1>
+<div class="banner-es" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://picsum.photos/1025/375/?random;">
+  <div class="container">
+    <div class="banner-content">
+      <h1><%= @event.name %></h1>
+    </div>
+  </div>
+</div>
 
-<ul>
-  <li>Address: <%= @event.full_address %></li>
-  <li>Picture: <%= @event.picture_url %></li>
-  <li>Description: <%= @event.description %></li>
-  <li>Company: <%= @event.company %></li>
-  <li>User email: <%= @event.user.email %></li>
-<div
-  id="map"
-
-  style="width: 40%;
-  height: 200px;"
-  data-markers="<%= @markers.to_json %>"
-  data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
-></div>
-</ul>
+Picture: <%= @event.picture_url %>
 
 
-<% if @event.user == current_user %>
-<%= link_to 'Edit', edit_organizer_event_path(@event), class: "btn btn-primary" %>
-<%= link_to 'Delete', organizer_event_path(@event), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-primary" %>
+
+<div class="corps">
+  
+  <h2>Description: <%= @event.description %></h2>
+  <h2>Company: <%= @event.company %></h2>
+  <h2>User email: <%= @event.user.email %></h2>
+  <h2>Lieu : <%= @event.full_address %></h2>
+  <div
+    id="map"
+    style="width: 40%;
+    height: 200px;"
+    data-markers="<%= @markers.to_json %>"
+    data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+  </div>
+  </ul>
+  <% if @event.user == current_user %>
+  <%= link_to 'Edit event', edit_organizer_event_path(@event), class: "btn btn-primary" %>
+  <%= link_to 'Delete event', organizer_event_path(@event), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-primary" %>
+</div>
+
+
 
 
 
@@ -37,7 +47,9 @@
 <% end %>
 
 
-
+  
+  
+  <div class="corps">
   <%= simple_form_for [:organizer, @event, @job] do |f| %>
  <div id="list" data-job-categories="<%= Skill.all.to_json %>">
     <select class="form-control select optional" id="job_category">
@@ -50,12 +62,34 @@
     </select>
     <%= f.association :skill, label:'Choose a skill', collection: name.uniq %>
     <%= f.input :description, placeholder: "Add some free text to provide additional information.." %>
-    <%= f.input :start_at, as: :string, input_html: {class: "datetimepicker"} %>
-    <%= f.input :end_at, as: :string, input_html: {class: "datetimepicker"} %>
+    <div class="inlindedate">
+    <%= f.input :start_at, label: false, placeholder: "début de l'embauche", as: :string, input_html: {class: "datetimepicker"} %>
+    <%= f.input :end_at, label: false, placeholder: "fin de l'embauche", as: :string, input_html: {class: "datetimepicker"} %>
+    </div> 
+    <div class="boutoncreate">
     <%= f.submit "Create", class: "btn btn-primary" %>
+  </div>
   <% end %>
 </div>
 <% end %>
+</div>
+
+  <div class="corps">
+    <p> Jobs list for <%= @event.name %></p>
+    <% @event.jobs.each do |job| %>
+      <div class="card-product-show">
+        <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg">
+        <div class="card-product-infos-show" >
+          <h2><%= job.skill.category %></h2>
+          <p>Status: <strong><%= job.status %></strong></p>
+        </div>
+      </div>
+
+    <% end %>
+  </div>
+
+<!-- commenaire useless pour regul git -->
+
 
 
 <h2> Jobs list for <%= @event.name %>:</h2>
