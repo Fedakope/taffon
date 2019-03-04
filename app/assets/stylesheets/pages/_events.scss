@@ -255,3 +255,31 @@
   position: relative;
 }
 
+// job-category section
+.job-category {
+  width: 100%;
+}
+
+.skills-category{
+  display: flex;
+  justify-content: space-evenly;
+  flex-flow: row wrap;
+  outline: 0;
+}
+
+.job-category li{
+  list-style: none;
+  padding: 0px 10px;
+}
+
+.space-between p{
+  text-decoration: none;
+  color: black;
+  font-size: 12px;
+  padding: 0px;
+  margin: 0px;
+}
+
+.badge {
+  margin-bottom: 5px;
+}
