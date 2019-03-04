@@ -8,5 +8,9 @@ class PagesController < ApplicationController
 
   def profile
     @have_skills = HaveSkill.where(user_id: current_user.id)
+    @user_skills = []
+    @have_skills.each do |have_skill|
+      @user_skills << have_skill.skill
+    end
   end
 end

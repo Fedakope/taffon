@@ -1,0 +1,81 @@
+.skill-tag-wrapper{
+  background: white;
+  width: 500px;
+  margin: 0 auto;
+  margin-top: 30px;
+  padding: 30px 40px;
+  text-align: center;
+  border-radius: 5px;
+  box-shadow: 0px 3px 3px 0px rgba(50, 50, 50, 0.4);
+}
+
+.skill-tag{
+  display: inline-block;
+  position: relative;
+  margin: 5px 10px 5px 0px;
+  font-weight: 300 !important;
+  font-size: 12px;
+}
+
+.skill-tag input[type=checkbox]{
+  opacity: 0;
+  position: absolute;
+  z-index: 300;
+  cursor: pointer;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  &:hover + label{
+    background: lighten($blue, 7%);
+  }
+}
+
+.skill-tag label{
+  padding: 7px 34px 6px 18px;
+  position: relative;
+  z-index: 200;
+  color: white;
+  display: block;
+  border-radius: 12px;
+  background: $light-gray;
+  transition: all 0.08s ease-in;
+}
+
+.skill-tag .fa{
+  position: absolute;
+  z-index: 250;
+  right: 11px;
+  top: 9px;
+  color: white;
+  line-height: 0.95;
+}
+
+.skill-tag .fa-check{
+  display: none;
+  top: 8px;
+  right: 10px;
+  transition: all 0.08s ease-in;
+}
+
+.skill-tag input[type=checkbox]:checked {
+  cursor: not-allowed;
+}
+
+// 2. Animation/Action      ============
+.skill-tag input[type=checkbox]:checked + label{
+  background: $blue;
+  animation: flick 0.08s;
+}
+.skill-tag input[type=checkbox]:checked ~ .fa-plus{
+  display: none;
+}
+.skill-tag input[type=checkbox]:checked ~ .fa-check{
+  animation: flick 0.08s;
+  display: block;
+}
+@keyframes flick {
+  0%   {}
+  60%  {transform: scale(1.15);}
+  100% {transform: scale(1);}
+}
