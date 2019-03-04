@@ -90,6 +90,15 @@
   justify-content: space-between;
 }
 
+.card-product a {
+  color: black;
+  text-decoration: none;
+
+  &:hover {
+    color: #636363;
+  }
+}
+
 .card-product img {
   height: 100%;
   width: 120px;
