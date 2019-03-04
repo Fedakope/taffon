@@ -1,15 +1,68 @@
-<%= render "shared/search", path: users_path %>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(http://createurdimages.ecpad.fr/wp-content/uploads/2014/12/2014ECPA369L001_014-2048x1112.jpg;">
+  <div class="container">
+    <div class="banner-content">
+      <h1>List of all available Technicians</h1>
+      <%= render "shared/search", path: users_path %>
+    </div>
+  </div>
+</div>
 
-<h1> List of Technicians:</h1>
-<ul>
-  <% @users.each do |user| %>
-    <% if user.organizer == false %>
-      <li><%= link_to 'See Profile', user_path(user) %> | <%= user.id %> | <%= user.first_name %> <%= user.last_name %> | <%= user.email %> | <%= user.email %></li>
-      <br>
+<div class="grid-container">
+<!-- main cards section -->
+  <div class="all-events-cards">
+    <% @users.each do |user| %>
+      <% if user.organizer == false %>
+        <div class="events-cards">
+          <div class="left-side">
+            <img src="<%= user.picture_url %>" alt='profile-picture'>
+            <ul class="tags">
+              <% if user.have_skill.present? %>
+                <% have_skills = user.have_skill.all %>
+                <% have_skills.each do |have_skill| %>
+                  <li>
+                    <a class ="tag"><%= have_skill.skill.name %></a>
+                  </li>
+                <% end %>
+              <% end %>
+            </ul>
+          </div>
+          <div class="card-product-infos">
+            <div class="upper-side">
+              <div class="upper-side-titles">
+                <h2><%= user.first_name %></h2>
+                <p><%= user.last_name %></p>
+              </div>
+              <div class="upper-side-btns">
+                <ul class="btns">
+                  <li><a href="#"><i class="fas fa-heart"></i></a></li>
+                  <li><a href="/users/<%=user.id%>">Details</a></li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="middle-side">
+              <p><span id="desc"><%= user.description %>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod temporinc ididunt ut dolore magna aliqua.</span></p>
+              <p><i class="fas fa-map-marker-alt"></i> <%= user.full_address %></p>
+              <p><i class="fas fa-phone"></i>  <%= user.phone_number %></p>
+              <p><i class="fas fa-envelope"></i>  <%= user.email %></p>
+
+              <% reviews = Review.where(destinator: user) %>
+              <% if reviews.present? %>
+                <p id="xxx"><i class="fas fa-comments"></i> <%= reviews.count %></p>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      <% end %>
     <% end %>
-  <% end %>
-<ul>
+  </div>
 
-
-
-
+  <!-- Map container -->
+  <div
+    class="map"
+    id="map"
+    style="width: 100%;
+    height: 400px;"
+    data-markers="<%= @markers.to_json %>"
+    data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
+  ></div>

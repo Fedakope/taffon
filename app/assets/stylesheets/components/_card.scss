@@ -1,0 +1,69 @@
+// Cards 2nd attempt
+.all-cards{
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: space-around;
+  padding-left: 20px;
+}
+
+.cards {
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  display: flex;
+  width: 600px;
+  height: 220px;
+  margin-top: 15px;
+  padding: 5px;
+}
+
+.cards img {
+  width: 110px;
+  height: 110px;
+  object-fit: cover;
+  padding: 10px;
+}
+
+.cards h2 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.cards p {
+  font-size: 12px;
+  line-height: 1.4;
+  opacity: .7;
+  margin-bottom: 0;
+  margin-top: 8px;
+}
+
+#xxx{
+  font-size: 20px;
+  line-height: 1.4;
+  opacity: .7;
+  margin-bottom: 0;
+  margin-top: 8px;
+  float: right;
+  margin-bottom: 5px;
+  position: absolute;
+  right: 0px;
+  bottom: 0px;
+}
+
+.cards .cards-infos {
+  padding: 16px;
+}
+
+.cards-infos p {
+  margin-bottom: 1em;
+}
+
+.left-side {
+  display: flex;
+  flex-direction: column;
+}
+
+#desc{
+  word-wrap: break-word;
+}
