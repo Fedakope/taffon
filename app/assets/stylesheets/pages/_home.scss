@@ -11,7 +11,10 @@
 .banner {
   background-size: cover;
   background-position: center;
-  padding: 150px 0;
+  height: 374px;
+  display: flex;
+  align-items: center;
+
 }
 
 .banner-content{
@@ -31,6 +34,26 @@
   color: white;
   opacity: .7;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+}
+
+//banner du event show
+.banner-es {
+  background-size: cover;
+  background-position: center;
+  height: 374px;
+  display: flex;
+  text-align: center;
+  align-items: center;
+  margin: 0;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  font-size: 64px;
+  font-weight: bold;
+  h1 {
+    color: white;
+    padding: 40px;
+    border-radius: 10px;
+    background-color: rgba( 255, 255, 255, 0.2 );
+  }
 }
 
 // features area
@@ -127,6 +150,42 @@
   }
 }
 
+// debut de card des job lorsquon consulte les jobs sur un event 
+.card-product-show {
+  overflow: hidden;
+  height: 120px;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.card-product-show img {
+  height: 100%;
+  width: 120px;
+  object-fit: cover;
+}
+
+.card-product-show h2 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.card-product-show p {
+  font-size: 12px;
+  line-height: 1.4;
+  opacity: .7;
+  margin-bottom: 0;
+  margin-top: 8px;
+}
+
+.card-product-show .card-product-infos-show {
+  padding: 16px;
+}
+// fin de 
+// card des job open lorsqu'on consulte les jobs sur un event
 
 #link-job-list {
   float: right;
