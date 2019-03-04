@@ -3,6 +3,7 @@
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1.5fr 0.5fr;
   grid-gap: 4rem 20px;
+  padding-right: 20px;
   grid-template-areas: "events-cards map" "featured-job job-category";
 }
 
@@ -13,3 +14,14 @@
 .job-category { grid-area: job-category; }
 
 .featured-job { grid-area: featured-job; }
+
+// media queries
+@media (max-width: 700px) {
+  .grid-container {
+    grid-template-areas:
+      'events-cards'
+      'map'
+      'job-category'
+      'featured-job';
+  }
+}
