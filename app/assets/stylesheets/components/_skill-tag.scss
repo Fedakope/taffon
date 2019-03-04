@@ -63,7 +63,6 @@
 }
 
 // 2. Animation/Action      ============
-
 .skill-tag input[type=checkbox]:checked + label{
   background: $blue;
   animation: flick 0.08s;
