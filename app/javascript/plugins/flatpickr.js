@@ -5,6 +5,7 @@ flatpickr(".datepicker", {
   dateFormat: "Y-m-d",
   minDate: "today",
   inline: true,
+  static: true,
 })
 
 
