@@ -112,7 +112,6 @@ ActiveRecord::Schema.define(version: 2019_03_01_112538) do
     t.boolean "organizer", default: false
     t.string "provider"
     t.string "uid"
-    t.string "photo"
     t.string "full_address"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
