@@ -56,42 +56,32 @@
   <div class="job-cards-large">
     <h2>List of available jobs:</h2>
     <p id="h2p">Check all available jobs and find the right position with simple clicks</p>
-    <div class="card-product">
-      <img src="https://picsum.photos/500/500/?random">
-      <div class="card-product-infos">
-        <h2>Light Technician</h2>
-        <p>Product description with <strong>relevant info</strong> only.</p>
+    <% @jobs.each do |job| %>
+      <div class="card-product">
+        <img src="https://picsum.photos/500/500/?random">
+        <div class="card-product-infos">
+          <h2><%= job.skill.category %></h2>
+          <p><%= job.description %></p>
+        </div>
       </div>
-    </div>
-    <div class="card-product">
-      <img src="https://picsum.photos/500/500/?random">
-      <div class="card-product-infos">
-        <h2>Product name</h2>
-        <p>Product description with <strong>relevant info</strong> only.</p>
-      </div>
-    </div>
-    <div class="card-product">
-      <img src="https://picsum.photos/500/500/?random">
-      <div class="card-product-infos">
-        <h2>Product name</h2>
-        <p>Product description with <strong>relevant info</strong> only.</p>
-      </div>
-    </div>
+    <% end %>
     <span id="link-job-list"><a href="http://localhost:3000/users">See all available gigs</a></span>
   </div>
 </section>
-<!-- event listing -->
+<!-- technicians listing -->
 <section class="popular-post-area pt-100">
   <div class="job-cards-large">
     <h2>List of available technicians:</h2>
     <p id="h2p">Check all available technicians and find the right one for your need</p>
-    <div class="card-product">
-      <div class="card-product-infos">
-        <h2>Light Technician</h2>
-        <p>Product description with <strong>relevant info</strong> only.</p>
+    <% @users.each do |user| %>
+      <div class="card-product">
+        <div class="card-product-infos">
+          <h2><%= user.first_name %></h2>
+          <p><%= user.have_skill.skill.name %><strong>truc en gras</strong></p>
+        </div>
+        <img src="https://picsum.photos/500/500/?random">
       </div>
-      <img src="https://picsum.photos/500/500/?random">
-    </div>
+    <% end %>
     <div class="card-product">
       <div class="card-product-infos">
         <h2>Product name</h2>
