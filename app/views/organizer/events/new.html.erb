@@ -2,36 +2,35 @@
   <div class="container">
     <div class="banner-content">
       <h1>Comment s'appelle l'evenement que vous allez faire ?</h1>
+      <%= simple_form_for [:organizer, @event] do |f| %>
+        <%= f.input :name,
+            required: true,
+            autofocus: true, input_html: { autocomplete: "email" } %>
+        <%= f.input :description %>
+        <%= f.input :full_address,
+                required: true,
+                autofocus: true, input_html: { autocomplete: "email" } %>
+        <%= f.input :company,
+                required: true,
+                autofocus: true, input_html: { autocomplete: "email" } %>
+        <%= f.input :start_date, as: :string,
+                required: true,
+                autofocus: true, input_html: {class: "datepicker"} %>
+        <%= f.input :end_date, as: :string,
+                required: true,
+                autofocus: true, input_html: {class: "datepicker"} %>
 
+        <%= f.submit "Create", class: "btn btn-primary" %>
+      <% end %>
     </div>
   </div>
 </div>
 
+
+
 <% if current_user.organizer? %>
     <div class="container">
         <h1>Create new event</h1>
-            <div class="form-newevent">
-                <%= simple_form_for [:organizer, @event] do |f| %>
-
-                    <%= f.input :name,
-                            required: true,
-                            autofocus: true, input_html: { autocomplete: "email" } %>
-                    <%= f.input :description %>
-                    <%= f.input :full_address,
-                            required: true,
-                            autofocus: true, input_html: { autocomplete: "email" } %>
-                    <%= f.input :company,
-                            required: true,
-                            autofocus: true, input_html: { autocomplete: "email" } %>
-                    <%= f.input :start_date, as: :string,
-                            required: true,
-                            autofocus: true, input_html: {class: "datepicker"} %>
-                    <%= f.input :end_date, as: :string,
-                            required: true,
-                            autofocus: true, input_html: {class: "datepicker"} %>
-
-                    <%= f.submit "Create", class: "btn btn-primary" %>
-                <% end %>
         </div>
     </div>
 <% end %>
