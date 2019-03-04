@@ -1,20 +1,37 @@
-<h2>Contact:</h2>
-<ul>
-  <li>id: <%= current_user.id %></li>
-  <li>name: <%= current_user.first_name %> <%= current_user.last_name %></li>
-  <li>email: <%= current_user.email %></li>
-  <li>phone:  <%= current_user.phone_number %></li>
-</ul>
+<div class="col-xs-12 col-sm-6">
+<!--   <div class="picture">
+    <img src="<%= current_user.picture_url %>" class="avatar-big"/>
+  </div> -->
+  <div class='contact'>
+    <h2>Contact :</h2>
+    <ul>
+      <li>id: <%= current_user.id %></li>
+      <li>name: <%= current_user.first_name %> <%= current_user.last_name %></li>
+      <li>email: <%= current_user.email %></li>
+      <li>phone:  <%= current_user.phone_number %></li>
+    </ul>
+  </div>
 
-<h2>Skills:</h2>
-<ul>
-  <% if @have_skills.blank? %>
-    <li>No skills yet, add one from the form bellow</li>
-  <% else %>
-    <% @have_skills.each do |have_skill| %>
-      <li><%= have_skill.skill.name %></li>
+  <div class="description">
+    <h2>Description :</h2>
+    <p><%= current_user.description %></p>
+  </div>
+</div>
+
+<div class="col-xs-12 col-sm-6">
+  <h2>Skills:</h2>
+    <% Skill.all.each do |skill| %>
+      <div class="skill-tag">
+        <% if @user_skills.include?(skill) %>
+          <%=  %>
+          <input type="checkbox" class='skill' checked="true" id="<%= skill.id %>" disabled/>
+        <% else %>
+          <input type="checkbox" class='skill' id="<%= skill.id %>"/>
+        <% end %>
+        <label for=""><%= skill.name %></label>
+        <i class="fa fa-plus"></i>
+        <i class="fa fa-check"></i>
+      </div>
     <% end %>
-  <% end %>
-</ul>
-
-<%= render 'have_skills/new', user: current_user, haveskill: @have_skill %>
+  <%= render 'have_skills/new', user: current_user, haveskill: @have_skill %>
+</div>

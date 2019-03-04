@@ -2,8 +2,8 @@
   <%= render 'pages/profile/tabs' %>
 </div>
 
-<div class="profile-container">
-  <div class="container" id='events-jobs-content'>
+<div class="profile-container container">
+  <div class="" id='events-jobs-content'>
     <!-- onglet event ou job selon organizer ou technician -->
     <% if current_user.organizer? %>
       <%= render 'pages/profile/events' %>
@@ -12,11 +12,11 @@
     <% end %>
   </div>
 
-  <div class="container hidden" id='profile-content'>
+  <div class=" hidden" id='profile-content'>
     <%= render 'pages/profile/infos' %>
   </div>
 
-  <div class="container hidden" id='reviews-content'>
+  <div class=" hidden" id='reviews-content'>
     <%= render 'pages/profile/reviews' %>
   </div>
 </div>
