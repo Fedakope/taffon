@@ -74,6 +74,23 @@ Picture: <%= @event.picture_url %>
 <% end %>
 </div>
 
+  <div class="corps">
+    <p> Jobs list for <%= @event.name %></p>
+    <% @event.jobs.each do |job| %>
+      <div class="card-product-show">
+        <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg">
+        <div class="card-product-infos-show" >
+          <h2><%= job.skill.category %></h2>
+          <p>Status: <strong><%= job.status %></strong></p>
+        </div>
+      </div>
+
+    <% end %>
+  </div>
+
+
+
+
 <h2> Jobs list for <%= @event.name %>:</h2>
   <ul>
           <% @event.jobs.each do |job| %>
