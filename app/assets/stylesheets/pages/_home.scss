@@ -36,6 +36,26 @@
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
 }
 
+//banner du event show
+.banner-es {
+  background-size: cover;
+  background-position: center;
+  height: 374px;
+  display: flex;
+  text-align: center;
+  align-items: center;
+  margin: 0;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  font-size: 64px;
+  font-weight: bold;
+  h1 {
+    color: white;
+    padding: 40px;
+    border-radius: 10px;
+    background-color: rgba( 255, 255, 255, 0.2 );
+  }
+}
+
 // features area
 .features-area{
   margin-top: -65px;
