@@ -13,26 +13,7 @@
   </div>
 
   <div class="container hidden" id='profile-content'>
-    <h2>Contact:</h2>
-    <ul>
-      <li>id: <%= current_user.id %></li>
-      <li>name: <%= current_user.first_name %> <%= current_user.last_name %></li>
-      <li>email: <%= current_user.email %></li>
-      <li>phone:  <%= current_user.phone_number %></li>
-    </ul>
-
-    <h2>Skills:</h2>
-    <ul>
-      <% if @have_skills.blank? %>
-        <li>No skills yet, add one from the form bellow</li>
-      <% else %>
-        <% @have_skills.each do |have_skill| %>
-          <li><%= have_skill.skill.name %></li>
-        <% end %>
-      <% end %>
-    </ul>
-
-    <%= render 'have_skills/new', user: current_user, haveskill: @have_skill %>
+    <%= render 'pages/profile/infos' %>
   </div>
 
   <div class="container hidden" id='reviews-content'>
