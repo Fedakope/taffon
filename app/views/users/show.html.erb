@@ -4,16 +4,15 @@
 
 <h2>Contact:</h2>
 <ul>
-  <li>id: <%= @user.id %></li>
   <li>name: <%= @user.first_name %> <%= @user.last_name %></li>
   <li>email: <%= @user.email %></li>
   <li>phone:  <%= @user.phone_number %></li>
 </ul>
 
-<h2>Skills:</h2>
+<h2>Métier(s):</h2>
 <ul>
   <% @user.skills.each do |skill| %>
-    <%= skill.name %>
+    <li><%= skill.name %></li>
   <% end %>
 </ul>
 
@@ -21,7 +20,7 @@
 <% if current_user.organizer? %>
   <!--modal> -->
       <span id="modalspan">
-        <button id="myBtn" class= "btn btn-primary">Hire this candidate</button>
+        <button id="myBtn" class= "btn btn-primary">Engager ce candidat</button>
         <!-- The Modal -->
         <div id="myModal" class="modal">
           <!-- Modal content -->
@@ -42,7 +41,7 @@
 <% if current_user.organizer? %>
   <div class="div">
     -------------------------------------------<br>
-    <h2>Write a review:</h2>
+    <h2>Rédiger un avis</h2>
     <%= render "reviews/new", user: current_user, review: @review %>
   </div>
 <% end %>
