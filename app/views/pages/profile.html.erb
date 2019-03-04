@@ -126,18 +126,6 @@
 </div>
 
 <div class="container hidden" id='reviews-content'>
-  <% if current_user.reviews.blank? %>
-    <div class="notification">
-      <img src='https://i.dailymail.co.uk/i/pix/2017/06/07/16/4133DED600000578-4581348-image-a-25_1496848745268.jpg' class="avatar-large"/>
-      <div class="notification-content">
-        <p><small>Erreur</small></p>
-        <p>Personne ne vous n'a encore laisé d'avis sur vous.</p>
-      </div>
-    </div>
-  <% else %>
-    <% current_user.reviews.each do |review| %>
-      <%= render 'pages/profile/reviews', review: review %>
-    <% end %>
-  <% end %>
+  <%= render 'pages/profile/reviews' %>
 </div>
 </div>
