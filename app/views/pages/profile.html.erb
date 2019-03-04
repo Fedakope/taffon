@@ -2,7 +2,7 @@
   <ul class="list-inline tabs-underlined">
     <li>
       <% if current_user.organizer? %>
-        <p href="#" class="tab-underlined active" id="events-jobs"><%= current_user.event.all.count %> Evenement(s)</p>
+        <p href="#" class="tab-underlined active" id="events-jobs"><%= current_user.events.all.count %> Evenement(s)</p>
       <% else %>
         <p href="#" class="tab-underlined active" id="events-jobs"><%= current_user.applies.all.count %> Candidature(s)</p>
       <% end %>
@@ -16,6 +16,7 @@
   </ul>
 </div>
 
+<div class="profile-container">
 <!-- onglet event ou job selon organizer ou technician -->
 <div class="container" id='events-jobs-content'>
   <% if current_user.organizer? %>
@@ -131,45 +132,12 @@
       <div class="notification-content">
         <p><small>Erreur</small></p>
         <p>Personne ne vous n'a encore laisé d'avis sur vous.</p>
+      </div>
     </div>
   <% else %>
     <% current_user.reviews.each do |review| %>
-      <div class="notification">
-        <img src='<%= review.creator.picture_url %>' class="avatar-large"/>
-        <div class="notification-content">
-          <p><%= review.creator.first_name %> | <small><%= review.created_at %></small></p>
-          <p><%= review.content %></p>
-          <p> <!-- Rating stars -->
-            <% case review.rating %>
-            <% when 0 %>
-            <i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>
-            <% when 1 %>
-            <i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>
-            <% when 2 %>
-            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>
-            <% when 3 %>
-            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>
-            <% when 4 %>
-            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
-            <% when 5 %>
-            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-            <% end  %>
-          </p>
-        </div>
-
-        <div class="notification-actions">
-          <a href="#">Edit <i class="fas fa-pencil-alt"></i></a>
-          <a href="#">Delete <i class="far fa-trash-alt"></i></a>
-        </div>
-      </div>
+      <%= render 'pages/profile/reviews', review: review %>
     <% end %>
   <% end %>
-
-
-
-
-
-
-
-
-
+</div>
+</div>
