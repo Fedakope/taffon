@@ -1,68 +1,46 @@
-<h2>My Events:</h2>
-  <ul>
-    <% current_user.events.each do |event| %>
-        <%= link_to organizer_event_path(event) do %>
-          <li><%= event.name %><%= link_to organizer_event_path(event), method: :delete, data: { confirm: "Are you sure?" } do %>
-          <i class="fa fa-trash destroy_dose"></i> ||
-        <% end %>
+<% current_user.events.each do |event| %>
+  <div class="container profile-event-card">
+    <div class="hidden-xs col-sm-2">
+      <div class="">
+        <img class="event-pic" src="<%= event.picture_url %>">
           <% event.jobs.each do |job| %>
-            <% if job.applies.present? %>
-              Number of applicants: <%= job.applies.count %> ||
-                <!--modal> -->
-                <span id="modalspan">
-                  <button id="myBtn" class= "btn btn-primary">See Applicants</button>
-                  <!-- The Modal -->
-                  <div id="myModal" class="modal">
-                    <!-- Modal content -->
-                    <div class="modal-content">
-                      <span class="close">&times;</span>
-                        <ul>
-                          <% job.applies.each do |apply| %>
-                          <!-- Show only pending applications in the modal -->
-                            <% if apply.status == "Pending" %>
-                              <li>
-                                <%= apply.id %> | <%= apply.user.first_name %> <%= apply.user.last_name %> | <%= apply.user.email %>| <% apply.user.skills.each do |skill| %><%= skill.name %><% end %>| <%= apply.status %>
-                                <!--Accept Button> -->
-                                  <%= simple_form_for (apply) do |f| %>
-                                    <%= f.hidden_field :status, value: "Accepted" %>
-                                    <%= f.submit "Accept", class: "btn btn-sm btn-success" %>
-                                  <% end %>
-                                <!--Reject Button> -->
-                                  <%= simple_form_for (apply) do |f| %>
-                                    <%= f.hidden_field :status, value: "Rejected" %>
-                                    <%= f.submit "Reject", class: "btn btn-sm btn-danger" %>
-                                  <% end %>
-                              </li>
-                              <!-- If status is Rejected you can accept it-->
-                            <% elsif apply.status == "Rejected" %>
-                              <li>
-                                <%= apply.id %> | <%= apply.user.first_name %> <%= apply.user.last_name %> | <%= apply.user.email %>| <% apply.user.skills.each do |skill| %><%= skill.name %><% end %>| <%= apply.status %>
-                                <!--Accept Button> -->
-                                  <%= simple_form_for (apply) do |f| %>
-                                    <%= f.hidden_field :status, value: "Accepted" %>
-                                    <%= f.submit "Accept", class: "btn btn-sm btn-success" %>
-                                  <% end %>
-                              </li>
-                            <% else %>
-                            <!-- If status is Accepted you can reject it-->
-                              <li>
-                                <%= apply.id %> | <%= apply.user.first_name %> <%= apply.user.last_name %> | <%= apply.user.email %>| <% apply.user.skills.each do |skill| %><%= skill.name %><% end %>| <%= apply.status %>
-                                <!--Accept Button> -->
-                                  <%= simple_form_for (apply) do |f| %>
-                                    <%= f.hidden_field :status, value: "Rejected" %>
-                                    <%= f.submit "Reject", class: "btn btn-sm btn-danger" %>
-                                  <% end %>
-                              </li>
-                            <% end %>
-                          <% end %>
-                        </ul>
-                    </div>
-                  </span>
-                </div>
-              </li>
-            <% end %>
+              <a class="tag"><%= job.skill.name %></a>
           <% end %>
+      </div>
+    </div>
+    <div class="col-xs-12 col-sm-10">
+      <h3><%= event.name %></h3>
+      <div class="event-details">
+        <p><i class="fas fa-building"> </i> - <%= event.company %></p>
+        <p><i class="fas fa-map-marker-alt"></i> -  <%= event.full_address %></p>
+        <p><i class="fas fa-clock"></i> - <%= event.start_date %> / <%= event.end_date %></p>
+      </div>
+      <p><%= event.description %></p>
+    </div>
+    <div class="col-xs-12">
+      <% event.jobs.each do |job| %>
+        <% job.applies.each do |apply| %>
+          <div class="card-product card-job-event">
+            <div class="card-product-description">
+              <h2><%= apply.job.skill.category %></h2>
+              <p><%= apply.job.description %></p>
+            </div>
+            <div class="card-product-infos text-center" >
+              <!--modal> -->
+              <span id="modalspan">
+                <button id="myBtn" class= "modal-event-btn">
+                  <i class="fas fa-user-clock"></i><%= job.applies.count %>
+                  <p class='status <%= job.status.downcase %>'><%= job.status.downcase %></p>
+                </button>
+                <!-- The Modal -->
+                <div id="myModal" class="modal">
+                  <%= render '/pages/profile/modal-accept-reject', job: job %>
+                </div>
+              </span>
+            </div>
+          </div>
+        <% end %>
       <% end %>
-    <% end %>
-  </ul>
-<br>
+    </div>
+  </div>
+<% end %>

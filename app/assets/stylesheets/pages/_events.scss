@@ -112,7 +112,7 @@
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: flex;
-  width: 600px;
+  width: 100%;
   height: 220px;
   margin-top: 15px;
   padding: 5px;
@@ -197,37 +197,37 @@
 .tags {
   list-style: none;
   margin: 0;
-  overflow: hidden; 
+  overflow: hidden;
   padding: 0;
   margin-left: 10px;
 }
 
 .tag {
   background: #eee;
-  font-size: initial;
+  font-size: 12px;
   display: block;
   border-radius: 3px 0 0 3px;
   color: #999;
   height: 26px;
   line-height: 26px;
-  padding: 0 20px 0 23px;
+  padding: 0 20px 0 12px;
   position: relative;
   margin: 0 5px 5px 0;
   text-decoration: none;
   -webkit-transition: color 0.2s;
 }
 
-.tag::before {
-  background: #fff;
-  border-radius: 10px;
-  box-shadow: inset 0 1px rgba(0, 0, 0, 0.25);
-  content: '';
-  height: 6px;
-  left: 10px;
-  position: absolute;
-  width: 6px;
-  top: 10px;
-}
+// .tag::before {
+//   background: #fff;
+//   border-radius: 10px;
+//   box-shadow: inset 0 1px rgba(0, 0, 0, 0.25);
+//   content: '';
+//   height: 6px;
+//   left: 10px;
+//   position: absolute;
+//   width: 6px;
+//   top: 10px;
+// }
 
 .tag::after {
   background: #fff;
@@ -246,7 +246,7 @@
 }
 
 .tag:hover::after {
-  border-left-color: crimson; 
+  border-left-color: crimson;
 }
 
 // middle side

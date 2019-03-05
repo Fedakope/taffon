@@ -21,9 +21,60 @@
 .accepted {
   background-color: green;
 }
-.pending {
+.pending, .open{
   background-color: orange;
 }
 .rejected {
   background-color: red;
+}
+
+.profile-event-card {
+  padding: 10px 0px;
+  background-color: white;
+  width: 100%;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+
+  h3 {
+    font-size: 18px;
+    font-weight: bold;
+  }
+}
+
+.event-details {
+  i, p {
+    font-size: 14px;
+    line-height: 1.4;
+    margin-bottom: 2px;
+    margin-top: 0;
+  }
+}
+
+.event-pic {
+  width: 90px;
+  height: 90px;
+  border-radius: 0px;
+  // box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+  // border: white 1px solid;
+  object-fit: cover;
+  margin-top: 25px;
+  margin-bottom: 10px;
+}
+
+.card-job-event {
+  box-shadow: none;
+  border: 1px solid $light-gray;
+  color: $gray;
+  &:hover {
+    color: $gray;
+    cursor: auto;
+  }
+
+  .card-product-infos:hover {
+    cursor: pointer;
+  }
+}
+
+.modal-event-btn {
+  background-color: none;
+  border: none;
 }
