@@ -7,9 +7,15 @@
 }
 
 .card-product-description {
+  display: inline-block;
   width: 100%;
   padding: 20px;
   height: 100%;
+}
+
+.user-description{
+  // width: 700px;
+  width: 60%;
 }
 
 #reviews-content {
@@ -72,9 +78,7 @@
   margin-bottom: 10px;
 }
 
-.card-job-event {
-  box-shadow: none;
-  border: 1px solid $light-gray;
+.card-job-event, .card-user {
   color: $gray;
   &:hover {
     color: $gray;
@@ -97,7 +101,8 @@
 
 // Modal
 .modal-tech-info{
-  flex-direction: column-reverse;
+  width: 200px;
+  padding-left: 20px;
 }
 
 .last_name {
@@ -114,10 +119,6 @@
   color: white;
   padding: 4px 10px;
   margin: 4px;
-}
-
-.tech-info {
-  padding-left: 20px;
 }
 
 .modal-card-link {

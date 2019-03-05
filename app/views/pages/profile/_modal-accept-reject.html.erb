@@ -43,6 +43,34 @@
           </div>
         </a>
       <% end %>
+      ___________
+      <% job.applies.each do |apply| %>
+        <div class="notification std-card">
+          <div class="row">
+            <img src="<%= apply.user.picture_url %>" alt="technician picture" class="avatar"/>
+            <div class="modal-tech-info">
+              <h2><%= apply.user.first_name %> <span class="last_name"><%= apply.user.last_name %></span></h2>
+              <p><i class="fas fa-map-marker-alt"></i> -  <%= apply.user.full_address %></p>
+              <p><i class="fas fa-envelope"></i> -  <%= apply.user.email %></p>
+              <p><i class="fas fa-phone"></i> -  <%= apply.user.phone_number %></p>
+            </div>
+            <div class="modal-tech-description">
+
+            </div>
+            <div class="modal-tech-buttons">
+
+            </div>
+
+
+          </div>
+        </div>
+      <% end %>
     <% end %>
+
+    <div class="card-product card-job-event add-card">
+      <div class="card-product-description">
+        <h2><i class="fas fa-plus"></i> Ajouter un autre technicien (taffon s'occupe de la recherche)</h2>
+      </div>
+    </div>
 
 </div>
