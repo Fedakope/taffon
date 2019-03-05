@@ -1,48 +1,71 @@
-<h1><%= @user.first_name %> <%= @user.last_name %></h1>
-
-<%= link_to 'Back to the list', users_path %>
-
-<h2>Contact:</h2>
-<ul>
-  <li>name: <%= @user.first_name %> <%= @user.last_name %></li>
-  <li>email: <%= @user.email %></li>
-  <li>phone:  <%= @user.phone_number %></li>
-</ul>
-
-<h2>Métier(s):</h2>
-<ul>
-  <% @user.skills.each do |skill| %>
-    <li><%= skill.name %></li>
-  <% end %>
-</ul>
-
--------------------------------------------<br>
-<% if current_user.organizer? %>
-  <!--modal> -->
-      <span id="modalspan">
-        <button id="myBtn" class= "btn btn-primary">Engager ce candidat</button>
-        <!-- The Modal -->
-        <div id="myModal" class="modal">
-          <!-- Modal content -->
-          <div class="modal-content">
-            <span class="close">&times;</span>
-              <p>Hire <strong><%= @user.first_name %></strong> for:</p>
-              <%= simple_form_for [:organizer, @apply] do |f| %>
-                <%= f.association :job, collection: current_user.jobs, label_method: :description, value_method: :id %>
-                <%= f.hidden_field :user, value: @user.id %>
-                <%= f.submit 'Select this job', class: 'btn btn-primary' %>
-              <% end %>
-          </div>
-        </span>
+<div class="container">
+  <div class="card-product-user">
+    <div class="product-back">
+      <i class="fas fa-undo"></i>
+      <%= link_to 'Retour Liste Techniciens', users_path %>
+    </div>
+    <div class="image">
+      <img src="http://thetransformedmale.files.wordpress.com/2011/06/bruce-wayne-armani.jpg"
+            alt="" class="img-rounded img-responsive" />
+    </div>
+    <blockquote>
+      <p><%= @user.first_name %> <%= @user.last_name %></p>
+      <small>
+        <cite title="Source Title">
+          <%= @user.full_address %>
+          <i class="fas fa-map-marker-alt"></i>
+        </cite>
+      </small>
+      <div class="product-infos">
+        <i class="fas fa-envelope"></i><span> <%= @user.email %>
+        </span><br/>
+        <i class="fas fa-phone"></i><span> <%= @user.phone_number %></span>
       </div>
-    </li>
-<% end %>
+    </blockquote>
+    <div class="card-product-skills">
+      <h2>Métier(s)</h2>
+      <ul>
+        <% @user.skills.each do |skill| %>
+          <li class="skill-tag-users"><%= skill.name %></li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+
+
+      <% if current_user.organizer? %>
+     <!--modal> -->
+      <span id="modalspan">
+  <div class="text-center">
+    <button id="myBtn" class= "btn btn-primary">Engager ce candidat</button>
+  </div>
+</div>
+  <!-- The Modal -->
+      <div id="myModal" class="modal">
+        <!-- Modal content -->
+        <div class="modal-content">
+          <span class="close">&times;</span>
+            <p>Hire <strong><%= @user.first_name %></strong> for:</p>
+            <%= simple_form_for [:organizer, @apply] do |f| %>
+              <%= f.association :job, collection: current_user.jobs, label_method: :description, value_method: :id %>
+              <%= f.hidden_field :user, value: @user.id %>
+              <%= f.submit 'Select this job', class: 'btn btn-primary' %>
+            <% end %>
+        </div>
+      </span>
+    </div>
+  </li>
+  <% end %>
+</div>
 
 <% if current_user.organizer? %>
-  <div class="div">
-    -------------------------------------------<br>
-    <h2>Rédiger un avis</h2>
-    <%= render "reviews/new", user: current_user, review: @review %>
-  </div>
+<div class="corps">
+  <h2>Rédiger un avis</h2>
+  <%= render "reviews/new", user: current_user, review: @review %>
+</div>
 <% end %>
+
+
+
+
 

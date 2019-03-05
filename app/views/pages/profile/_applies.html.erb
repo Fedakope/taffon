@@ -1,7 +1,14 @@
-<h2>Applied for:</h2>
-  <ul>
-    <% current_user.applies.each do |apply| %>
-      <li>Application #<%= apply.id %>|| Event name: <%= apply.job.event.name %> || Status: <%= apply.status %></li>
-    <% end %>
-  </ul>
-<br>
+<% current_user.applies.each do |apply| %>
+  <%= link_to job_path(apply.job) do %>
+  <div class="card-product">
+    <img src="<%= apply.job.event.picture_url %>">
+    <div class="card-product-description">
+      <h2><%= apply.job.skill.category %></h2>
+      <p><%= apply.job.description %></p>
+    </div>
+    <div class="card-product-infos">
+      <p class='status <%= apply.status %>'><%= apply.status %></p>
+    </div>
+  </div>
+  <% end %>
+<% end %>

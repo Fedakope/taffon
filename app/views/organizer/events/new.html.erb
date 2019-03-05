@@ -22,19 +22,18 @@
                     input_html: { autocomplete: "email" } %>
             <%= f.input :company,
                     placeholder: "Si vous representez une entreprise, vous pouvez l'indiquer ici",
-                    required: true,
                     input_html: { autocomplete: "email" } %>
             <div class="inlindedate">
                 <%= f.input :start_date, as: :string,
                         required: true,
                         placeholder: "Quand débute votre évènement ?",
                         label: false,
-                        input_html: {class: "datepicker"} %>
+                        input_html: {class: "datepicker", required: true} %>
                 <%= f.input :end_date, as: :string,
                         required: true,
                         placeholder: "Quand se finit-il ?",
                         label: false,
-                        input_html: {class: "datepicker"} %>
+                        input_html: {class: "datepicker", required: true} %>
             </div>
             <div class="boutoncreate">
             <%= f.submit "Create", class: "btn btn-primary" %>

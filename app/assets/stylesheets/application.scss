@@ -1,3 +1,6 @@
+@import "common";
+@import "bootstrap";
+
 // Graphical variables
 @import "config/fonts";
 @import "config/colors";
@@ -5,16 +8,16 @@
 
 // External libraries
 @import "bootstrap-sprockets";
-@import "bootstrap";
 @import "font-awesome-sprockets";
 @import "font-awesome";
 
 // Your CSS partials
 @import "layouts/index";
-@import "common";
-@import "components/index";
-@import "pages/index";
-@import "components/tabs";
-@import "components/avatar";
 @import "pages/profile";
-@import "pages/newevent";
+@import "pages/*";
+
+// Your components
+@import "components/tabs";
+@import "components/index";
+@import "components/avatar";
+@import "components/skill-tag";

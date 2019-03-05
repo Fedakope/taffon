@@ -1,0 +1,109 @@
+.users-show {
+  .events-cards {
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  display: flex;
+  width: 690px;
+  height: 220px;
+  margin-top: 15px;
+  padding: 5px;
+  }
+
+  .corps {
+   margin-left: 150px;
+   margin-right: 150px;
+   margin-top: 20px;
+   padding: 30px;
+   background-color: white;
+   border: solid 0.5px black;
+   border-radius: 10px;
+  }
+
+  .block-display {
+    display: flex;
+    align-items: space-evenly;
+  }
+
+  blockquote {
+    padding-top: 10px;
+    font-size: 100%;
+  }
+
+  .card-product-skills {
+    background: white;
+    margin-left: auto;
+    padding-right: 20px;
+  }
+
+  .card-product-skills h2 {
+    margin-top: 15px;
+    font-size: 16px;
+    font-weight: bold;
+  }
+  .card-product-skills ul {
+    list-style-type: none;
+    font-size: 12px;
+    line-height: 1.4;
+    margin-bottom: 0;
+    margin-top: 8px;
+    margin-right: 20px;
+    padding-inline-start: 0px;
+  }
+
+  .card-product-user {
+    background: white;
+    position: relative;
+    display: flex;
+  }
+
+  .image {
+    padding: 10px;
+
+    img {
+      height: 100px;
+    }
+  }
+
+  .product-infos {
+    p {
+      font-size: 15px;
+    }
+    padding-top: 20px;
+    font-family: "Open Sans", "Helvetica", "sans-serif";
+    font-size: 15px;
+  }
+
+  .link-technicians {
+    font-size: 10px;
+
+  }
+  .product-back{
+      padding-top : 10px;
+      position: absolute;
+      bottom: 0px;
+      right:0;
+      font-stretch: ultra-condensed;
+      font-size: small;
+  }
+
+
+  .text-center {
+        margin-top: 50px;
+    margin-bottom: 35px;
+  }
+}
+  .skill-tag-users {
+    color: #fff;
+    background-color: #469AE0;
+    border-color: #308edc;
+    margin: 5px 10px 5px 0px;
+    font-weight: 300 !important;
+    font-size: 12px;
+    padding: 7px 34px 6px 18px;
+    position: relative;
+    z-index: 200;
+    display: block;
+    border-radius: 12px;
+    transition: all 0.08s ease-in;
+  }
