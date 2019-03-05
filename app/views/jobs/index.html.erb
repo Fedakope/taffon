@@ -21,11 +21,7 @@
 
       <div class="job-card-picture">
         <%= link_to job_path(job) do %>
-          <img src=<% if job.event.picture_url.blank? %>
-                          <%= "https://png.pngtree.com/svg/20170217/8553c4769c.png" %>
-                        <% else %>
-                          <%= job.event.picture_url %>
-                        <% end %>>
+          <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg">
         <% end %>
       </div>
 
