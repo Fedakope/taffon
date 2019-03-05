@@ -11,9 +11,9 @@
 <!-- main cards section -->
   <div class="all-events-cards">
   <% @events.each do |event| %>
+      <% if event.jobs.present? %>
       <div class="col-lg-12 events-cards">
 <!-- card iteration section -->
-      <% if event.jobs.present? %>
         <%# <div class="card-product-events"> %>
 
           <div class="left-side">
@@ -56,9 +56,9 @@
 
           </div>
         <%# </div> %>
-      <% end %>
 
     </div>
+      <% end %>
   <% end %>
   </div>
 
