@@ -18,6 +18,7 @@ class UsersController < ApplicationController
     @apply = Apply.new
   end
 
+
   private
 
   def set_markers
@@ -29,4 +30,9 @@ class UsersController < ApplicationController
       }
     end
   end
+
+  def user_params
+    params.require(:user).permit(:photo)
+  end
 end
+
