@@ -1,12 +1,19 @@
 <div class="container">
   <div class="card-product-user">
     <div class="product-back">
-      <i class="fas fa-undo"></i>
-      <%= link_to 'Retour Liste Techniciens', users_path %>
-    </div>
+
+      <%= link_to users_path do  %>
+        <i class="fas fa-undo"></i> Retour Liste Techniciens
+      <% end %>
+      </div>
+
     <div class="image">
-      <img src="http://thetransformedmale.files.wordpress.com/2011/06/bruce-wayne-armani.jpg"
-            alt="" class="img-rounded img-responsive" />
+      <img src=<% if @user.picture_url.blank? %>
+                          <%= "http://swedworks.se/wp-content/uploads/2018/05/person-logo.png" %>
+                        <% else %>
+                          <%= @user.picture_url %>
+                        <% end %>alt="" class="img-rounded img-responsive" />
+
     </div>
     <blockquote>
       <p><%= @user.first_name %> <%= @user.last_name %></p>
@@ -36,10 +43,10 @@
       <% if current_user.organizer? %>
      <!--modal> -->
       <span id="modalspan">
-  <div class="text-center">
-    <button id="myBtn" class= "btn btn-primary">Engager ce candidat</button>
-  </div>
-</div>
+        <div class="text-center">
+           <button id="myBtn" class= "btn btn-primary">Engager ce candidat
+           </button>
+        </div>
   <!-- The Modal -->
       <div id="myModal" class="modal">
         <!-- Modal content -->

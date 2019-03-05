@@ -6,10 +6,18 @@
   margin: 0;
   text-align: center;
   color: white;
+  border: 0px solid transparent;
 }
 .alert-info {
   background: $green;
 }
 .alert-warning {
   background: $red;
+}
+
+.alert-dismissible .close {
+  position: absolute !important;
+  top: -2px;
+  right: 21px !important;
+  color: inherit;
 }
