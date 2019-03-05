@@ -17,10 +17,8 @@
     <%= f.input :password_confirmation,
                 required: false,
                 input_html: { autocomplete: "new-password" } %>
-    <%= f.input :current_password,
-                hint: "we need your current password to confirm your changes",
-                required: true,
-                input_html: { autocomplete: "current-password" } %>
+    <%= f.input :photo %>
+    <%= f.input :photo_cache, as: :hidden %>
   </div>
 
   <div class="form-actions">
@@ -28,14 +26,20 @@
   </div>
 <% end %>
 ----------------------
-
-
-
-
-
+<%= @user %>
+<%= @user.email %>
+<%= resource_name %>
+San Francisco : 
+<%= cl_image_tag("yaa0ln6dajq3l9cpzv4j",
+      width: 400, height: 300, crop: :fill) %>
 Am I here ? 
+-------------------
+Photo upload: 
 
 
+--------------------------------
+Displaying the image:
+<%= cl_image_tag @user.photo, height: 300, width: 400, crop: :fill %>
 --------------------
 <h3>Cancel my account</h3>
 
