@@ -35,16 +35,39 @@
                   </div>
                 </span>
               </div>
-              <div class="card-product-infos text-center" >
-                find the right person
-              </div>
+
               <div class="card-product-description">
                 <h2><%= job.skill.category %></h2>
                 <p><%= job.description %></p>
               </div>
+
+              <div class="card-product-infos text-center" >
+                <button id="myBtn" class="modal-event-btn btn-find-for-you">
+                  Taffon trouve pour vous...
+                </button>
+              </div>
             </div>
           <% end %>
+
+          <div class="card-product card-job-event add-card">
+            <div class="card-product-description">
+              <h2><i class="fas fa-plus"></i> Add a new Job</h2>
+            </div>
+          </div>
+
       </div>
     </div>
   </div>
 <% end %>
+
+<div class="container profile-event-card">
+  <div class="profile-event-card-row">
+    <div class="col-xs-12">
+      <div class="card-product card-job-event add-card">
+        <div class="card-product-description">
+          <h2><i class="fas fa-plus"></i> Create new Event</h2>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
