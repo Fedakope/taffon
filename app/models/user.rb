@@ -10,14 +10,22 @@ class User < ApplicationRecord
   has_many :reviews, foreign_key: :creator_id
   has_many :reviews, foreign_key: :destinator_id
   has_many :jobs, through: :events 
+  validates_presence_of :email
+  validates_uniqueness_of :email
+  validates_presence_of :phone_number
+  validates_uniqueness_of :phone_number
 
+  # Cloudinary/CarrierWave
+  mount_uploader :photo, PhotoUploader
+
+  
   def self.from_omniauth_g(access_token)
     data = access_token.info
     user = User.where(email: data['email']).first
 
     # Uncomment the section below if you want users to be created if they don't exist
     unless user
-      user = User.create(name: data['name'],
+      user = User.create(first_name: data['first_name'],
       email: data['email'],
       password: Devise.friendly_token[0,20]
         )

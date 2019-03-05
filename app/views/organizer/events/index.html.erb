@@ -17,7 +17,11 @@
         <%# <div class="card-product-events"> %>
 
           <div class="left-side">
-            <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg">
+          <img src=<% if event.picture_url.blank? %>
+                          <%= "https://png.pngtree.com/svg/20170217/8553c4769c.png" %>
+                        <% else %>
+                          <%= event.picture_url %>
+                        <% end %>>            
             <ul class="tags">
               <li>
                 <a class="tag">Sound</a>

@@ -6,40 +6,39 @@
   </div>
 </div>
 
-        <div class="corps">
-          <h2>Comment s'appelle votre évènement ?</h2>
-          
-            <%= simple_form_for [:organizer, @event] do |f| %>
-            <%= f.input :name, 
-                    required: true,
-                    placeholder: "🏷 Salon de l'agriculture, marriage de ma tante...",
-                    input_html: { autocomplete: "email" } %>
-            <%= f.input :description,
-                    placeholder: "Rapide description de votre évènement" %>
-            <%= f.input :full_address,
-                    required: true,
-                    placeholder: "Où se situe votre évènement ?",
-                    input_html: { autocomplete: "email" } %>
-            <%= f.input :company,
-                    placeholder: "Si vous representez une entreprise, vous pouvez l'indiquer ici",
-                    required: true,
-                    input_html: { autocomplete: "email" } %>
-            <div class="inlindedate">
-                <%= f.input :start_date, as: :string,
-                        required: true,
-                        placeholder: "Quand débute votre évènement ?",
-                        label: false,
-                        input_html: {class: "datepicker"} %>
-                <%= f.input :end_date, as: :string,
-                        required: true,
-                        placeholder: "Quand se finit-il ?",
-                        label: false,
-                        input_html: {class: "datepicker"} %>
-            </div>
-            <div class="boutoncreate">
-            <%= f.submit "Create", class: "btn btn-primary" %>
-          <% end %>
-      </div>
-        </div>   
+<div class="corps">
+        <h2>Comment s'appelle votre évènement ?</h2>
+        
+        <%= simple_form_for [:organizer, @event] do |f| %>
+        <%= f.input :name, 
+                required: true,
+                placeholder: "🏷 Salon de l'agriculture, marriage de ma tante...",
+                input_html: { autocomplete: "email" } %>
+        <%= f.input :description,
+                placeholder: "Rapide description de votre évènement" %>
+        <%= f.input :full_address,
+                required: true,
+                placeholder: "Où se situe votre évènement ?",
+                input_html: { autocomplete: "full_address" } %>
+        <%= f.input :company,
+                placeholder: "Si vous representez une entreprise, vous pouvez l'indiquer ici",
+                input_html: { autocomplete: "email" } %>
+        <div class="inlindedate">
+        <%= f.input :start_date, as: :string,
+                required: true,
+                placeholder: "Quand débute votre évènement ?",
+                label: false,
+                input_html: {class: "datepicker", required: true} %>
+        <%= f.input :end_date, as: :string,
+                required: true,
+                placeholder: "Quand se finit-il ?",
+                label: false,
+                input_html: {class: "datepicker", required: true} %>
+        </div>
+        <div class="boutoncreate">
+        <%= f.submit "Create", class: "btn btn-primary" %>
+        <% end %>
+</div>
+</div>   
 
 
