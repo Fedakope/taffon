@@ -58,16 +58,26 @@
     <p id="h2p">Check all available jobs and find the right position with simple clicks</p>
     <% @jobs.each do |job| %>
       <%= link_to job_path(job) do %>
-      <div class="card-product">
-        <img src="https://picsum.photos/500/500/?random">
-        <div class="card-product-infos">
-          <h2><%= job.skill.category %></h2>
-          <p><%= job.description %></p>
+        <div class="card-product">
+        
+          <div class="index-job-card-infos">
+            <img src="https://picsum.photos/500/500/?random">
+            <div class="card-product-infos">
+              <h2><%= job.skill.category %></h2>
+              <p><%= job.event.name %></p>
+              <p><%= job.description %></p>
+              <p><%= job.event.start_date %> <%= job.event.end_date %></p>
+            </div>
+          </div>
+          
+          <div class="index-job-card-btn">
+            <%= link_to "See Details", job_path(job), class:"myButton" %>
+          </div>
+
         </div>
-      </div>
       <% end %>
     <% end %>
-    <span id="link-job-list"><a href="http://localhost:3000/users">See all available gigs</a></span>
+    <span id="link-job-list"><a href="/organizer/events">See all available gigs</a></span>
   </div>
 </section>
 <!-- technicians listing -->
@@ -78,15 +88,26 @@
     <% @users.each do |user| %>
       <%= link_to user_path(user) do %>
         <div class="card-product">
-          <div class="card-product-infos">
-            <h2><%= user.first_name %></h2>
-            <p><%= user.categories %></p>
+        
+          <div class="index-job-card-infos">
+            <img src="https://picsum.photos/500/500/?random">
+            <div class="card-product-infos">
+              <h2><%= user.first_name %></h2>
+              <p><% user.categories.map do |category|  %>
+                  <%= category %>
+                <% end %></p>
+              <p><%= user.full_address %></p>
+            </div>
           </div>
-          <img src="https://picsum.photos/500/500/?random">
+          
+          <div class="index-job-card-btn">
+            <%= link_to "See Details", user_path(user), class:"myButton" %>
+          </div>
+
         </div>
       <% end %>
     <% end %>
-    <span id="link-job-list"><a href="http://localhost:3000/users">See all available events</a></span>
+    <span id="link-job-list"><a href="/users">See all available events</a></span>
   </div>
 </section>
 <!-- Call for action -->
@@ -107,4 +128,3 @@
     </div>
   </section>
 </div>
-
