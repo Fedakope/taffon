@@ -5,7 +5,11 @@
       <%= link_to 'Retour Liste Techniciens', users_path %>
     </div>
     <div class="image">
-      <img src="http://thetransformedmale.files.wordpress.com/2011/06/bruce-wayne-armani.jpg"
+      <img src=<% if user.picture_url.blank? %>
+                          <%= "http://swedworks.se/wp-content/uploads/2018/05/person-logo.png" %>
+                        <% else %>
+                          <%= user.picture_url %>
+                        <% end %>>
             alt="" class="img-rounded img-responsive" />
     </div>
     <blockquote>

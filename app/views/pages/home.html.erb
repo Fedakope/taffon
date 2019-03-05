@@ -15,9 +15,9 @@
       <div class="row">
         <div class="col-lg-3 col-md-6">
           <div class="single-feature">
-            <h4>Search & Create Events</h4>
+            <h4>Search for Technicians</h4>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipisicing.
+              Find a technician to perform urgent tasks for your events.
             </p>
           </div>
         </div>
@@ -25,15 +25,15 @@
           <div class="single-feature">
             <h4>Add Jobs</h4>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipisicing.
+              Add specific jobs related to the event industry.
             </p>
           </div>
         </div>
         <div class="col-lg-3 col-md-6">
           <div class="single-feature">
-            <h4>Search Technicians</h4>
+            <h4>Raise a team</h4>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipisicing.
+              Create your event, and build up your team
             </p>
           </div>
         </div>
@@ -41,7 +41,7 @@
           <div class="single-feature">
             <h4>Search for Jobs</h4>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipisicing.
+              Find jobs to fulfill your hourly needs and gain extra cash.
             </p>
           </div>
         </div>																		
@@ -61,7 +61,11 @@
         <div class="card-product">
         
           <div class="index-job-card-infos">
-            <img src="https://picsum.photos/500/500/?random">
+            <img src=<% if job.event.picture_url.blank? %>
+                          <%= "https://png.pngtree.com/svg/20170217/8553c4769c.png" %>
+                        <% else %>
+                          <%= job.event.picture_url %>
+                        <% end %>>
             <div class="card-product-infos">
               <h2><%= job.skill.category %></h2>
               <p><%= job.event.name %></p>
@@ -90,7 +94,12 @@
         <div class="card-product">
         
           <div class="index-job-card-infos">
-            <img src="https://picsum.photos/500/500/?random">
+            <img src= <% if user.picture_url.blank? %>
+                          <%= "http://swedworks.se/wp-content/uploads/2018/05/person-logo.png" %>
+                        <% else %>
+                          <%= user.picture_url %>
+                        <% end %>>
+
             <div class="card-product-infos">
               <h2><%= user.first_name %></h2>
               <p><% user.categories.map do |category|  %>
