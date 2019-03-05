@@ -4,8 +4,6 @@ const initSkills = () => {
   let form = document.querySelector('.simple_form, .profile');
   form.classList.toggle('hidden'); // masque le formulaire
 
-
-
   const toggleHaveSkillOnClick = (event) => {
     let skillInput = document.querySelector('#_profile_skill')
     skillInput.value = event.currentTarget.id
