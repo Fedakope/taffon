@@ -18,15 +18,13 @@
       <p><%= event.description %></p>
     </div>
     <div class="col-xs-12">
-      <% event.jobs.each do |job| %>
-        <% job.applies.each do |apply| %>
+        <% event.jobs.each do |job| %>
           <div class="card-product card-job-event">
             <div class="card-product-description">
-              <h2><%= apply.job.skill.category %></h2>
-              <p><%= apply.job.description %></p>
+              <h2><%= job.skill.category %></h2>
+              <p><%= job.description %></p>
             </div>
             <div class="card-product-infos text-center" >
-              <!--modal> -->
               <span id="modalspan">
                 <button id="myBtn" class= "modal-event-btn">
                   <i class="fas fa-user-clock"></i><%= job.applies.count %>
@@ -37,10 +35,10 @@
                   <%= render '/pages/profile/modal-accept-reject', job: job %>
                 </div>
               </span>
+
             </div>
           </div>
         <% end %>
-      <% end %>
     </div>
   </div>
 <% end %>

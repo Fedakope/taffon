@@ -1,44 +1,48 @@
 <!-- Modal content -->
 <div class="modal-content text-left">
   <span class="close">&times;</span>
-  <ul>
-    <% job.applies.each do |apply| %>
-    <!-- Show only pending applications in the modal -->
-      <% if apply.status == "Pending" %>
-        <li>
-          <%= apply.id %> | <%= apply.user.first_name %> <%= apply.user.last_name %> | <%= apply.user.email %>| <% apply.user.skills.each do |skill| %><%= skill.name %><% end %>| <%= apply.status %>
-          <!--Accept Button> -->
-            <%= simple_form_for (apply) do |f| %>
-              <%= f.hidden_field :status, value: "Accepted" %>
-              <%= f.submit "Accept", class: "btn btn-sm btn-success" %>
-            <% end %>
-          <!--Reject Button> -->
-            <%= simple_form_for (apply) do |f| %>
-              <%= f.hidden_field :status, value: "Rejected" %>
-              <%= f.submit "Reject", class: "btn btn-sm btn-danger" %>
-            <% end %>
-        </li>
-        <!-- If status is Rejected you can accept it-->
-      <% elsif apply.status == "Rejected" %>
-        <li>
-          <%= apply.id %> | <%= apply.user.first_name %> <%= apply.user.last_name %> | <%= apply.user.email %>| <% apply.user.skills.each do |skill| %><%= skill.name %><% end %>| <%= apply.status %>
-          <!--Accept Button> -->
-            <%= simple_form_for (apply) do |f| %>
-              <%= f.hidden_field :status, value: "Accepted" %>
-              <%= f.submit "Accept", class: "btn btn-sm btn-success" %>
-            <% end %>
-        </li>
-      <% else %>
-      <!-- If status is Accepted you can reject it-->
-        <li>
-          <%= apply.id %> | <%= apply.user.first_name %> <%= apply.user.last_name %> | <%= apply.user.email %>| <% apply.user.skills.each do |skill| %><%= skill.name %><% end %>| <%= apply.status %>
-          <!--Accept Button> -->
-            <%= simple_form_for (apply) do |f| %>
-              <%= f.hidden_field :status, value: "Rejected" %>
-              <%= f.submit "Reject", class: "btn btn-sm btn-danger" %>
-            <% end %>
-        </li>
+
+    <% if job.applies.blank? %>
+      <h2>Désolé, personne n'as encore postulé pour l'instant</h2>
+      <p>Astuce : Vous pouvez aller dans la liste des techniciens pour trouver une personne qui vous correspondrait pour ce poste.</p>
+    <% else %>
+      <% job.applies.each do |apply| %>
+
+          <div class="container profile-event-card modal-tech-info">
+            <img src="<%= apply.user.picture_url %>" alt="technician picture">
+            <div class="tech-info">
+              <h2><%= apply.user.first_name %> <span class="last_name"><%= apply.user.last_name %></span></h2>
+              <p><i class="fas fa-map-marker-alt"></i> -  <%= apply.user.full_address %></p>
+              <p><i class="fas fa-envelope"></i> -  <%= apply.user.email %></p>
+              <p><i class="fas fa-phone"></i> -  <%= apply.user.phone_number %></p>
+            </div>
+            <div class="container">
+              <% apply.user.skills.each do |skill| %>
+                <div class='tech-skill'><%= skill.name %> <i class="fa fa-check"></i></div>
+              <% end %>
+            </div>
+            <div class="container col-xs-10">
+              <p><%= apply.user.description %></p>
+            </div>
+            <div class="col-xs-2 text-center">
+              <% if apply.status == "Pending" || apply.status == "Accepted" %>
+                <!--Reject Button> -->
+                <%= simple_form_for (apply) do |f| %>
+                  <%= f.hidden_field :status, value: "Rejected" %>
+                  <%= f.submit '✖', class: "btn btn-sm btn-danger" %>
+                <% end %>
+              <% end %>
+              <% if apply.status == "Pending" || apply.status == "Rejected" %>
+                <!--Accept Button> -->
+                <%= simple_form_for (apply) do |f| %>
+                  <%= f.hidden_field :status, value: "Accepted" %>
+                  <%= f.submit '✔', class: "btn btn-sm btn-success" %>
+                <% end %>
+              <% end %>
+            </div>
+          </div>
+
       <% end %>
     <% end %>
-  </ul>
+
 </div>

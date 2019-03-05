@@ -9,6 +9,7 @@
 .card-product-description {
   width: 100%;
   padding: 20px;
+  height: 100%;
 }
 
 
@@ -76,3 +77,29 @@
   background-color: none;
   border: none;
 }
+
+// Modal
+.modal-tech-info{
+  flex-direction: column-reverse;
+}
+
+.last_name {
+  font-size: 14px;
+  font-weight: lighter;
+}
+
+.tech-skill {
+  display: inline-block;
+  font-size: 10px;
+  font-weight: normal;
+  background-color: $blue;
+  border-radius: 12px;
+  color: white;
+  padding: 4px 10px;
+  margin: 4px;
+}
+
+.tech-info {
+  padding-left: 20px;
+}
+
