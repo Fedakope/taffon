@@ -14,7 +14,7 @@
       <% if user.organizer == false %>
         <div class="events-cards">
           <div class="left-side">
-            <img src="<%= user.picture_url %>" alt='profile-picture'>
+            <img src="<%= user.photo %>" alt='profile-picture'>
             <ul class="tags">
               <% if user.have_skill.present? %>
                 <% have_skills = user.have_skill.all %>
