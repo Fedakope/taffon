@@ -1,9 +1,8 @@
-<% @apply = notification.target %>
-
-
-<%= notification.actor.first_name %>
-
-apply to:<%= @apply.job.description %>
-
-
-for the event: <%= @apply.job.event.name %>
+<%= notification.target %>
+<% notification.actor.applies.each do |apply| %>
+  <% user = apply.user %>
+  <%= link_to 'Voir le Candidat', main_app.user_url(user)  %>
+    <%= notification.actor.first_name %>
+    <%= apply.job.description %>
+    <%= apply.status %>
+<% end %>
