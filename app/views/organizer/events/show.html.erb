@@ -61,10 +61,10 @@ Picture: <%= @event.picture_url %>
       <option value="Décors - Costume">Décors - Costume</option>
     </select>
     <%= f.association :skill, label:'Choose a skill', collection: name.uniq %>
-    <%= f.input :description, placeholder: "Add some free text to provide additional information.." %>
+    <%= f.input :description, requierd: true, placeholder: "Add some free text to provide additional information.." %>
     <div class="inlindedate">
-    <%= f.input :start_at, label: false, placeholder: "début de l'embauche", as: :string, input_html: {class: "datetimepicker"} %>
-    <%= f.input :end_at, label: false, placeholder: "fin de l'embauche", as: :string, input_html: {class: "datetimepicker"} %>
+    <%= f.input :start_at, label: false, requierd: true, placeholder: "début de l'embauche", as: :string, input_html: {class: "datetimepicker"} %>
+    <%= f.input :end_at, label: false, requierd: true, placeholder: "fin de l'embauche", as: :string, input_html: {class: "datetimepicker"} %>
     </div> 
     <div class="boutoncreate">
     <%= f.submit "Create", class: "btn btn-primary" %>
