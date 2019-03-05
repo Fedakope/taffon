@@ -1,0 +1,15 @@
+<ul class="list-inline tabs-underlined">
+  <li>
+    <% if current_user.organizer? %>
+      <p href="#" class="tab-underlined active" id="events-jobs"><%= current_user.events.all.count %> Evenement(s)</p>
+    <% else %>
+      <p href="#" class="tab-underlined active" id="events-jobs"><%= current_user.applies.all.count %> Candidature(s)</p>
+    <% end %>
+  </li>
+  <li>
+    <p href="#" class="tab-underlined" id="profile">Mon profil</p>
+  </li>
+  <li>
+    <p href="#" class="tab-underlined" id="reviews">Mes avis</p>
+  </li>
+</ul>

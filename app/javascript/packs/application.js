@@ -8,10 +8,17 @@ import { modalEvents } from "../plugins/modal";
 import { updateCategories } from '../plugins/cat';
 import { initUpdateNavbarOnScroll } from '../components/navbar';
 import { loadDynamicBannerText } from '../components/banner';
+import { initTabs } from "../components/tab";
+import { initSkills } from '../plugins/add_skill';
 
+initTabs();
 initUpdateNavbarOnScroll();
 loadDynamicBannerText();
 initMapbox();
 initAutocomplete();
 modalEvents();
+initSkills();
+
+
+// to keep a the end please...
 updateCategories();

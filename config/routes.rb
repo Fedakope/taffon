@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   mount Notifications::Engine => "/notifications"
 
   root to: "pages#home"
-  
+
   devise_for :users, controllers: { omniauth_callbacks: "users/omniauth_callbacks", :registrations => "my_registrations" }
 
 
@@ -32,6 +32,7 @@ Rails.application.routes.draw do
 
   get  'profile', to: 'pages#profile', as: :profile
   post 'profile', to: 'have_skills#create'
+  delete 'profile', to: 'have_skills#destroy'
 
   resources :applies, only: [:index, :update, :destroy]
 end
