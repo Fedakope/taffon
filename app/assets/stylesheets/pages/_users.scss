@@ -30,6 +30,7 @@
     font-size: 100%;
   }
 
+
   .card-product-skills {
     background: white;
     margin-left: auto;
@@ -52,7 +53,6 @@
   }
 
   .card-product-user {
-    background: white;
     position: relative;
     display: flex;
     height: 120px;
@@ -61,6 +61,18 @@
     margin-top: 10px !important;
     color: black;
     padding-right: 15px;
+    a:link, a:visited {
+    background-color: grey;
+    color: white;
+    padding: 14px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    }
+
+    a:hover, a:active {
+      background-color: red;
+    }
   }
 
   .image {
@@ -91,6 +103,7 @@
       right:0;
       font-stretch: ultra-condensed;
       font-size: small;
+
   }
 
 
