@@ -61,17 +61,19 @@
     margin-top: 10px !important;
     color: black;
     padding-right: 15px;
+
     a:link, a:visited {
-    background-color: grey;
-    color: white;
-    padding: 14px 25px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
+      border-radius: 100px;
+      background-color: rgb(180, 180, 180);
+      color: white;
+      padding: 14px 25px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
     }
 
     a:hover, a:active {
-      background-color: red;
+      background-color: rgb(120, 120, 120);
     }
   }
 
@@ -97,12 +99,12 @@
 
   }
   .product-back{
-      padding-top : 10px;
-      position: absolute;
-      bottom: -20px;
-      right:0;
-      font-stretch: ultra-condensed;
-      font-size: small;
+    padding-top: 10px;
+    position: absolute;
+    bottom: -38%;
+    right:0;
+    font-stretch: ultra-condensed;
+    font-size: small;
 
   }
 
