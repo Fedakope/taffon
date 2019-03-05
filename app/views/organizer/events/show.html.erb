@@ -77,15 +77,16 @@ Picture: <%= @event.picture_url %>
   <div class="corps">
     <p> Jobs list for <%= @event.name %></p>
     <% @event.jobs.each do |job| %>
-      <div class="card-product-show">
-        <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg">
-        <div class="card-product-infos-show" >
-          <h2><%= job.skill.category %></h2>
-          <p>Status: <strong><%= job.status %></strong></p>
+      <%= link_to job_path(job) do %>
+        <div class="card-product-show">
+          <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg">
+          <div class="card-product-infos-show" >
+            <h2><%= job.skill.category %></h2>
+            <p>Status: <strong><%= job.status %></strong></p>
+          </div>
         </div>
-      </div>
-
-    <% end %>
+      <% end %>
+      <% end %>
   </div>
 
 <!-- commenaire useless pour regul git -->
