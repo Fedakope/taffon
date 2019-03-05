@@ -1,7 +1,29 @@
 .profile-container {
-  min-height: calc(100vh - 70px - 140px - 90px)
+  min-height: calc(100vh - 70px - 100px - 90px)
 }
 
 .profile-container {
   background-color: white;
+}
+
+.card-product-description {
+  width: 100%;
+  padding: 20px;
+}
+
+
+.status {
+  // font-weight: bold;
+  padding: 4px 16px;
+  border-radius: 16px;
+}
+
+.accepted {
+  background-color: green;
+}
+.pending {
+  background-color: orange;
+}
+.rejected {
+  background-color: red;
 }
