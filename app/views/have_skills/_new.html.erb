@@ -1,5 +1,5 @@
 <%= simple_form_for profile_path do |f| %>
-  <%= f.input :skill, collection: Skill.all %>
-  <%= f.submit 'Add a skill', class: 'btn btn-primary' %>
+  <%= f.input :skill %>
+  <%= f.submit 'Add a skill', class: 'btn btn-primary hidden' %>
 <% end %>
 

@@ -1,0 +1,88 @@
+.users-show {
+  .events-cards {
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  display: flex;
+  width: 690px;
+  height: 220px;
+  margin-top: 15px;
+  padding: 5px;
+  }
+
+  .corps {
+   margin-left: 150px;
+   margin-right: 150px;
+   margin-top: 20px;
+   padding: 30px;
+   background-color: white;
+   border: solid 0.5px black;
+   border-radius: 10px;
+  }
+  blockquote {
+    padding-top: 10px;
+    font-size: 100%;
+
+  }
+
+  .card-product-user {
+    background: white;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .image {
+    padding: 10px;
+
+    img {
+      height: 100px;
+    }
+  }
+
+  .card-product-skills {
+    background: white;
+  }
+
+  .card-product-skills h2 {
+    font-size: 16px;
+    font-weight: bold;
+  }
+  .card-product-skills ul + li {
+    list-style: none;
+    font-size: 12px;
+    line-height: 1.4;
+    opacity: .7;
+    margin-bottom: 0;
+    margin-top: 8px;
+    margin-right: 20px;
+  }
+
+  .product-infos {
+    p {
+      font-size: 15px;
+    }
+    width: 30%;
+    padding-left: 70px;
+    padding-top: 20px;
+  }
+
+  .link-technicians {
+    font-size: 10px;
+
+  }
+  .product-back{
+      padding-top : 10px;
+      position: absolute;
+      bottom: -15px;
+      right:0;
+      font-stretch: ultra-condensed;
+      font-size: small;
+  }
+
+
+  .text-center {
+        margin-top: 50px;
+    margin-bottom: 35px;
+  }
+}
