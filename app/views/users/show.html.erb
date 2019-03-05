@@ -1,9 +1,9 @@
 <div class="container">
   <div class="card-product-user">
-  <div class="product-back">
-    <i class="fas fa-undo"></i>
-    <%= link_to 'Retour Liste Techniciens', users_path %>
-  </div>
+    <div class="product-back">
+      <i class="fas fa-undo"></i>
+      <%= link_to 'Retour Liste Techniciens', users_path %>
+    </div>
     <div class="image">
       <img src="http://thetransformedmale.files.wordpress.com/2011/06/bruce-wayne-armani.jpg"
             alt="" class="img-rounded img-responsive" />
@@ -16,20 +16,19 @@
           <i class="fas fa-map-marker-alt"></i>
         </cite>
       </small>
+      <div class="product-infos">
+        <i class="fas fa-envelope"></i><span> <%= @user.email %>
+        </span><br/>
+        <i class="fas fa-phone"></i><span> <%= @user.phone_number %></span>
+      </div>
     </blockquote>
     <div class="card-product-skills">
-      <h2>Mes Métier(s):</h2>
-        <ul>
-          <% @user.skills.each do |skill| %>
-            <li><%= skill.name %></li>
-          <% end %>
-        </ul>
-    </div>
-    <div class="product-infos">
-      <p><i class="fas fa-envelope"></i> email: <%= @user.email %>
-        <br/>
-        <i class="fas fa-phone"></i> <%= @user.phone_number %>
-      </p>
+      <h2>Métier(s)</h2>
+      <ul>
+        <% @user.skills.each do |skill| %>
+          <li class="skill-tag-users"><%= skill.name %></li>
+        <% end %>
+      </ul>
     </div>
   </div>
 
