@@ -23,8 +23,13 @@
       <!-- Avatar with dropdown menu -->
       <div class="navbar-wagon-item">
         <div class="dropdown">
-            <%= image_tag "user.png", class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
+          <% if current_user.photo.nil? %>
+            <%= image_tag "https://icons-for-free.com/free-icons/png/512/1891016.png", class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
+          <% else %>
+            <%= cl_image_tag current_user.photo, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
+          <% end %>
             <span><%= link_to pluralize(Notification.unread_count(current_user), ''), main_app.notifications_path, class:"badge badge-secondary notif-badge"%></span>
+
           <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
             <li>
               <% user = current_user %>
@@ -42,7 +47,8 @@
         </div>
       </div>
     <% else %>
-
+      <%= link_to "Create Event", main_app.new_organizer_event_path , class: "navbar-wagon-item navbar-wagon-link" %>
+      <%= link_to "List Technicians", main_app.users_path, class: "navbar-wagon-item navbar-wagon-link" %>
       <%= link_to t(".sign_in", default: "Login"), main_app.new_user_session_path, class: "btn btn-ghost navbar-wagon-item navbar-wagon-link" %>
       <%= link_to t(".sign_up", default: "Sign Up"), main_app.new_user_registration_path, class: "btn btn-ghost navbar-wagon-item navbar-wagon-link" %>
     <% end %>

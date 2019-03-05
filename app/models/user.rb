@@ -15,6 +15,10 @@ class User < ApplicationRecord
   validates_presence_of :phone_number
   validates_uniqueness_of :phone_number
 
+  # Cloudinary/CarrierWave
+  mount_uploader :photo, PhotoUploader
+
+  
   def self.from_omniauth_g(access_token)
     data = access_token.info
     user = User.where(email: data['email']).first
