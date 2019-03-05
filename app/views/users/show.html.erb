@@ -1,11 +1,12 @@
 <div class="container">
   <div class="card-product-user">
     <div class="product-back">
-      <i class="fas fa-undo"></i>
-      <%= link_to 'Retour Liste Techniciens', users_path %>
-    </div>
+      <%= link_to users_path do  %>
+        <i class="fas fa-undo"></i> Retour Liste Techniciens
+      <% end %>
+      </div>
     <div class="image">
-      <img src=<% if user.picture_url.blank? %>
+      <img src=<% if @user.picture_url.blank? %>
                           <%= "http://swedworks.se/wp-content/uploads/2018/05/person-logo.png" %>
                         <% else %>
                           <%= user.picture_url %>
