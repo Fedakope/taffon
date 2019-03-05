@@ -1,5 +1,5 @@
 require 'faker'
-
+Order.destroy_all
 Review.destroy_all
 HaveSkill.destroy_all
 Apply.destroy_all
@@ -140,6 +140,7 @@ e1_job1 = Job.create!(
   start_at: 5.day.from_now,
   end_at: 6.day.from_now,
   event_id: e1.id,
+  job_sku: "son_urgent",
   skill_id:skill1.id
 )
 
@@ -148,6 +149,7 @@ e1_job2 = Job.create!(
   start_at: 6.day.from_now,
   end_at: 7.day.from_now,
   event_id: e1.id,
+  job_sku: "info_urgent",
   skill_id:skill2.id
 )
 
@@ -156,6 +158,7 @@ e2_job1 = Job.create!(
   start_at: 1.day.from_now,
   end_at: 2.day.from_now,
   event_id: e2.id,
+  job_sku: "installation_urgent",
   skill_id:skill3.id
 )
 
@@ -164,6 +167,7 @@ e3_job1 = Job.create!(
   start_at: 10.day.from_now,
   end_at: 15.day.from_now,
   event_id: e3.id,
+  job_sku: "light_urgent",
   skill_id:skill4.id
 )
 

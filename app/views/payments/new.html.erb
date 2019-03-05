@@ -1,0 +1,17 @@
+<h1>Promote a job <%= @order.job_sku %></h1>
+<%= form_tag order_payments_path(@order) do %>
+  <article>
+    <label class="amount">
+      <h3>Promote this job by sending SMS and Emails to any technicians in the area.</h3>
+      <span>Amount: 5€</span>
+    </label>
+  </article>
+
+  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+    data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+    data-name="Job Promotion by Taff'on"
+    data-email="<%= current_user.email %>"
+    data-description="job <%= @order.job_sku %>"
+    data-amount="<%= @order.amount %>"
+    data-currency="€"></script>
+<% end %>

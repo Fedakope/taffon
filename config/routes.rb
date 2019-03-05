@@ -32,5 +32,7 @@ Rails.application.routes.draw do
   delete 'profile', to: 'have_skills#destroy'
 
   resources :applies, only: [:index, :update, :destroy]
-
+  resources :orders, only: [:show, :create] do
+    resources :payments, only: [:new, :create]
+  end
 end
