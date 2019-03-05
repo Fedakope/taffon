@@ -27,16 +27,11 @@ Picture: <%= @event.picture_url %>
   <%= link_to 'Delete event', organizer_event_path(@event), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-primary" %>
 </div>
 
-
-
-
-
 <% category=[] %>
 <% skills=Skill.all %>
 <% skills.each do |s| %>
 <% category << s.category %>
 <% end %>
-
 
 <% name=[] %>
 <% skills=Skill.all %>
@@ -44,9 +39,6 @@ Picture: <%= @event.picture_url %>
 <% name << s.name %>
 <% end %>
 
-
-  
-  
   <div class="corps">
   <%= simple_form_for [:organizer, @event, @job] do |f| %>
  <div id="list" data-job-categories="<%= Skill.all.to_json %>">
@@ -89,20 +81,3 @@ Picture: <%= @event.picture_url %>
       <% end %>
       <% end %>
   </div>
-
-<!-- commenaire useless pour regul git -->
-
-
-
-<h2> Jobs list for <%= @event.name %>:</h2>
-  <ul>
-          <% @event.jobs.each do |job| %>
-            <li><%= link_to 'See details', job_path(job) %> | <%= job.status %> | <%= job.event.name %> | <%= job.skill.category %> | <%= job.start_at %> | <%= job.end_at %>
-              <% if current_user == @event.user %>
-                <%= button_to "delete", organizer_event_job_path(@event, job), method: :delete %></li>
-              <% end %>
-    <% end %>
-  </ul>
-
-
-
