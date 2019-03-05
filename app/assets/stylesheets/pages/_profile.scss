@@ -5,3 +5,25 @@
 .profile-container {
   background-color: white;
 }
+
+.card-product-description {
+  width: 100%;
+  padding: 20px;
+}
+
+
+.status {
+  // font-weight: bold;
+  padding: 4px 16px;
+  border-radius: 16px;
+}
+
+.accepted {
+  background-color: green;
+}
+.pending {
+  background-color: orange;
+}
+.rejected {
+  background-color: red;
+}
