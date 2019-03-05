@@ -10,7 +10,7 @@ import { initUpdateNavbarOnScroll } from '../components/navbar';
 import { loadDynamicBannerText } from '../components/banner';
 import { checkNotification } from "../components/notification";
 import { initTabs } from "../components/tab";
-// import { initSkills } from '../plugins/add_skill';
+import { initSkills } from '../plugins/add_skill';
 
 
 checkNotification();
