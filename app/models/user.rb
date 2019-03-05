@@ -10,6 +10,10 @@ class User < ApplicationRecord
   has_many :reviews, foreign_key: :creator_id
   has_many :reviews, foreign_key: :destinator_id
   has_many :jobs, through: :events 
+  validates_presence_of :email
+  validates_uniqueness_of :email
+  validates_presence_of :phone_number
+  validates_uniqueness_of :phone_number
 
   def self.from_omniauth_g(access_token)
     data = access_token.info

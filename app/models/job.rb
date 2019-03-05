@@ -4,4 +4,5 @@ class Job < ApplicationRecord
   has_many :applies
   validates :start_at, presence: true
   validates :end_at, presence: true
+  validates :description, presence: true
 end
