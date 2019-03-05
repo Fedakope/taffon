@@ -112,6 +112,7 @@ ActiveRecord::Schema.define(version: 2019_03_05_110048) do
     t.boolean "organizer", default: false
     t.string "provider"
     t.string "uid"
+    t.string "photo"
     t.string "full_address"
     t.string "picture_url"
     t.string "description"
