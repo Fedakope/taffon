@@ -52,14 +52,17 @@ Picture: <%= @event.picture_url %>
   <div class="corps">
   <%= simple_form_for [:organizer, @event, @job] do |f| %>
  <div id="list" data-job-categories="<%= Skill.all.to_json %>">
-    <select class="form-control select optional" id="job_category">
-      <option value=""></option>
-      <option value="Son - Lumière">Son - Lumière</option>
-      <option value="Vidéo - Image">Vidéo - Image</option>
-      <option value="Structure - Rigger - Plateau">Structure - Rigger - Plateau</option>
-      <option value="Emplois techniques des services généraux">Emplois techniques des services généraux</option>
-      <option value="Décors - Costume">Décors - Costume</option>
-    </select>
+    <div class="form-group select required job_skill">
+      <label class="form-control-label select required" for="job_skill_id">Choisissez une catégorie</label>
+      <select class="form-control select optional" id="job_category">
+        <option value=""></option>
+        <option value="Son - Lumière">Son - Lumière</option>
+        <option value="Vidéo - Image">Vidéo - Image</option>
+        <option value="Structure - Rigger - Plateau">Structure - Rigger - Plateau</option>
+        <option value="Emplois techniques des services généraux">Emplois techniques des services généraux</option>
+        <option value="Décors - Costume">Décors - Costume</option>
+      </select>
+    </div>
     <%= f.association :skill, label:'Choose a skill', collection: name.uniq %>
     <%= f.input :description, requierd: true, placeholder: "Add some free text to provide additional information.." %>
     <div class="inlindedate">
