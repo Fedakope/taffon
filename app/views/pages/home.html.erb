@@ -94,11 +94,12 @@
         <div class="card-product">
         
           <div class="index-job-card-infos">
-      <img src=<% if user.photo.blank? %>
-                          <%= "http://swedworks.se/wp-content/uploads/2018/05/person-logo.png" %>
-                        <% else %>
-                          <%= user.photo %>
-                        <% end %>>            <div class="card-product-infos">
+            <img src=<% if user.photo.blank? %>
+                      <%= "http://swedworks.se/wp-content/uploads/2018/05/person-logo.png" %>
+                    <% else %>
+                      <%= user.photo %>
+                    <% end %>>            
+            <div class="card-product-infos">
               <h2><%= user.first_name %></h2>
               <p><% user.categories.map do |category|  %>
                   <%= category %>
