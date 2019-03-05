@@ -9,8 +9,9 @@
       <img src=<% if @user.picture_url.blank? %>
                           <%= "http://swedworks.se/wp-content/uploads/2018/05/person-logo.png" %>
                         <% else %>
-                          <%= user.picture_url %>
-                        <% end %>>
+                          <%= @user.picture_url %>
+                        <% end %>alt="" class="img-rounded img-responsive" />
+
     </div>
     <blockquote>
       <p><%= @user.first_name %> <%= @user.last_name %></p>
