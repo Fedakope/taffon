@@ -22,7 +22,7 @@
     <div class="profile-event-card-row">
       <div class="col-xs-12">
           <% event.jobs.each do |job| %>
-            <div class="card-product card-job-event">
+            <div class="card-product card-job-event std-card">
               <div class="card-product-infos text-center" >
                 <span id="modalspan">
                   <button id="myBtn" class= "modal-event-btn">
@@ -44,7 +44,7 @@
             </div>
           <% end %>
 
-          <div class="card-product card-job-event add-card">
+          <div class="card-product card-job-event std-card add-card">
             <div class="card-product-description">
               <h2><i class="fas fa-plus"></i> Add a new Job</h2>
             </div>
@@ -55,14 +55,16 @@
   </div>
 <% end %>
 
-<div class="container profile-event-card std-card">
-  <div class="profile-event-card-row">
-    <div class="col-xs-12">
-      <div class="card-product card-job-event add-card">
-        <div class="card-product-description">
-          <h2><i class="fas fa-plus"></i> Create new Event</h2>
+<a href="organizer/events/new" class='modal-card-link'>
+  <div class="container profile-event-card std-card">
+    <div class="profile-event-card-row">
+      <div class="col-xs-12">
+        <div class="card-product card-job-event std-card add-card">
+          <div class="card-product-description">
+            <h2><i class="fas fa-plus"></i> Create new Event</h2>
+          </div>
         </div>
       </div>
     </div>
   </div>
-</div>
+</a>

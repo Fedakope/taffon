@@ -1,10 +1,14 @@
 <!-- Modal content -->
 <div class="modal-content text-left">
-  <span class="close">&times;</span>
+  <span class="close text-right">&times;</span>
 
     <% if job.applies.blank? %>
-      <h2>Désolé, personne n'as encore postulé pour l'instant</h2>
-      <p>Astuce : Vous pouvez aller dans la liste des techniciens pour trouver une personne qui vous correspondrait pour ce poste.</p>
+      <div class="card-product card-job-event">
+        <div class="card-product-description">
+          <h2>Désolé, personne n'as encore postulé pour l'instant</h2>
+          <p>Astuce : Vous pouvez aller dans la liste des techniciens pour trouver une personne qui vous correspondrait pour ce poste.</p>
+        </div>
+      </div>
     <% else %>
       <% job.applies.each do |apply| %>
         <div class="notification std-card">
@@ -50,10 +54,11 @@
       <% end %>
     <% end %>
 
-    <div class="card-product card-job-event add-card">
-      <div class="card-product-description">
-        <h2><i class="fas fa-plus"></i> Ajouter un autre technicien (taffon s'occupe de la recherche)</h2>
+    <a href="users" class='modal-card-link'>
+      <div class="card-product card-job-event add-card">
+        <div class="card-product-description">
+          <h2><i class="fas fa-plus"></i> Ajouter un autre technicien (taffon s'occupe de la recherche)</h2>
+        </div>
       </div>
-    </div>
-
+    </a>
 </div>
