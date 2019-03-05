@@ -1,5 +1,5 @@
 require 'faker'
-
+Order.destroy_all
 Review.destroy_all
 HaveSkill.destroy_all
 Apply.destroy_all
@@ -65,7 +65,7 @@ organizer3 = User.create!(
 technician1 = User.create!(
   email: "technicien1@gmail.com",
   password: "azerty",
-  picture_url: "",
+  photo: "",
   first_name: "tech1-firstname",
   last_name: "tech1-lastname",
   full_address: "147 Avenue du Maréchal Juin, 76230 Bois-Guillaume",
@@ -75,7 +75,7 @@ technician1 = User.create!(
 technician2 = User.create!(
   email: "max@gmail.com",
   password: "azerty",
-  picture_url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR0IkN0R6sDbPSByOpikeeBjDC_5uAKQYy6z3eRDq3ufQ8G1pN1",
+  photo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR0IkN0R6sDbPSByOpikeeBjDC_5uAKQYy6z3eRDq3ufQ8G1pN1",
   first_name: "Maxime",
   last_name: "Legras",
   full_address: "15 Rue Bossuet, 69006 Lyon",
@@ -85,7 +85,7 @@ technician2 = User.create!(
 technician3 = User.create!(
   email: "alexis@gmail.com",
   password: "azerty",
-  picture_url: "",
+  photo: "",
   first_name: "Alexis",
   last_name: "Dewerdt",
   full_address: "Place de la Mairie, 01960 Péronnas",
@@ -140,6 +140,7 @@ e1_job1 = Job.create!(
   start_at: 5.day.from_now,
   end_at: 6.day.from_now,
   event_id: e1.id,
+  job_sku: "son_urgent",
   skill_id:skill1.id
 )
 
@@ -148,6 +149,7 @@ e1_job2 = Job.create!(
   start_at: 6.day.from_now,
   end_at: 7.day.from_now,
   event_id: e1.id,
+  job_sku: "info_urgent",
   skill_id:skill2.id
 )
 
@@ -156,6 +158,7 @@ e2_job1 = Job.create!(
   start_at: 1.day.from_now,
   end_at: 2.day.from_now,
   event_id: e2.id,
+  job_sku: "installation_urgent",
   skill_id:skill3.id
 )
 
@@ -164,6 +167,7 @@ e3_job1 = Job.create!(
   start_at: 10.day.from_now,
   end_at: 15.day.from_now,
   event_id: e3.id,
+  job_sku: "light_urgent",
   skill_id:skill4.id
 )
 

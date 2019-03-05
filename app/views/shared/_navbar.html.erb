@@ -23,8 +23,8 @@
       <!-- Avatar with dropdown menu -->
       <div class="navbar-wagon-item">
         <div class="dropdown">
-          <% if current_user.photo.nil? %>
-            <%= image_tag "https://icons-for-free.com/free-icons/png/512/1891016.png", class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
+          <% if current_user.photo.blank? %>
+            <%= cl_image_tag "https://icons-for-free.com/free-icons/png/512/1891016.png", class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
           <% else %>
             <%= cl_image_tag current_user.photo, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
           <% end %>

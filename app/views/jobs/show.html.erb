@@ -9,6 +9,13 @@
   <li> Starts On: <%= @job.start_at %></li>
   <li> Ends On: <%= @job.end_at %></li>
   <li> Skill: <%= @job.skill.category %></li>
+
+  <%= csrf_meta_tags %>
+  <%= form_tag orders_path do %>
+  <%= hidden_field_tag 'job_id', @job.id %>
+  <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+  <%= submit_tag 'Promote this event', class: 'btn btn-primary' %>
+<% end %>
 </div>
 
 
