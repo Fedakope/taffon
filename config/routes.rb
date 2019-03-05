@@ -5,9 +5,6 @@ Rails.application.routes.draw do
 
   devise_for :users, controllers: { omniauth_callbacks: "users/omniauth_callbacks", :registrations => "my_registrations" }
 
-
-  devise_for :users, only: [:edit, :show]
-
   resources :users, only: [:index, :show] do
     resources :reviews, only: [:create]
   end
@@ -35,4 +32,5 @@ Rails.application.routes.draw do
   delete 'profile', to: 'have_skills#destroy'
 
   resources :applies, only: [:index, :update, :destroy]
+
 end
