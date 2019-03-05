@@ -1,3 +1,11 @@
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(http://techniscene.eu/wp-content/uploads/2014/12/grandma2.jpg">
+  <div class="container">
+    <div class="banner-content">
+      <h1>Tous les details de votre technicien</h1>
+    </div>
+  </div>
+</div>
+
 <div class="container">
   <div class="card-product-user">
     <div class="product-back">
@@ -7,11 +15,10 @@
       </div>
     <div class="image">
       <img src=<% if @user.picture_url.blank? %>
-                          <%= "http://swedworks.se/wp-content/uploads/2018/05/person-logo.png" %>
+                        <%= "http://swedworks.se/wp-content/uploads/2018/05/person-logo.png" %>
                         <% else %>
                           <%= @user.picture_url %>
                         <% end %>alt="" class="img-rounded img-responsive" />
-
     </div>
     <blockquote>
       <p><%= @user.first_name %> <%= @user.last_name %></p>
