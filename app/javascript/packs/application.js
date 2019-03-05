@@ -20,7 +20,7 @@ loadDynamicBannerText();
 initMapbox();
 initAutocomplete();
 modalEvents();
-// initSkills();
+initSkills();
 
 
 // to keep a the end please...
