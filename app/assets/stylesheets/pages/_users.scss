@@ -55,6 +55,12 @@
     background: white;
     position: relative;
     display: flex;
+    height: 120px;
+    background: white;
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    margin-top: 10px !important;
+    color: black;
+    padding-right: 15px;
   }
 
   .image {
@@ -81,7 +87,7 @@
   .product-back{
       padding-top : 10px;
       position: absolute;
-      bottom: 0px;
+      bottom: -20px;
       right:0;
       font-stretch: ultra-condensed;
       font-size: small;
