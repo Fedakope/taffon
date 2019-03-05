@@ -117,6 +117,7 @@
   color: black;
   &:hover {
     color: #636363;
+    cursor: pointer;
   }
 }
 
@@ -150,7 +151,7 @@
   }
 }
 
-// debut de card des job lorsquon consulte les jobs sur un event 
+// debut de card des job lorsquon consulte les jobs sur un event
 .card-product-show {
   overflow: hidden;
   height: 120px;
@@ -184,7 +185,7 @@
 .card-product-show .card-product-infos-show {
   padding: 16px;
 }
-// fin de 
+// fin de
 // card des job open lorsqu'on consulte les jobs sur un event
 
 #link-job-list {
