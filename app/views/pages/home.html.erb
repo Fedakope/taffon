@@ -61,7 +61,11 @@
         <div class="card-product">
         
           <div class="index-job-card-infos">
-            <img src="https://picsum.photos/500/500/?random">
+            <img src=<% if job.event.picture_url.blank? %>
+                          <%= "https://png.pngtree.com/svg/20170217/8553c4769c.png" %>
+                        <% else %>
+                          <%= job.event.picture_url %>
+                        <% end %>>
             <div class="card-product-infos">
               <h2><%= job.skill.category %></h2>
               <p><%= job.event.name %></p>
@@ -90,8 +94,11 @@
         <div class="card-product">
         
           <div class="index-job-card-infos">
-            <img src="https://picsum.photos/500/500/?random">
-            <div class="card-product-infos">
+      <img src=<% if user.photo.blank? %>
+                          <%= "http://swedworks.se/wp-content/uploads/2018/05/person-logo.png" %>
+                        <% else %>
+                          <%= user.photo %>
+                        <% end %>>            <div class="card-product-infos">
               <h2><%= user.first_name %></h2>
               <p><% user.categories.map do |category|  %>
                   <%= category %>
