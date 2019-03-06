@@ -13,6 +13,6 @@ class PagesController < ApplicationController
       @user_skills << have_skill.skill
     end
     @event = Event.new
-    @have_skill = HaveSkill.new
+    # @have_skill = HaveSkill.new
   end
 end
