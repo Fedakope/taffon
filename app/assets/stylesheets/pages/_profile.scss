@@ -159,7 +159,8 @@
 
 .modal-accept-reject {
   position: absolute;
-  right: 20px;
+  width: 150px;
+  right: 0px;
   top: 20px;
 }
 
@@ -167,4 +168,8 @@
   color: lighten($blue, 10%);
 }
 
+
+.modal-accpt-reject {
+  display: inline-block
+}
 
