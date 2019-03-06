@@ -28,7 +28,7 @@
           <% else %>
             <%= cl_image_tag current_user.photo, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
           <% end %>
-            <span><%= link_to pluralize(Notification.unread_count(current_user), ''), main_app.notifications_path, class:"badge badge-secondary notif-badge"%></span>
+            <span><%= link_to pluralize(Notification.unread_count(current_user), ''), main_app.profile_path, class:"badge badge-secondary notif-badge"%></span>
 
           <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
             <li>
