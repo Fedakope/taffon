@@ -1,48 +1,64 @@
 <!-- Modal content -->
 <div class="modal-content text-left">
-  <span class="close">&times;</span>
+  <span class="close text-right">&times;</span>
 
     <% if job.applies.blank? %>
-      <h2>Désolé, personne n'as encore postulé pour l'instant</h2>
-      <p>Astuce : Vous pouvez aller dans la liste des techniciens pour trouver une personne qui vous correspondrait pour ce poste.</p>
+      <div class="card-product card-job-event">
+        <div class="card-product-description">
+          <h2>Désolé, personne n'as encore postulé pour l'instant</h2>
+          <p>Astuce : Vous pouvez aller dans la liste des techniciens pour trouver une personne qui vous correspondrait pour ce poste.</p>
+        </div>
+      </div>
     <% else %>
       <% job.applies.each do |apply| %>
-        <a href="users/<%= apply.user.id %>" class='modal-card-link'>
-          <div class="container profile-event-card modal-tech-info" >
-            <img src="<%= apply.user.picture_url %>" alt="technician picture">
-            <div class="tech-info">
+        <div class="notification std-card">
+          <div class="row">
+            <img src="<%= apply.user.picture_url %>" alt="technician picture" class="avatar"/>
+            <div class="modal-tech-info">
               <h2><%= apply.user.first_name %> <span class="last_name"><%= apply.user.last_name %></span></h2>
               <p><i class="fas fa-map-marker-alt"></i> -  <%= apply.user.full_address %></p>
               <p><i class="fas fa-envelope"></i> -  <%= apply.user.email %></p>
               <p><i class="fas fa-phone"></i> -  <%= apply.user.phone_number %></p>
             </div>
-            <div class="container">
+            <div class="modal-tech-description">
               <% apply.user.skills.each do |skill| %>
                 <div class='tech-skill'><%= skill.name %> <i class="fa fa-check"></i></div>
               <% end %>
-            </div>
-            <div class="container col-xs-10">
               <p><%= apply.user.description %></p>
             </div>
-            <div class="col-xs-2 text-center">
-              <% if apply.status == "Pending" || apply.status == "Accepted" %>
-                <!--Reject Button> -->
-                <%= simple_form_for (apply) do |f| %>
-                  <%= f.hidden_field :status, value: "Rejected" %>
-                  <%= f.submit '✖', class: "btn btn-sm btn-danger" %>
+
+            <div class="modal-accept-reject">
+              <div>
+                <div class="accept-reject-btn">
+                <% if apply.status == "Pending" || apply.status == "Accepted" %>
+                  <!--Reject Button> -->
+                  <%= simple_form_for (apply) do |f| %>
+                    <%= f.hidden_field :status, value: "Rejected" %>
+                    <%= f.submit '✖', class: "btn btn-sm btn-danger" %>
+                  <% end %>
                 <% end %>
-              <% end %>
-              <% if apply.status == "Pending" || apply.status == "Rejected" %>
-                <!--Accept Button> -->
-                <%= simple_form_for (apply) do |f| %>
-                  <%= f.hidden_field :status, value: "Accepted" %>
-                  <%= f.submit '✔', class: "btn btn-sm btn-success" %>
+                </div>
+                <div class="accept-reject-btn">
+                <% if apply.status == "Pending" || apply.status == "Rejected" %>
+                  <!--Accept Button> -->
+                  <%= simple_form_for (apply) do |f| %>
+                    <%= f.hidden_field :status, value: "Accepted" %>
+                    <%= f.submit '✔', class: "btn btn-sm btn-success" %>
+                  <% end %>
                 <% end %>
-              <% end %>
+                </div>
+              </div>
             </div>
           </div>
-        </a>
+        </div>
       <% end %>
     <% end %>
 
+    <a href="users" class='modal-card-link'>
+      <div class="card-product card-job-event add-card">
+        <div class="card-product-description">
+          <h2><i class="fas fa-plus"></i> Ajouter un autre technicien (taffon s'occupe de la recherche)</h2>
+        </div>
+      </div>
+    </a>
 </div>

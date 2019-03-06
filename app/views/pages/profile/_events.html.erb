@@ -1,44 +1,70 @@
 <% current_user.events.each do |event| %>
-  <div class="container profile-event-card">
-    <div class="hidden-xs col-sm-2">
-      <div class="">
-        <img class="event-pic" src="<%= event.picture_url %>">
+  <div class="container profile-event-card std-card">
+    <div class="profile-event-card-row">
+      <div class="hidden-xs col-sm-2">
+        <div class="">
+          <img class="event-pic" src="<%= event.picture_url %>">
+            <% event.jobs.each do |job| %>
+                <a class="tag"><%= job.skill.category %></a>
+            <% end %>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-10">
+        <h3><%= event.name %></h3>
+        <div class="event-details">
+          <p><i class="fas fa-building"> </i> - <%= event.company %></p>
+          <p><i class="fas fa-map-marker-alt"></i> -  <%= event.full_address %></p>
+          <p><i class="fas fa-clock"></i> - <%= event.start_date %> / <%= event.end_date %></p>
+        </div>
+        <p><%= event.description %></p>
+      </div>
+    </div>
+    <div class="profile-event-card-row">
+      <div class="col-xs-12">
           <% event.jobs.each do |job| %>
-              <a class="tag"><%= job.skill.name %></a>
-          <% end %>
-      </div>
-    </div>
-    <div class="col-xs-12 col-sm-10">
-      <h3><%= event.name %></h3>
-      <div class="event-details">
-        <p><i class="fas fa-building"> </i> - <%= event.company %></p>
-        <p><i class="fas fa-map-marker-alt"></i> -  <%= event.full_address %></p>
-        <p><i class="fas fa-clock"></i> - <%= event.start_date %> / <%= event.end_date %></p>
-      </div>
-      <p><%= event.description %></p>
-    </div>
-    <div class="col-xs-12">
-        <% event.jobs.each do |job| %>
-          <div class="card-product card-job-event">
-            <div class="card-product-description">
-              <h2><%= job.skill.category %></h2>
-              <p><%= job.description %></p>
-            </div>
-            <div class="card-product-infos text-center" >
-              <span id="modalspan">
-                <button id="myBtn" class= "modal-event-btn">
-                  <i class="fas fa-user-clock"></i> <%= job.applies.count %>
-                  <p class='status <%= job.status.downcase %>'><%= job.status.downcase %></p>
-                </button>
-                <!-- The Modal -->
-                <div id="myModal" class="modal">
-                  <%= render '/pages/profile/modal-accept-reject', job: job %>
-                </div>
-              </span>
+            <div class="card-product card-job-event std-card">
+              <div class="card-product-infos text-center" >
+                <span id="modalspan">
+                  <button id="myBtn" class= "modal-event-btn">
+                    <i class="fas fa-user-clock"></i> <%= job.applies.count %>
+                    <p class='status <%= job.status.downcase %>'><%= job.status.downcase %></p>
+                  </button>
+                  <!-- The Modal -->
+                  <div id="myModal" class="modal">
+                    <%= render '/pages/profile/modal-accept-reject', job: job %>
+                  </div>
+                </span>
+              </div>
+
+              <div class="card-product-description">
+                <h2><%= job.skill.category %></h2>
+                <p><%= job.description %></p>
+              </div>
 
             </div>
+          <% end %>
+
+          <div class="card-product card-job-event std-card add-card">
+            <div class="card-product-description">
+              <h2><i class="fas fa-plus"></i> Add a new Job</h2>
+            </div>
           </div>
-        <% end %>
+
+      </div>
     </div>
   </div>
 <% end %>
+
+<a href="organizer/events/new" class='modal-card-link'>
+  <div class="container profile-event-card std-card">
+    <div class="profile-event-card-row">
+      <div class="col-xs-12">
+        <div class="card-product card-job-event std-card add-card">
+          <div class="card-product-description">
+            <h2><i class="fas fa-plus"></i> Create new Event</h2>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</a>

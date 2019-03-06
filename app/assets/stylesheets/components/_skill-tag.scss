@@ -28,7 +28,12 @@
 
   &:hover + label{
     background: lighten($blue, 7%);
+    color: white;
   }
+}
+
+.skill-tag input[type=checkbox]:hover ~ .fa-plus{
+  color: white;
 }
 
 .skill-tag label{
@@ -47,7 +52,7 @@
   z-index: 250;
   right: 11px;
   top: 9px;
-  color: white;
+  color: grey;
   line-height: 0.95;
 }
 
@@ -65,14 +70,17 @@
 // 2. Animation/Action      ============
 .skill-tag input[type=checkbox]:checked + label{
   background: $blue;
+  color: white;
   animation: flick 0.08s;
 }
 .skill-tag input[type=checkbox]:checked ~ .fa-plus{
   display: none;
 }
+
 .skill-tag input[type=checkbox]:checked ~ .fa-check{
   animation: flick 0.08s;
   display: block;
+  color: white;
 }
 @keyframes flick {
   0%   {}
