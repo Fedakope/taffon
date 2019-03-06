@@ -14,12 +14,7 @@
 
 // Your CSS partials
 @import "layouts/index";
-@import "pages/profile";
 @import "pages/*";
 
 // Your components
-@import "components/tabs";
-@import "components/index";
-@import "components/avatar";
-@import "components/form";
-@import "components/skill-tag";
+@import "components/*";
