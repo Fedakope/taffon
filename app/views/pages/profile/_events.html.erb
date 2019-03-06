@@ -55,16 +55,26 @@
   </div>
 <% end %>
 
-<a href="organizer/events/new" class='modal-card-link'>
-  <div class="container profile-event-card std-card">
-    <div class="profile-event-card-row">
-      <div class="col-xs-12">
-        <div class="card-product card-job-event std-card add-card">
-          <div class="card-product-description">
-            <h2><i class="fas fa-plus"></i> Create new Event</h2>
-          </div>
+<span id="modalspan">
+    <div class="container profile-event-card std-card">
+      <div class="profile-event-card-row">
+        <div class="col-xs-12">
+          <button id="myBtn" class= "modal-event-btn">
+            <div class="card-product card-job-event std-card add-card">
+              <div class="card-product-description">
+                <h2><i class="fas fa-plus"></i> Create new Event</h2>
+              </div>
+            </div>
+          </button>
         </div>
       </div>
     </div>
+  <!-- The Modal -->
+  <div id="myModal" class="modal">
+    <%= render '/pages/profile/modal-create-event'%>
   </div>
-</a>
+</span>
+
+
+
+
