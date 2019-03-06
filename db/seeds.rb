@@ -39,6 +39,7 @@ Skill.create!([
 organizer1 = User.create!(
   email: "organisateur1@gmail.com",
   password: "azerty",
+  picture_url: "https://cdn.deguisetoi.fr/images/rep_art/gra/217/3/217347/cagoule-humoristique-tete-de-gland-adulte_217347.jpg",
   first_name: "orga1-firstname",
   last_name: "orga1-lastname",
   phone_number: 0424242424,
@@ -64,9 +65,7 @@ organizer3 = User.create!(
 
 technician1 = User.create!(
   email: "technicien1@gmail.com",
-  password: "azerty",
-  photo: "https://img1.freepng.fr/20180421/sfe/kisspng-computer-icons-avatar-child-clip-art-5adb327b418037.4283260315243147472683.jpg",
-  picture_url: "https://img1.freepng.fr/20180421/sfe/kisspng-computer-icons-avatar-child-clip-art-5adb327b418037.4283260315243147472683.jpg",
+  picture_url: "https://www.teteacoiffer.com/wp-content/uploads/2018/01/barbie.png",
   first_name: "tech1-firstname",
   last_name: "tech1-lastname",
   full_address: "147 Avenue du Maréchal Juin, 76230 Bois-Guillaume",
@@ -214,8 +213,14 @@ reviews1 = Review.create!(
   rating: "4",
   content: "cool",
   creator_id: organizer1.id,
+  destinator_id: technician1.id)
+
+reviews1 = Review.create!(
+  rating: "5",
+  content: "Excellent services",
+  creator_id: organizer2.id,
   destinator_id: technician1.id
-)
+  )
   puts "DB SEEDED THX YOU MAXKRAK"
 
 ######################## FAKE DATA
