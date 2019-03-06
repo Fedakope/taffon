@@ -4,7 +4,7 @@ const loadDynamicBannerText = () => {
   if (banner) {
     new Typed('#banner-typed-text', {
       strings: ["the right event", "the right organizer", "the right team"],
-      typeSpeed: 100,
+      typeSpeed: 10,
       loop: true,
       loopCount: Infinity
     });
