@@ -159,8 +159,9 @@
 
 .modal-accept-reject {
   position: absolute;
-  width: 150px;
-  right: 0px;
+  display: inline-block;
+  width: 180px;
+  right: 0;
   top: 20px;
 }
 
@@ -170,6 +171,10 @@
 
 
 .modal-accpt-reject {
-  display: inline-block
+  display: inline-block;
+}
+
+.accept-reject-btn {
+  width: 80px;
 }
 

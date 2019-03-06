@@ -29,19 +29,19 @@
 
             <div class="modal-accept-reject">
               <div>
-                <div class="accept-reject-btn">
+                <div class="">
                 <% if (apply.status == "Pending") || (apply.status == "Rejected") %>
                   <!--Accept Button> -->
                   <%= simple_form_for (apply), html: {class: 'modal-accpt-reject'} do |f| %>
                     <%= f.hidden_field :status, value: "Accepted" %>
-                    <%= f.submit 'accepter', class: "btn btn-sm btn-success" %>
+                    <%= f.submit 'accepter', class: "accept-reject-btn btn btn-sm btn-success" %>
                   <% end %>
                 <% end %>
                 <% if (apply.status == "Pending") || (apply.status == "Accepted") %>
                   <!--Reject Button> -->
                   <%= simple_form_for (apply), html: {class: 'modal-accpt-reject'} do |f| %>
                     <%= f.hidden_field :status, value: "Rejected" %>
-                    <%= f.submit 'refuser', class: "btn btn-sm btn-danger" %>
+                    <%= f.submit 'refuser', class: "accept-reject-btn btn btn-sm btn-danger" %>
                   <% end %>
                 <% end %>
                 </div>
