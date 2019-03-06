@@ -12,5 +12,7 @@ class PagesController < ApplicationController
     @have_skills.each do |have_skill|
       @user_skills << have_skill.skill
     end
+    @event = Event.new
+    @have_skill = HaveSkill.new
   end
 end
