@@ -14,6 +14,8 @@ gem 'redis'
 
 gem 'flutie'
 gem 'stripe'
+gem 'bootstrap-social-rails'
+gem 'font-awesome-rails'
 
 gem 'autoprefixer-rails'
 gem 'bootstrap-sass', '~> 3.3'
