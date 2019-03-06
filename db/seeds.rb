@@ -65,6 +65,7 @@ organizer3 = User.create!(
 
 technician1 = User.create!(
   email: "technicien1@gmail.com",
+  password: "azerty",
   picture_url: "https://www.teteacoiffer.com/wp-content/uploads/2018/01/barbie.png",
   first_name: "tech1-firstname",
   last_name: "tech1-lastname",
