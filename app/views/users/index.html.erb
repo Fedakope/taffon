@@ -7,62 +7,68 @@
   </div>
 </div>
 
-<div class="grid-container">
-<!-- main cards section -->
-  <div class="all-events-cards">
-    <% @users.each do |user| %>
-      <% if user.organizer == false %>
-        <div class="events-cards">
-          <div class="left-side">
-            <img src="<%= user.photo %>" alt='profile-picture'>
-            <ul class="tags">
-              <% if user.have_skill.present? %>
-                <% have_skills = user.have_skill.all %>
-                <% have_skills.each do |have_skill| %>
-                  <li>
-                    <a class ="tag"><%= have_skill.skill.name %></a>
-                  </li>
+<div class="div">
+  <p> </p>
+</div>
+
+<div class="container user-cards">
+  <% @users.each do |user| %>
+    <% if user.organizer == false %>
+      <a href="users/<%= user.id %>">
+        <div class="notification std-card">
+          <!-- <div class="row"> -->
+            <img src="<%= user.picture_url %>" alt="technician picture" id='tech-avatar'class="avatar"/>
+            <div class="tech-info">
+              <h3><%= user.first_name %></h3>
+              <p><span class="last_name"><%= user.last_name %></span></p>
+              <p><i class="fas fa-map-marker-alt"></i> -  <%= user.full_address %></p>
+              <p><i class="fas fa-envelope"></i> -  <%= user.email %></p>
+              <p><i class="fas fa-phone"></i> -  <%= user.phone_number %></p>
+              <% user_reviews = Review.where(destinator: user) %>
+              <% if user_reviews.count == 0 %>
+                  <% averrage_review = nil %>
+              <% else %>
+                <% averrage_review = 0 %>
+                <% user_reviews.each do |review| %>
+                  <% averrage_review += review.rating %>
                 <% end %>
+                <% averrage_review = (averrage_review / user_reviews.count) %>
               <% end %>
-            </ul>
-          </div>
-          <div class="card-product-infos">
-            <div class="upper-side">
-              <div class="upper-side-titles">
-                <h2><%= user.first_name %></h2>
-                <p><%= user.last_name %></p>
-              </div>
-              <div class="upper-side-btns">
-                <ul class="btns">
-                  <li><a href="#"><i class="fas fa-heart"></i></a></li>
-                  <li><a href="/users/<%=user.id%>">Details</a></li>
-                </ul>
-              </div>
+              <p> <!-- Rating stars -->
+                <% case averrage_review %>
+                <% when nil %>
+                  <i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>
+                  (0 avis)
+                <% when 0 %>
+                  <i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>
+                  (<%= user_reviews.count %> avis)
+                <% when 1 %>
+                  <i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>
+                  (<%= user_reviews.count %> avis)
+                <% when 2 %>
+                  <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>
+                  (<%= user_reviews.count %> avis)
+                <% when 3 %>
+                  <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>
+                  (<%= user_reviews.count %> avis)
+                <% when 4 %>
+                  <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                  (<%= user_reviews.count %> avis)
+                <% when 5 %>
+                  <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                  (<%= user_reviews.count %> avis)
+                <% end  %>
+              </p>
             </div>
-
-            <div class="middle-side">
-              <p><span id="desc"><%= user.description %>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod temporinc ididunt ut dolore magna aliqua.</span></p>
-              <p><i class="fas fa-map-marker-alt"></i> <%= user.full_address %></p>
-              <p><i class="fas fa-phone"></i>  <%= user.phone_number %></p>
-              <p><i class="fas fa-envelope"></i>  <%= user.email %></p>
-
-              <% reviews = Review.where(destinator: user) %>
-              <% if reviews.present? %>
-                <p id="xxx"><i class="fas fa-comments"></i> <%= reviews.count %></p>
+            <div class="tech-description">
+              <h3>Métier(s)</h3>
+              <% user.skills.each do |skill| %>
+                <div class='tech-skill'><%= skill.name %> <i class="fa fa-check"></i></div>
               <% end %>
+              <p><%= user.description %></p>
             </div>
-          </div>
         </div>
-      <% end %>
+      </a>
     <% end %>
-  </div>
-
-  <!-- Map container -->
-  <div
-    class="map"
-    id="map"
-    style="width: 100%;
-    height: 400px;"
-    data-markers="<%= @markers.to_json %>"
-    data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
-  ></div>
+  <% end %>
+</div>
