@@ -128,3 +128,37 @@
     border-radius: 12px;
     transition: all 0.08s ease-in;
   }
+
+
+// ___________________________________________
+#tech-avatar {
+  width: 100px;
+  height: 100px;
+}
+
+.tech-info {
+  // width: 90vw;
+  padding-left: 20px;
+}
+
+.user-cards {
+  a{
+    color: $gray;
+    .std-card {
+      margin: 20px;
+    }
+  }
+
+  a:hover {
+    text-decoration: none;
+    .std-card {
+      box-shadow: 0 1px 3px $blue;
+    }
+  }
+}
+
+.tech-description {
+  position: absolute;
+  right: 20px;
+  width: 400px;
+}
