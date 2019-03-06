@@ -3,8 +3,8 @@ const banner = document.querySelector('#banner-typed-text');
 const loadDynamicBannerText = () => {
   if (banner) {
     new Typed('#banner-typed-text', {
-      strings: ["the right event", "the right organizer", "the right team"],
-      typeSpeed: 10,
+      strings: ["le bon évènement", "le bon organisateur", "la bonne équipe"],
+      typeSpeed: 150,
       loop: true,
       loopCount: Infinity
     });
