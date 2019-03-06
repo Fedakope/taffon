@@ -40,7 +40,7 @@
       <h2>Métier(s)</h2>
       <ul>
         <% @user.skills.each do |skill| %>
-          <li class="skill-tag-users"><%= skill.name %></li>
+          <li class="tech-skill"><%= skill.name %> <i class="fa fa-check"></i></li>
         <% end %>
       </ul>
     </div>
