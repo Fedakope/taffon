@@ -7,50 +7,18 @@
 </div>
 
 <div class="container">
-  <div class="card-product-user">
-    <div class="product-back">
-      <%= link_to users_path do  %>
-        <i class="fas fa-undo"></i> Retour Liste Techniciens
-      <% end %>
-      </div>
-    <div class="image">
-      <img src=<% if @user.picture_url.blank? %>
-                        <%= "http://swedworks.se/wp-content/uploads/2018/05/person-logo.png" %>
-                        <% else %>
-                          <%= @user.picture_url %>
-                        <% end %>alt="" class="img-rounded img-responsive" />
-    </div>
-    <blockquote>
-      <p><%= @user.first_name %> <%= @user.last_name %></p>
-      <small>
-        <cite title="Source Title">
-          <%= @user.full_address %>
-          <i class="fas fa-map-marker-alt"></i>
-        </cite>
-      </small>
-      <div class="product-infos">
-        <i class="fas fa-envelope"></i><span> <%= @user.email %>
-        </span><br/>
-        <i class="fas fa-phone"></i><span> <%= @user.phone_number %></span>
-      </div>
-    </blockquote>
-    <div class="card-product-skills">
-      <h2>Métier(s)</h2>
-      <ul>
-        <% @user.skills.each do |skill| %>
-          <li class="tech-skill"><%= skill.name %> <i class="fa fa-check"></i></li>
-        <% end %>
-      </ul>
-    </div>
-  </div>
+    <%= render 'shared/card_user', user: @user %>
 
-
-      <% if current_user.organizer? %>
+    <% if current_user.organizer? %>
      <!--modal> -->
       <span id="modalspan">
         <div class="text-center">
            <button id="myBtn" class= "btn btn-primary btn-lg">Engager ce candidat
            </button>
+           <br>
+           <%= link_to users_path do %>
+            Revenir sur la page des techniciens
+           <% end %>
         </div>
   <!-- The Modal -->
       <div id="myModal" class="modal">
@@ -64,10 +32,10 @@
               <%= f.submit 'Select this job', class: 'btn btn-primary' %>
             <% end %>
         </div>
-      </span>
-    </div>
+      </div>
+    </span>
   </li>
-  <% end %>
+    <% end %>
   <!-- ---------Historique des avis----------------->
   <h2>Historique des avis</h2>
   <% if @user.reviews.blank? %>
@@ -109,7 +77,7 @@
   <% if current_user.organizer? %>
   <div class="corps">
     <h2>Rédiger un avis</h2>
-    <%= render "reviews/new", user: current_user, review: @review %>
+    <%= render "reviews/new", user: @user, review: @review %>
   </div>
   <% end %>
 </div>
