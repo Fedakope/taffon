@@ -27,8 +27,10 @@ Rails.application.routes.draw do
     resources :applies, only: [:create]
   end
 
+  post 'profile', to: 'organizer/events#create', as: 'create_event_profile'
+
   get  'profile', to: 'pages#profile', as: :profile
-  post 'profile', to: 'have_skills#create'
+  post 'profile', to: 'have_skills#create', as: 'add_skill_profile'
   delete 'profile', to: 'have_skills#destroy'
 
   resources :applies, only: [:index, :update, :destroy]
