@@ -65,33 +65,39 @@ organizer3 = User.create!(
 technician1 = User.create!(
   email: "technicien1@gmail.com",
   password: "azerty",
-  photo: "",
+  photo: "https://img1.freepng.fr/20180421/sfe/kisspng-computer-icons-avatar-child-clip-art-5adb327b418037.4283260315243147472683.jpg",
+  picture_url: "https://img1.freepng.fr/20180421/sfe/kisspng-computer-icons-avatar-child-clip-art-5adb327b418037.4283260315243147472683.jpg",
   first_name: "tech1-firstname",
   last_name: "tech1-lastname",
   full_address: "147 Avenue du Maréchal Juin, 76230 Bois-Guillaume",
   phone_number: 0424242432,
-  organizer: false)
-
+  organizer: false,
+  description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt dignissimos facilis, maiores aliquid dolorem in temporibus autem atque dicta, ut veniam repudiandae. Totam, molestias rerum temporibus excepturi beatae eveniet officiis."
+  )
 technician2 = User.create!(
   email: "max@gmail.com",
   password: "azerty",
   photo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR0IkN0R6sDbPSByOpikeeBjDC_5uAKQYy6z3eRDq3ufQ8G1pN1",
+  picture_url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR0IkN0R6sDbPSByOpikeeBjDC_5uAKQYy6z3eRDq3ufQ8G1pN1",
   first_name: "Maxime",
   last_name: "Legras",
   full_address: "15 Rue Bossuet, 69006 Lyon",
   phone_number: 0424242427,
-  organizer: false)
-
+  organizer: false,
+  description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officia fugit, ipsam earum, beatae voluptates alias ea in maxime atque, laborum eum. Ipsum dignissimos magni animi illo, quam! Eum, hic cupiditate!"
+  )
 technician3 = User.create!(
   email: "alexis@gmail.com",
   password: "azerty",
-  photo: "",
+  photo: "https://img1.freepng.fr/20180421/sfe/kisspng-computer-icons-avatar-child-clip-art-5adb327b418037.4283260315243147472683.jpg",
+  picture_url: "https://img1.freepng.fr/20180421/sfe/kisspng-computer-icons-avatar-child-clip-art-5adb327b418037.4283260315243147472683.jpg",
   first_name: "Alexis",
   last_name: "Dewerdt",
   full_address: "Place de la Mairie, 01960 Péronnas",
   phone_number: 0424242437,
-  organizer: false)
-
+  organizer: false,
+  description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus unde ut deserunt adipisci facilis in minus numquam eligendi error, illum sequi voluptatum vitae vel dicta assumenda similique explicabo quia, aliquid!"
+  )
 
 #---------------------------------
 #Events
