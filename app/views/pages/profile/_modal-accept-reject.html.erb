@@ -30,7 +30,7 @@
             <div class="modal-accept-reject">
               <div>
                 <div class="accept-reject-btn">
-                <% if apply.status == "Pending" || apply.status == "Accepted" %>
+                <% if (apply.status == "Pending") || (apply.status == "Accepted") %>
                   <!--Reject Button> -->
                   <%= simple_form_for (apply) do |f| %>
                     <%= f.hidden_field :status, value: "Rejected" %>
@@ -39,7 +39,7 @@
                 <% end %>
                 </div>
                 <div class="accept-reject-btn">
-                <% if apply.status == "Pending" || apply.status == "Rejected" %>
+                <% if (apply.status == "Pending") || (apply.status == "Rejected") %>
                   <!--Accept Button> -->
                   <%= simple_form_for (apply) do |f| %>
                     <%= f.hidden_field :status, value: "Accepted" %>
