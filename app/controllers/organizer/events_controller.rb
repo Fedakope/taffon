@@ -27,7 +27,7 @@ class Organizer::EventsController < ApplicationController
     @event = Event.new(event_params)
     @event.user = current_user
     if @event.save
-      redirect_to organizer_event_path(@event), notice: "Your event #{@event.name} has been sucessfully created ! Now, add jobs !"
+      redirect_to profile_path, notice: "Your event #{@event.name} has been sucessfully created ! Now, add jobs !"
     else
       render :new
     end
