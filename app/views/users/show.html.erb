@@ -9,12 +9,10 @@
 <div class="container">
   <div class="card-product-user">
     <div class="product-back">
-
       <%= link_to users_path do  %>
         <i class="fas fa-undo"></i> Retour Liste Techniciens
       <% end %>
       </div>
-
     <div class="image">
       <img src=<% if @user.picture_url.blank? %>
                         <%= "http://swedworks.se/wp-content/uploads/2018/05/person-logo.png" %>
@@ -70,13 +68,14 @@
     </div>
   </li>
   <% end %>
-  <h2 class="fas fa-star">Historique des commentaires</h2>
+  <!-- ---------Historique des avis----------------->
+  <h2>Historique des avis</h2>
   <% if @user.reviews.blank? %>
     <div class="notification std-card">
       <img src='https://i.dailymail.co.uk/i/pix/2017/06/07/16/4133DED600000578-4581348-image-a-25_1496848745268.jpg' class="avatar-large"/>
       <div class="notification-content">
         <p><small>Erreur</small></p>
-        <p>Personne ne vous n'a encore laisé d'avis sur vous.</p>
+        <p>Personne ne vous n'a encore laissé d'avis sur vous.</p>
       </div>
     </div>
   <% else %>
@@ -100,7 +99,7 @@
             <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
             <% end  %>
           </p>
-          <p><%= review.content %></p>
+          <p id="review-content"><%= review.content %></p>
           <p><%= review.creator.first_name %> | <small><%= review.created_at %></small></p>
         </div>
       </div>

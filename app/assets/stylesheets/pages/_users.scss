@@ -10,6 +10,10 @@
   padding: 5px;
   }
 
+  #review-content {
+    font-size: 18px;
+  }
+
   .corps {
    margin-left: 150px;
    margin-right: 150px;
@@ -63,10 +67,10 @@
     padding-right: 15px;
 
     a:link, a:visited {
-      border-radius: 100px;
+      border-radius: 5px;
       background-color: rgb(180, 180, 180);
       color: white;
-      padding: 14px 25px;
+      padding: 5px 5px;
       text-align: center;
       text-decoration: none;
       display: inline-block;
@@ -96,18 +100,16 @@
 
   .link-technicians {
     font-size: 10px;
-
   }
+
   .product-back{
     padding-top: 10px;
     position: absolute;
-    bottom: -38%;
+    bottom: -23%;
     right:0;
     font-stretch: ultra-condensed;
     font-size: small;
-
   }
-
 
   .text-center {
         margin-top: 50px;
@@ -162,3 +164,4 @@
   right: 20px;
   width: 400px;
 }
+
