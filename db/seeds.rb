@@ -211,8 +211,14 @@ reviews1 = Review.create!(
   rating: "4",
   content: "cool",
   creator_id: organizer1.id,
+  destinator_id: technician1.id)
+
+reviews1 = Review.create!(
+  rating: "5",
+  content: "Excellent services",
+  creator_id: organizer2.id,
   destinator_id: technician1.id
-)
+  )
   puts "DB SEEDED THX YOU MAXKRAK"
 
 ######################## FAKE DATA

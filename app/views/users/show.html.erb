@@ -72,6 +72,46 @@
   <% end %>
 </div>
 
+<% if @user.reviews.blank? %>
+  <div class="notification std-card">
+    <img src='https://i.dailymail.co.uk/i/pix/2017/06/07/16/4133DED600000578-4581348-image-a-25_1496848745268.jpg' class="avatar-large"/>
+    <div class="notification-content">
+      <p><small>Erreur</small></p>
+      <p>Personne ne vous n'a encore laisé d'avis sur vous.</p>
+    </div>
+  </div>
+<% else %>
+  <% @user.reviews.each do |review| %>
+    <div class="notification std-card">
+      <img src="<%= review.creator.picture_url %>" class="avatar-large"/>
+      <div class="notification-content">
+        <p><%= review.creator.first_name %> | <small><%= review.created_at %></small></p>
+        <p><%= review.content %></p>
+        <p> <!-- Rating stars -->
+          <% case review.rating %>
+          <% when 0 %>
+          <i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>
+          <% when 1 %>
+          <i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>
+          <% when 2 %>
+          <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>
+          <% when 3 %>
+          <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>
+          <% when 4 %>
+          <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+          <% when 5 %>
+          <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+          <% end  %>
+        </p>
+      </div>
+
+      <div class="notification-actions">
+        <a href="/users/<%= review.creator_id %>">Voir son profil <i class="far fa-eye"></i></a>
+      </div>
+    </div>
+  <% end %>
+<% end %>
+
 <% if current_user.organizer? %>
 <div class="corps">
   <h2>Rédiger un avis</h2>
