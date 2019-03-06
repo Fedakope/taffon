@@ -1,0 +1,36 @@
+<div class="notification std-card">
+  <!-- <div class="row"> -->
+    <img src="<%= user.picture_url %>" alt="technician picture" id='tech-avatar'class="avatar"/>
+    <div class="tech-info">
+      <h3><%= user.first_name %></h3>
+      <p><span class="last_name"><%= user.last_name %></span></p>
+      <p><i class="fas fa-map-marker-alt"></i> -  <%= user.full_address %></p>
+      <p><i class="fas fa-envelope"></i> -  <%= user.email %></p>
+      <p><i class="fas fa-phone"></i> -  <%= user.phone_number %></p>
+      <% user_reviews = Review.where(destinator: user) %>
+      <% if user_reviews.count == 0 %>
+          <% average_review = 0 %>
+      <% else %>
+        <% average_review = 0 %>
+        <% user_reviews.each do |review| %>
+          <% average_review += review.rating %>
+        <% end %>
+        <% average_review = (average_review / user_reviews.count) %>
+      <% end %>
+      <p> <!-- Rating stars -->
+      <% average_review.times do %>
+        <i class="fas fa-star"></i>
+      <% end %>
+      <% (5 - average_review).times do %>
+        <i class="far fa-star"></i>
+      <% end %>
+      </p>
+    </div>
+    <div class="tech-description">
+      <h3>Métier(s)</h3>
+      <% user.skills.each do |skill| %>
+        <div class='tech-skill'><%= skill.name %> <i class="fa fa-check"></i></div>
+      <% end %>
+      <p><%= user.description %></p>
+    </div>
+</div>
