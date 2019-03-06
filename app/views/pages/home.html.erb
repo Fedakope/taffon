@@ -1,139 +1,99 @@
-<div class="home-container">
-  <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://www.enteclive.com/wp-content/uploads/2016/06/entec-16-home-slideshow.jpg;">
-    <div class="container">
-      <div class="banner-content">
-        <h1>On Taff'On, find <span id="banner-typed-text">the right technician</span> in the <strong>right time</strong>!</h1>
-        <p>Whether you are a technician or an event organizer, Taff'On will help you do the job!</p>
-        <a class="btn btn-warning" href="/organizer/events/new">Post an Event</a>
-        <a class="btn btn-secondary" href="/jobs">Find a Gig</a>
-      </div>
+    <div class="banner-home" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://res.cloudinary.com/daeahsosj/image/upload/v1550825773/5.jpg">
+        <div class="text-center" style="padding-top: 30vh;">
+            <p style="color: white; font-size: 38px; text-shadow: 1px 1px 3px rgba(0,0,0,0.2); font-weight: bold;">On Taff'On, find <span id="banner-typed-text">the right technician</span> in the <strong>right time</strong>!</p>
+            <p style="color: white; font-size: 24px;">Whether you are a technician or an event organizer, Taff'On will help you do the job!</p>
+            <div classe="list-inline" style="padding-top: 30px;">
+                <button type="button" class="btn btn-primary btn-lg" style="margin-right: 15px;">Créer un évènement</button>
+                <button type="button" class="btn btn-secondary btn-lg" style="margin-left: 15px;">Trouver une mission</button>
+            </div>
+        </div>
     </div>
-  </div>
-<!-- Features area: les petits blocs blancs -->
-  <section class="features-area">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-3 col-md-6">
-          <div class="single-feature">
-            <h4>Search & Create Events</h4>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipisicing.
-            </p>
-          </div>
+    
+    <div class="banner-home2" style="background-color: #F9FAFC;">
+        <div class="tuto2">
+            <h1>Comment ca marche ?</h1>
+            <p>En quelques clics StaffMe vous procure l'aide temporaire dont votre entreprise a besoin</p>
         </div>
-        <div class="col-lg-3 col-md-6">
-          <div class="single-feature">
-            <h4>Add Jobs</h4>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipisicing.
-            </p>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-6">
-          <div class="single-feature">
-            <h4>Search Technicians</h4>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipisicing.
-            </p>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-6">
-          <div class="single-feature">
-            <h4>Search for Jobs</h4>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipisicing.
-            </p>
-          </div>
-        </div>																		
-      </div>
-    </div>	
-  </section>
-<!-- section gaps -->
-
-
-<!-- job listing -->
-<section class="popular-post-area pt-100">
-  <div class="job-cards-large">
-    <h2>List of available jobs:</h2>
-    <p id="h2p">Check all available jobs and find the right position with simple clicks</p>
-    <% @jobs.each do |job| %>
-      <%= link_to job_path(job) do %>
-        <div class="card-product">
-        
-          <div class="index-job-card-infos">
-            <img src=<% if job.event.picture_url.blank? %>
-                          <%= "https://png.pngtree.com/svg/20170217/8553c4769c.png" %>
-                        <% else %>
-                          <%= job.event.picture_url %>
-                        <% end %>>
-            <div class="card-product-infos">
-              <h2><%= job.skill.category %></h2>
-              <p><%= job.event.name %></p>
-              <p><%= job.description %></p>
-              <p><%= job.event.start_date %> <%= job.event.end_date %></p>
+        <div class="args">
+            <div class="arg1">
+                <div class="icone"><i class="far fa-calendar-alt"></i></div>
+                <div class="tag1"><p>Créez un événement</p></div>
+                <div class="tag2"><p>Décrivez votre besoin en quelques secondes</p></div>
             </div>
-          </div>
-          
-          <div class="index-job-card-btn">
-            <%= link_to "See Details", job_path(job), class:"myButton" %>
-          </div>
-
-        </div>
-      <% end %>
-    <% end %>
-    <span id="link-job-list"><a href="/organizer/events">See all available gigs</a></span>
-  </div>
-</section>
-<!-- technicians listing -->
-<section class="popular-post-area pt-100">
-  <div class="job-cards-large">
-    <h2>List of available technicians:</h2>
-    <p id="h2p">Check all available technicians and find the right one for your need</p>
-    <% @users.each do |user| %>
-      <%= link_to user_path(user) do %>
-        <div class="card-product">
-        
-          <div class="index-job-card-infos">
-
-            <img src=<% if user.photo.blank? %>
-                      <%= "http://swedworks.se/wp-content/uploads/2018/05/person-logo.png" %>
-                    <% else %>
-                      <%= user.photo %>
-                    <% end %>>            
-            <div class="card-product-infos">
-              <h2><%= user.first_name %></h2>
-              <p><% user.categories.map do |category|  %>
-                  <%= category %>
-                <% end %></p>
-              <p><%= user.full_address %></p>
+            <div class="arg1">
+                <div class="icone"><i class="far fa-calendar-alt"></i></div>
+                <div class="tag1"><p>Créez un événement</p></div>
+                <div class="tag2"><p>Décrivez votre besoin en quelques secondes</p></div>
             </div>
-          </div>
-          
-          <div class="index-job-card-btn">
-            <%= link_to "See Details", user_path(user), class:"myButton" %>
-          </div>
-
-        </div>
-      <% end %>
-    <% end %>
-    <span id="link-job-list"><a href="/users">See all available events</a></span>
-  </div>
-</section>
-<!-- Call for action -->
-  <section class="section-gap">
-    <div class="callto-area">
-      <div class="container">
-        <div class="row d-flex justify-content-center">
-          <div class="menu-content col-lg-9">
-            <div class="title text-center">
-              <h1 class="mb-10 text-white">Join us today without any hesitation</h1>
-              <p class="text-white">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore  et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.</p>
-              <a class="btn btn-warning btn-lg" href="/users/sign_up">I am an Organizer</a>
-              <a class="btn btn-light btn-lg" href="/users/sign_up">I am a Candidate</a>
+            <div class="arg1">
+                <div class="icone"><i class="far fa-calendar-alt"></i></div>
+                <div class="tag1"><p>Créez un événement</p></div>
+                <div class="tag2"><p>Décrivez votre besoin en quelques secondes</p></div>
             </div>
-          </div>
-        </div>	
-      </div>
+        </div>
+        <button type="button" class="btn btn-primary btn-lg callto">Créer un évènement</button>
     </div>
-  </section>
-</div>
+
+
+
+
+    <div class="banner-home3" style="filter: grayscale(80%); background-image: url(https://res.cloudinary.com/daeahsosj/image/upload/v1551831622/tech.jpg";>
+        <div class="tuto3">
+            <h1>Staff'On est le spécialiste du travail dans l'évènementiel</h1>
+            <p>Trouvez dans l'urgence votre coéquipier spécialisé</p>
+        </div>
+        <div class="args">
+            <div class="arg1">
+                <div class="icone"><i class="far fa-calendar-alt"></i></div>
+                <div class="tag1"><p>Caét gorie</p></div>
+                <div class="tag2"><p>Skill</p></div>
+            </div>
+            <div class="arg1">
+                <div class="icone"><i class="far fa-calendar-alt"></i></div>
+                <div class="tag1"><p>Créez un événement</p></div>
+                <div class="tag2"><p>Décrivez votre besoin en quelques secondes</p></div>
+            </div>
+            <div class="arg1">
+                <div class="icone"><i class="far fa-calendar-alt"></i></div>
+                <div class="tag1"><p>Créez un événement</p></div>
+                <div class="tag2"><p>Décrivez votre besoin en quelques secondes</p></div>
+            </div>
+        </div>
+        <button type="button" class="btn btn-primary btn-lg callto3">Créer un évènement</button>        
+    </div>
+
+
+
+
+    <div class="banner-home3" style="background-color: #F9FAFC;">
+        <div class="tuto2">
+            <h1>Le moyen le plus sûr et le plus rapide d'être prévenu</h1>
+            <p>Pour ceux qui veulent être sur tous les plans </p>
+        </div>
+        <div class="args">
+            <div class="arg1">
+                <div class="icone"><i class="far fa-calendar-alt"></i></div>
+                <div class="tag1"><p>SMS</p></div>
+                <div class="tag2"><p>Décrivez votre besoin en quelques secondes</p></div>
+            </div>
+            <div class="arg1">
+                <div class="icone"><i class="far fa-calendar-alt"></i></div>
+                <div class="tag1"><p>Geolocaliastion</p></div>
+                <div class="tag2"><p>Décrivez votre besoin en quelques secondes</p></div>
+            </div>
+            <div class="arg1">
+                <div class="icone"><i class="far fa-calendar-alt"></i></div>
+                <div class="tag1"><p>Parcourir la lise et prevoir a l'avance</p></div>
+                <div class="tag2"><p>Décrivez votre besoin en quelques secondes</p></div>
+            </div>
+        </div>
+        <button type="button" class="btn btn-primary btn-lg callto3">Je suis prêt à travailler</button>      
+    </div>
+
+
+    <div class="banner-home2" style="filter: grayscale(80%); background-image: url(https://images.unsplash.com/photo-1429962714451-bb934ecdc4ec?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2850&q=80";>
+        <div class="tuto3">
+            <h1>Ce qu'en disent nos travailleurs</h1>
+            <p>bla bla bla bla bla</p>
+        </div>
+    </div>    
