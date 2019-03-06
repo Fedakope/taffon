@@ -1,0 +1,8 @@
+<%- if devise_mapping.omniauthable? %>
+  <%- resource_class.omniauth_providers.each do |provider| %>
+    <% icon = "<i class=\'fab fa-#{ICONS[provider]}\'></i>" %>
+      <%= link_to icon.html_safe, omniauth_authorize_path(resource_name, provider), class: "omnibtn btn btn-secondary" %><br />
+  <% end %>
+<% end %>
+
+
