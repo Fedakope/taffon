@@ -71,8 +71,7 @@ technician1 = User.create!(
   last_name: "tech1-lastname",
   full_address: "147 Avenue du Maréchal Juin, 76230 Bois-Guillaume",
   phone_number: 0424242432,
-  organizer: false,
-  description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt dignissimos facilis, maiores aliquid dolorem in temporibus autem atque dicta, ut veniam repudiandae. Totam, molestias rerum temporibus excepturi beatae eveniet officiis."
+  organizer: false
   )
 technician2 = User.create!(
   email: "max@gmail.com",
@@ -83,8 +82,7 @@ technician2 = User.create!(
   last_name: "Legras",
   full_address: "15 Rue Bossuet, 69006 Lyon",
   phone_number: 0424242427,
-  organizer: false,
-  description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officia fugit, ipsam earum, beatae voluptates alias ea in maxime atque, laborum eum. Ipsum dignissimos magni animi illo, quam! Eum, hic cupiditate!"
+  organizer: false
   )
 technician3 = User.create!(
   email: "alexis@gmail.com",
@@ -95,8 +93,7 @@ technician3 = User.create!(
   last_name: "Dewerdt",
   full_address: "Place de la Mairie, 01960 Péronnas",
   phone_number: 0424242437,
-  organizer: false,
-  description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus unde ut deserunt adipisci facilis in minus numquam eligendi error, illum sequi voluptatum vitae vel dicta assumenda similique explicabo quia, aliquid!"
+  organizer: false
   )
 
 #---------------------------------
