@@ -22,28 +22,4 @@ const updateCategories = () => {
 };
 export { updateCategories };
 
-//const testjs = () => {
-//const pickcat = document.getElementById("pickcat");
-//var strUser = pickcat.options[pickcat.selectedIndex].value;
-//console.log(strUser);
-//}
-
-
-
-
-//var selValue = document.getElementById("singleSelectDD").value;
-
-
-
-
-
-// pickcat.addEventListener("click", (event) => {
- // console.log(event);
- // console.log(event.currentTarget);
-//});
-//}
-
-
-
-
 

@@ -11,6 +11,7 @@ import { loadDynamicBannerText } from '../components/banner';
 import { checkNotification } from "../components/notification";
 import { initTabs } from "../components/tab";
 import { initSkills } from '../plugins/add_skill';
+import { event_picture_uploader } from '../plugins/event_picture_uploader'
 
 
 checkNotification();
@@ -21,20 +22,8 @@ initMapbox();
 initAutocomplete();
 modalEvents();
 initSkills();
+event_picture_uploader();
 
 
 // to keep a the end please...
 updateCategories();
-
-// Event photo uploader 
-
-
-
-const formPicture = document.querySelector('.update_picture')
-const inputHtml = formPicture.querySelector(".event_picture input")
-
-
-inputHtml.addEventListener('input', (e) => {
-  console.log("j'envoie le form")
-  formPicture.submit()
-});
