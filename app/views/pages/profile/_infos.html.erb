@@ -1,9 +1,7 @@
 <div class="col-xs-12 col-sm-6">
-<!--   <div class="picture">
-    <img src="<%= current_user.picture_url %>" class="avatar-big"/>
-  </div> -->
   <div class='contact'>
     <h2>Contact :</h2>
+    <img src="<%= current_user.photo %>" class="avatar-big"/>
     <ul>
       <li>id: <%= current_user.id %></li>
       <li>name: <%= current_user.first_name %> <%= current_user.last_name %></li>
@@ -42,3 +40,4 @@
     <% end %>
   <%= render 'have_skills/new', user: current_user, haveskill: @have_skill %>
 </div>
+
