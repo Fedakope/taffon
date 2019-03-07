@@ -10,10 +10,10 @@ class UserMailer < ApplicationMailer
     @user = user
     mail(to: @user.email, subject: "New job on Taff'on")
   end
-
+  
   def new_applicant(user)
-      @user = user
-      mail(to: @user.email, subject: "New Applicant for your job")
-  end
+    @user = user
+    mail(to: @user.email, subject: "New Applicant for your job")
+end
 
 end
