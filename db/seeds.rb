@@ -182,7 +182,6 @@ e3_job1 = Job.create!(
 #Applies
 
 apply1 = Apply.create!(
-  status: "pending",
   job_id: e1_job1.id,
   user_id: technician1.id
 )
