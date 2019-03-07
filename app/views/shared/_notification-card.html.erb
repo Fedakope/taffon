@@ -8,13 +8,13 @@
       <small><%= link_to 'Voir le Candidat', main_app.user_url(notification.actor)  %></small> |
       <small><%= notification.read_at %></small>
     </p>
-    <% notification.actor.applies.each do |apply| %>
-      <br>
-      <% user = apply.user %>
-      A postulé à l'evenement :
-      <%= apply.job.event.name %>
-      <br>
-      <%= apply.job.description %>
-    <% end %>
+
+    <br>
+    <% user = notification.actor.applies[@icount].user %>
+    A postulé à l'evenement :
+    <%= notification.actor.applies[@icount].job.event.name %>
+    <br>
+    <%= notification.actor.applies[@icount].job.description %>
+
   </div>
 </div>
