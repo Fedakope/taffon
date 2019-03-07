@@ -25,10 +25,15 @@
             <div class="card-product card-job-event std-card">
               <div class="card-product-infos text-center" >
                 <span id="modalspan">
-                  <button id="myBtn" class= "modal-event-btn">
-                    <i class="fas fa-user-clock"></i> <%= job.applies.count %>
-                    <p class='status <%= job.status.downcase %>'><%= job.status.downcase %></p>
-                  </button>
+                  <% job.applies.each do |apply| %>
+                    <% if apply.status.include?("Accepted") %>
+                      <% job.status = "Filled" %>
+                    <% end %>
+                  <% end %>
+                      <button id="myBtn" class= "modal-event-btn">
+                        <i class="fas fa-user-clock"></i> <%= job.applies.count %>
+                        <p class='status <%= job.status.downcase %>'><%= job.status.capitalize %></p>
+                      </button>
                   <!-- The Modal -->
                   <div id="myModal" class="modal">
                     <%= render '/pages/profile/modal-accept-reject', job: job %>
