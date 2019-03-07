@@ -3,7 +3,7 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable, :omniauthable, omniauth_providers: [:google_oauth2, :facebook]
+        :recoverable, :rememberable, :validatable, :omniauthable, omniauth_providers: [:google_oauth2, :facebook]
   has_many :applies
   has_many :events
   has_many :orders
@@ -16,13 +16,13 @@ class User < ApplicationRecord
   validates_uniqueness_of :email
   validates_presence_of :phone_number
   validates_uniqueness_of :phone_number
+  
   # Search
   pg_search_scope :search_by_skill, associated_against: {
       skills: [:name, :category],
-  },
-                                    using: {
-                                        tsearch: { prefix: true },
-                                    }
+  }, using: {
+      tsearch: { prefix: true },
+  }
 
   # Cloudinary/CarrierWave
   mount_uploader :photo, PhotoUploader
@@ -34,8 +34,8 @@ class User < ApplicationRecord
 
     # Uncomment the section below if you want users to be created if they don't exist
     user ||= User.create(first_name: data["first_name"],
-                         email: data["email"],
-                         password: Devise.friendly_token[0, 20])
+                        email: data["email"],
+                        password: Devise.friendly_token[0, 20])
     user
   end
 
