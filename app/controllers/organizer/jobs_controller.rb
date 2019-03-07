@@ -11,9 +11,9 @@ class Organizer::JobsController < ApplicationController
     @job.skill = @skill
     if @job.save
       send_new_job_email
-      redirect_to organizer_event_path(@event), notice: "Your job has been sucessfully created !"
+      redirect_to profile_path, notice: "Your job has been sucessfully created !"
     else
-      redirect_to organizer_event_path(@event), alert: "You need to select at least one skill"
+      redirect_to profile_path, alert: "You need to select at least one skill"
     end
 
   end
