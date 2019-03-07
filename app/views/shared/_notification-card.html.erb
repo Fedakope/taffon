@@ -1,4 +1,6 @@
 <div class="notification std-card">
+  <%= link_to 'x', notifications.notification_path(notification), class: 'btn btn-sm btn-light btn-close-notif', method: 'delete' %>
+
   <img src="<%= notification.actor.picture_url %>" class="avatar-large"/>
   <div class="notification-content">
     <p>
