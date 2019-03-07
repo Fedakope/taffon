@@ -12,6 +12,7 @@ class AppliesController < ApplicationController
     @apply.job = @job
     if @apply.save
       redirect_to user_path(@user), notice: 'You applied for the position'
+      send_new_applicant_mail
     else
       redirect_to job_path(@job), alert: 'Your aleardy applied for this job'
     end
@@ -38,6 +39,12 @@ class AppliesController < ApplicationController
 
   def apply_params
     params.require(:apply).permit(:status)
+  end
+
+  def send_new_applicant_mail
+    @job = Job.find(params[:job_id])
+    user = @job.event.user
+    UserMailer.new_applicant(user).deliver_now
   end
 end
 
