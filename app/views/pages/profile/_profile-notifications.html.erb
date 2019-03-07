@@ -1,0 +1,39 @@
+
+  <%= link_to t('notifications.clean_all'), notifications.clean_notifications_path, class: 'btn btn-sm btn-secondary', method: 'delete' %>
+
+  <%= link_to t('notifications.read_all'), notifications.clean_notifications_path, class: 'btn btn-sm btn-secondary', method: 'delete' %>
+
+<% @notifications.each do |notification| %>
+
+  <div class="notification std-card">
+    <img src="<%= notification.actor.picture_url %>" class="avatar-large"/>
+    <div class="notification-content">
+
+
+
+
+      <p>
+        <%= notification.actor.first_name %> |
+        <small><%= link_to 'Voir le Candidat', main_app.user_url(notification.actor)  %></small> |
+        <small><%= notification.read_at %></small>
+      </p>
+      <% notification.actor.applies.each do |apply| %>
+        <br>
+        <% user = apply.user %>
+        A postulé à l'evenement :
+        <%= apply.job.event.name %>
+        <br>
+        <%= apply.job.description %>
+      <% end %>
+
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+<% end %>
