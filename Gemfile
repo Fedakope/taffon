@@ -14,6 +14,7 @@ gem 'redis'
 
 gem 'flutie'
 gem 'stripe'
+gem 'pg_search'
 gem 'bootstrap-social-rails'
 gem 'font-awesome-rails'
 
