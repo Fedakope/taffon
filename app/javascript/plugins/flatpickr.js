@@ -10,7 +10,7 @@ flatpickr(".datepicker", {
 
 
 flatpickr(".datetimepicker", {
-  inline: true,
+  inline: false,
   minDate: "today",
   enableTime: true,
   dateFormat: "Y-m-d H:i",

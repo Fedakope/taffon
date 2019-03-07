@@ -13,11 +13,24 @@
 <% end %>
 <% name.uniq! %>
 
-<div class="modal-content text-left">
-  <span class="close text-right">&times;</span>
 
+<div class="modal-content text-left">
+  <span class="close text-right create-job-close">&times;</span>
+  <%= render 'shared/card-event', event: event %>
+  <br><br>
   <%= simple_form_for([:organizer, event, job]) do |f| %>
     <div id="list" data-job-categories="<%= Skill.all.to_json %>">
+      <label class="form-control-label select required" for="">Plage de la mission :</label>
+      <div class="">
+        <div class="job-date">
+        <%= f.input :start_at, label: false, requierd: true, placeholder: "début de l'embauche", as: :string, input_html: {class: "datetimepicker"} %>
+        </div>
+        - au -
+        <div class="job-date">
+        <%= f.input :end_at, label: false, requierd: true, placeholder: "fin de l'embauche", as: :string, input_html: {class: "datetimepicker"} %>
+        </div>
+      </div>
+
       <div class="form-group select required job_skill">
         <label class="form-control-label select required" for="job_skill_id">Choisissez une catégorie</label>
         <select class="form-control select optional" id="job_category">
@@ -30,11 +43,6 @@
       <%= f.association :skill, label:'Métier :', collection: name %>
 
       <%= f.input :description, as: :text, requierd: true, placeholder: "Ajoutez une description pour fournir des informations supplémentaires..." %>
-
-      <div class="inlindedate">
-        <%= f.input :start_at, label: false, requierd: true, placeholder: "début de l'embauche", as: :string, input_html: {class: "datetimepicker"} %>
-        <%= f.input :end_at, label: false, requierd: true, placeholder: "fin de l'embauche", as: :string, input_html: {class: "datetimepicker"} %>
-      </div>
 
       <%= f.hidden_field :event_id, :value => event.id  %>
 
