@@ -6,3 +6,17 @@
 .footer-area {
   padding: 0 !important;
 }
+
+.event_picture {
+  display: none;
+}
+
+.label_photo {
+  width: 100px;
+  height: 100px;
+  background-color: red;
+  display: block;
+  background-position: center;
+  background-size: cover;
+  border-radius: 50%;
+}

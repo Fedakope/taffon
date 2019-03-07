@@ -25,3 +25,16 @@ initSkills();
 
 // to keep a the end please...
 updateCategories();
+
+// Event photo uploader 
+
+
+
+const formPicture = document.querySelector('.update_picture')
+const inputHtml = formPicture.querySelector(".event_picture input")
+
+
+inputHtml.addEventListener('input', (e) => {
+  console.log("j'envoie le form")
+  formPicture.submit()
+});

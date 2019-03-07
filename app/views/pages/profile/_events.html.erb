@@ -1,12 +1,17 @@
-<% current_user.events.each do |event| %>
+<% current_user.events.order(created_at: :desc).each do |event| %>
   <div class="container profile-event-card std-card">
     <div class="profile-event-card-row">
       <div class="hidden-xs col-sm-2">
         <div class="">
-          <%= image_tag "#{event.picture_url}", class:"event-pic" %>
-            <% event.jobs.each do |job| %>
-                <a class="tag"><%= job.skill.category %></a>
-            <% end %>
+          <%= simple_form_for([:organizer, event], html: { class: "update_picture"}) do |f| %> 
+            <label for="event_picture" class="label_photo" style="background-image: url('<%= event.picture_url %>')"></label>
+            <%= f.input :picture, label: false%>
+            <%= f.input :picture_cache, as: :hidden %> 
+          <% end %> 
+
+          <% event.jobs.each do |job| %>
+              <a class="tag"><%= job.skill.category %></a>
+          <% end %>
         </div>
       </div>
       <div class="col-xs-12 col-sm-10">
@@ -15,11 +20,6 @@
           <p><i class="fas fa-building"> </i> - <%= event.company %></p>
           <p><i class="fas fa-map-marker-alt"></i> -  <%= event.full_address %></p>
           <p><i class="fas fa-clock"></i> - <%= event.start_date %> / <%= event.end_date %></p>
-          <p>Uploader : <%= simple_form_for([:organizer, event]) do |f| %> 
-            <%= f.input :picture %>
-            <%= f.input :picture_cache, as: :hidden %> 
-            <%= f.submit 'Changer ma photo' %>
-            <% end %></p>
         </div>
         <p><%= event.description %></p>
       </div>
