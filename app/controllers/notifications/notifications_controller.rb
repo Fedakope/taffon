@@ -8,7 +8,7 @@ module Notifications
 
     def clean
       notifications.delete_all
-      redirect_to profile_path
+      redirect_to main_app.profile_path
     end
 
     def destroy
