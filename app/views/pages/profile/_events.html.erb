@@ -3,7 +3,9 @@
     <div class="profile-event-card-row">
       <div class="hidden-xs col-sm-2">
         <div class="">
-          <img class="event-pic" src="<%= event.picture_url %>">
+
+          <%= image_tag "#{event.picture_url}", class:"event-pic" %>
+
             <% event.jobs.each do |job| %>
                 <a class="tag"><%= job.skill.category %></a>
             <% end %>
@@ -15,6 +17,11 @@
           <p><i class="fas fa-building"> </i> - <%= event.company %></p>
           <p><i class="fas fa-map-marker-alt"></i> -  <%= event.full_address %></p>
           <p><i class="fas fa-clock"></i> - <%= event.start_date %> / <%= event.end_date %></p>
+          <p>Uploader : <%= simple_form_for([:organizer, event]) do |f| %> 
+            <%= f.input :picture %>
+            <%= f.input :picture_cache, as: :hidden %> 
+            <%= f.submit 'Changer ma photo' %>
+            <% end %></p>
         </div>
         <p><%= event.description %></p>
       </div>
