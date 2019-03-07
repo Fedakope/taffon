@@ -38,7 +38,7 @@ class Organizer::EventsController < ApplicationController
 
   def update
     if @event.update(event_params)
-      redirect_to organizer_event_path(@event)
+      redirect_back(fallback_location: organizer_event_path(@event))
     else
       render :edit
     end
@@ -59,7 +59,7 @@ class Organizer::EventsController < ApplicationController
   end
 
   def event_params
-    params.require(:event).permit(:name, :full_address, :description, :picture_url, :company, :start_date, :end_date)
+    params.require(:event).permit(:name, :full_address, :description, :picture, :company, :start_date, :end_date)
   end
 
   def set_marker

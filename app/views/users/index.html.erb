@@ -1,15 +1,12 @@
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(http://createurdimages.ecpad.fr/wp-content/uploads/2014/12/2014ECPA369L001_014-2048x1112.jpg;">
   <div class="container">
     <div class="banner-content">
-      <h1>List of all available Technicians</h1>
+      <h1>Liste des Techniciens disponibles</h1>
       <%= render "shared/search", path: users_path %>
     </div>
   </div>
 </div>
 
-<div class="div">
-  <p> </p>
-</div>
 
 <div class="container user-cards">
   <% @users.each do |user| %>

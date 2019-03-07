@@ -1,0 +1,20 @@
+<div class="notification std-card">
+  <%= link_to 'x', notifications.notification_path(notification), class: 'btn btn-sm btn-light btn-close-notif', method: 'delete' %>
+
+  <img src="<%= notification.actor.picture_url %>" class="avatar-large"/>
+  <div class="notification-content">
+    <p>
+      <%= notification.actor.first_name %> |
+      <small><%= link_to 'Voir le Candidat', main_app.user_url(notification.actor)  %></small> |
+      <small><%= notification.read_at %></small>
+    </p>
+
+    <br>
+    <% user = notification.actor.applies[@icount].user %>
+    A postulé à l'evenement :
+    <%= notification.actor.applies[@icount].job.event.name %>
+    <br>
+    <%= notification.actor.applies[@icount].job.description %>
+
+  </div>
+</div>

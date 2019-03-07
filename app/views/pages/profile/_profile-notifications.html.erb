@@ -1,0 +1,19 @@
+<div class= ''>
+  <% if @notifications.blank? %>
+    <div class="notification std-card">
+      <p>Vous n'avez pas de notfications pour l'instant.</p>
+      <p><br> <br> <br> <br> <br> </p>
+    </div>
+  <% else %>
+    <% @icount = 0 %>
+    <% @notifications.each do |notification| %>
+      <%= render 'shared/notification-card', notification: notification %>
+      <% @icount += 1 %>
+    <% end %>
+  <% end %>
+</div>
+
+<br>
+<div class="text-right">
+  <%= link_to 'Tout supprimer', notifications.clean_notifications_path, class: 'btn btn-sm btn-secondary text-left', method: 'delete' %>
+</div>

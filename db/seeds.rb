@@ -103,7 +103,7 @@ e1 = Event.create!(
   name: "Armada 2019",
   full_address: "107 Quai Jean de Béthencourt, 76100 Rouen",
   description: "L'Armada 2019 marquera la septième édition de cette manifestation qui rassemble les plus beaux bateaux du monde sur les quais de Rouen.",
-  picture_url: "http://fis-cal.com/wp-content/uploads/2013/10/EVENTS.png",
+  picture: "http://fis-cal.com/wp-content/uploads/2013/10/EVENTS.png",
   company: "Armada de Rouen",
   user_id: organizer1.id,
   start_date: 5.day.from_now,
@@ -113,7 +113,7 @@ e2 = Event.create!(
   name: "Aidez-moi!",
   full_address: "20 rue des Capucins, 69001 Lyon",
   description: "Presentation des projets de jeunes talents",
-  picture_url: "https://blog.socedo.com/wp-content/uploads/2016/09/Events.jpg",
+  picture: "https://blog.socedo.com/wp-content/uploads/2016/09/Events.jpg",
   company: "Le Wagon",
   user_id: organizer2.id,
   start_date: 1.day.from_now,
@@ -123,7 +123,7 @@ e3 = Event.create!(
   name: "Grizou Party",
   full_address: "1038 Avenue Maréchal de Lattre de Tassigny, 71000 Mâcon",
   description: "Soiree privee pour diffusion video des meilleurs buts",
-  picture_url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQp42gwvTjsBLYg-VFuYVLvEyqwLyJEV-X5yrUN4MBuKIWxfKW6dA",
+  picture: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQp42gwvTjsBLYg-VFuYVLvEyqwLyJEV-X5yrUN4MBuKIWxfKW6dA",
   company: "Striker",
   user_id: organizer3.id,
   start_date: 10.day.from_now,
@@ -182,7 +182,6 @@ e3_job1 = Job.create!(
 #Applies
 
 apply1 = Apply.create!(
-  status: "pending",
   job_id: e1_job1.id,
   user_id: technician1.id
 )

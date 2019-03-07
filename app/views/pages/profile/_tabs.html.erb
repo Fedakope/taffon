@@ -1,15 +1,36 @@
 <ul class="list-inline tabs-underlined">
   <li>
-    <% if current_user.organizer? %>
-      <p href="#" class="tab-underlined active" id="events-jobs"><%= current_user.events.all.count %> Evenement(s)</p>
+    <% if @unread_notifications == 0 %>
+      <p href="#" class="tab-underlined active" id="events-jobs">
+        <% if current_user.organizer? %>
+          <%= current_user.events.all.count %> Evenement(s)
+        <% else %>
+          <%= current_user.applies.all.count %> Candidature(s)
+        <% end %>
+      </p>
     <% else %>
-      <p href="#" class="tab-underlined active" id="events-jobs"><%= current_user.applies.all.count %> Candidature(s)</p>
+      <p href="#" class="tab-underlined" id="events-jobs">
+        <% if current_user.organizer? %>
+          <%= current_user.events.all.count %> Evenement(s)
+        <% else %>
+          <%= current_user.applies.all.count %> Candidature(s)
+        <% end %>
+      </p>
     <% end %>
+
   </li>
   <li>
     <p href="#" class="tab-underlined" id="profile">Mon profil</p>
   </li>
   <li>
     <p href="#" class="tab-underlined" id="reviews">Mes avis</p>
+  </li>
+  <li>
+    <% if @unread_notifications == 0 %>
+      <p href="#" class="tab-underlined" id="notifications">
+    <% else %>
+      <p href="#" class="tab-underlined active" id="notifications">
+    <% end %>
+      <%= @unread_notifications %> Notification(s)</p>
   </li>
 </ul>
