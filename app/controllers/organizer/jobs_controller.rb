@@ -28,9 +28,14 @@ class Organizer::JobsController < ApplicationController
   private
 
   def send_new_job_email
-    @user = User.where(organizer: false)
-    @user.each do |user|
-      UserMailer.new_job(user).deliver_later
+    event = @job.event
+    lat = event.latitude
+    lg = event.longitude
+    users = User.near([lat, lg], 10, units: :km)
+    if users.present?
+      users.each do |user|
+        UserMailer.new_job(user).deliver_later
+      end
     end
   end
 

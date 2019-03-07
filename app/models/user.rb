@@ -17,6 +17,9 @@ class User < ApplicationRecord
   validates_presence_of :phone_number
   validates_uniqueness_of :phone_number
 
+  after_validation :geocode
+  geocoded_by :full_address
+
   # Search
   pg_search_scope :search_by_skill, against: [:full_address, :description ], associated_against: {
       skills: [:name, :category],
