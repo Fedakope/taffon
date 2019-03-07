@@ -19,15 +19,19 @@ class JobsController < ApplicationController
     @job = Job.new
   end
 
-  def create
-    @job = Job.new(job_params)
-    @job.event = @event
-    if @job.save!
-      redirect_to event_path(@event)
-    else
-      render :index
-    end
-  end
+  # def create
+  #   @event = Event.find(params[:job][:event_id])
+  #   @skill = Skill.find_by(name: params[:job][:skill_id])
+  #   @job = Job.new(job_params)
+  #   @job.event = @event
+  #   @job.skill = @skill
+  #   if @job.save
+  #     send_new_job_email
+  #     redirect_to profile_path, notice: "Your job has been sucessfully created !"
+  #   else
+  #     redirect_to profile_path, alert: "You need to select at least one skill"
+  #   end
+  # end
 
   def destroy
     @job = Job.find(params[:id])
