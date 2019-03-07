@@ -16,7 +16,7 @@
 <div class="modal-content text-left">
   <span class="close text-right">&times;</span>
 
-  <%= simple_form_for(job, method: :post, url: create_job_event_profile_path) do |f| %>
+  <%= simple_form_for([:organizer, event, job]) do |f| %>
     <div id="list" data-job-categories="<%= Skill.all.to_json %>">
       <div class="form-group select required job_skill">
         <label class="form-control-label select required" for="job_skill_id">Choisissez une catégorie</label>

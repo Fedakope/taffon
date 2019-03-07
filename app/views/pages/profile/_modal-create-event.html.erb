@@ -4,7 +4,7 @@
 
   <h2>Comment s'appelle votre évènement ?</h2>
 
-  <%= simple_form_for(@event, method: :post, url: create_event_profile_path) do |f| %>
+  <%= simple_form_for([:organizer, @event]) do |f| %>
   <%= f.input :name,
           required: true,
           placeholder: "🏷 Salon de l'agriculture, marriage de ma tante...",
