@@ -1,5 +1,10 @@
-<%= link_to t('notifications.clean_all'), notifications.clean_notifications_path, class: 'btn btn-sm btn-secondary text-left', method: 'delete' %>
-
+<div class= ''>
 <% @notifications.each do |notification| %>
   <%= render 'shared/notification-card', notification: notification %>
 <% end %>
+</div>
+
+<br>
+<div class="text-right">
+  <%= link_to t('notificat  ions.clean_all'), notifications.clean_notifications_path, class: 'btn btn-sm btn-secondary text-left', method: 'delete' %>
+</div>
