@@ -13,6 +13,12 @@ class PagesController < ApplicationController
       @user_skills << have_skill.skill
     end
     @event = Event.new
+    @notifications = Notification.where(user_id: current_user.id)
+    @unread_notifications = Notification.unread_count(current_user)
+    unread_ids = @notifications.reject(&:read?).select(&:id)
+    Notification.read!(unread_ids)
+
+    # @notifications = Notification.where(user_id: current_user.id)
     # @have_skill = HaveSkill.new
   end
 end

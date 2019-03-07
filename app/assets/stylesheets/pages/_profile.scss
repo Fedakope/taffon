@@ -187,3 +187,13 @@
     width: 100% !important;
   }
 }
+
+.btn-close-notif {
+  background: rgba(0, 0, 0, 0);
+  border: none;
+  color: lightgrey;
+  font-weight: 400;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}

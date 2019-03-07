@@ -30,7 +30,7 @@ Rails.application.routes.draw do
   # post 'profile', to: 'organizer/events#create', as: 'create_event_profile'
   # post 'profile', to: 'jobs#create', as: 'create_job_event_profile'
 
-
+  get '/read_all', to: 'notifications/notifications#read_all', as: 'read_all'
 
   get  'profile', to: 'pages#profile', as: :profile
   post 'profile', to: 'have_skills#create', as: 'add_skill_profile'

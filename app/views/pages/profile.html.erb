@@ -3,20 +3,33 @@
 </div>
 
 <div class="profile-container container">
+  <% if @unread_notifications == 0 %>
   <div class="" id='events-jobs-content'>
-    <!-- onglet event ou job selon organizer ou technician -->
-    <% if current_user.organizer? %>
-      <%= render 'pages/profile/events' %>
-    <% elsif current_user.organizer == false %>
-      <%= render 'pages/profile/applies' %>
-    <% end %>
-  </div>
+  <% else %>
+  <div class="hidden" id='events-jobs-content'>
+  <% end %>
+      <% if current_user.organizer? %>
+        <%= render 'pages/profile/events' %>
+      <% elsif current_user.organizer == false %>
+        <%= render 'pages/profile/applies' %>
+      <% end %>
+    </div>
 
-  <div class=" hidden" id='profile-content'>
+  <div class="hidden" id='profile-content'>
     <%= render 'pages/profile/infos' %>
   </div>
 
-  <div class=" hidden" id='reviews-content'>
+  <div class="hidden" id='reviews-content'>
     <%= render 'pages/profile/reviews' %>
   </div>
+
+  <% if @unread_notifications == 0 %>
+  <div class="hidden" id='notifications-content'>
+  <% else %>
+  <div class="" id='notifications-content'>
+  <% end %>
+      <%= render 'pages/profile/profile-notifications' %>
+    </div>
 </div>
+
+
