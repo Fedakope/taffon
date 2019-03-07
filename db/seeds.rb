@@ -73,7 +73,7 @@ technician2 = User.create!(
   email: "max@gmail.com",
   password: "azerty",
   photo: "https://media.licdn.com/dms/image/C4D03AQF1ZZcCvWY3_g/profile-displayphoto-shrink_200_200/0?e=1556150400&v=beta&t=H0XYvcSMo7R9en_HzmVCyPEaFsOpRhf2ktumO1wv2Dw",
-  picture_url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR0IkN0R6sDbPSByOpikeeBjDC_5uAKQYy6z3eRDq3ufQ8G1pN1",
+  picture_url: "https://media.licdn.com/dms/image/C4D03AQF1ZZcCvWY3_g/profile-displayphoto-shrink_200_200/0?e=1556150400&v=beta&t=H0XYvcSMo7R9en_HzmVCyPEaFsOpRhf2ktumO1wv2Dw",
   first_name: "Maxime",
   last_name: "Legras",
   full_address: "15 Rue Bossuet, 69006 Lyon",
