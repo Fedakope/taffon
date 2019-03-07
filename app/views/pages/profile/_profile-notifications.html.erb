@@ -1,7 +1,14 @@
 <div class= ''>
-<% @notifications.each do |notification| %>
-  <%= render 'shared/notification-card', notification: notification %>
-<% end %>
+  <% if @notifications.blank? %>
+    <div class="notification std-card">
+      <p>Vous n'avez pas de notfications pour l'instant.</p>
+      <p><br> <br> <br> <br> <br> </p>
+    </div>
+  <% else %>
+    <% @notifications.each do |notification| %>
+      <%= render 'shared/notification-card', notification: notification %>
+    <% end %>
+  <% end %>
 </div>
 
 <br>
