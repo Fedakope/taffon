@@ -38,7 +38,7 @@ class Organizer::EventsController < ApplicationController
 
   def update
     if @event.update(event_params)
-      redirect_to organizer_event_path(@event)
+      redirect_back(fallback_location: organizer_event_path(@event))
     else
       render :edit
     end

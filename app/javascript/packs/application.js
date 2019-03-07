@@ -11,7 +11,7 @@ import { loadDynamicBannerText } from '../components/banner';
 import { checkNotification } from "../components/notification";
 import { initTabs } from "../components/tab";
 import { initSkills } from '../plugins/add_skill';
-
+import { event_picture_uploader } from '../plugins/event_picture_uploader';
 
 checkNotification();
 initTabs();
@@ -21,6 +21,8 @@ initMapbox();
 initAutocomplete();
 modalEvents();
 initSkills();
+event_picture_uploader();
+
 
 
 // to keep a the end please...
