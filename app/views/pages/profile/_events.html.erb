@@ -15,6 +15,11 @@
           <p><i class="fas fa-building"> </i> - <%= event.company %></p>
           <p><i class="fas fa-map-marker-alt"></i> -  <%= event.full_address %></p>
           <p><i class="fas fa-clock"></i> - <%= event.start_date %> / <%= event.end_date %></p>
+          <p>Uploader : <%= simple_form_for([:organizer, event]) do |f| %> 
+            <%= f.input :picture %>
+            <%= f.input :picture_cache, as: :hidden %> 
+            <%= f.submit 'Changer ma photo' %>
+            <% end %></p>
         </div>
         <p><%= event.description %></p>
       </div>

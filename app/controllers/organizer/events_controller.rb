@@ -59,7 +59,7 @@ class Organizer::EventsController < ApplicationController
   end
 
   def event_params
-    params.require(:event).permit(:name, :full_address, :description, :picture_url, :company, :start_date, :end_date)
+    params.require(:event).permit(:name, :full_address, :description, :picture, :company, :start_date, :end_date)
   end
 
   def set_marker
