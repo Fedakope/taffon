@@ -16,13 +16,22 @@ class User < ApplicationRecord
   validates_uniqueness_of :email
   validates_presence_of :phone_number
   validates_uniqueness_of :phone_number
-  
+
   # Search
-  pg_search_scope :search_by_skill, associated_against: {
+  pg_search_scope :search_by_skill, against: [:full_address, :description ], associated_against: {
       skills: [:name, :category],
   }, using: {
       tsearch: { prefix: true },
   }
+
+
+  # against: [ :title, :syllabus ],
+  # associated_against: {
+  #   director: [ :first_name, :last_name ]
+  # },
+  # using: {
+  #   tsearch: { prefix: true }
+  # }
 
   # Cloudinary/CarrierWave
   mount_uploader :photo, PhotoUploader
