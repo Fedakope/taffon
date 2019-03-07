@@ -11,16 +11,20 @@
   width: 100%;
   padding: 20px;
   height: 100%;
-}
+  &.front {
+    color: white;
+    background-color: #469AE0;
+   }
+  }
+
+
 
 .user-description{
   // width: 700px;
   width: 60%;
 }
 
-#reviews-content {
 
-}
 
 .status {
   // font-weight: bold;
