@@ -41,16 +41,17 @@
   width: 140px;
 }
 
-.accepted, .filled {
-  background-color: green;
+.modal-event-btn {
+  .accepted, .filled {
+    background-color: green;
+  }
+  .pending, .open{
+    background-color: orange;
+  }
+  .rejected {
+    background-color: red;
+  }
 }
-.pending, .open{
-  background-color: orange;
-}
-.rejected {
-  background-color: red;
-}
-
 .profile-event-card {
   padding: 10px 0px;
   background-color: white;
