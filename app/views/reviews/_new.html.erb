@@ -1,5 +1,5 @@
 <%= simple_form_for [user, review] do |f| %>
-  <%= f.input :rating, collection: 0..5 %>
-  <%= f.input :content %>
+  <%= f.input :rating, label:"Note", collection: 0..5 %>
+  <%= f.input :content, label:"Commentaires", placeholder: "Laissez-moi un commentaire.." %>
   <%= f.submit class: 'btn btn-primary' %>
 <% end %>
