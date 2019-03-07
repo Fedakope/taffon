@@ -12,8 +12,7 @@
   padding: 20px;
   height: 100%;
   &.front {
-    color: white;
-    background-color: #469AE0;
+    // color: white;
    }
   }
 
@@ -148,9 +147,9 @@
 
 .add-card, .add-btn {
   height: 60px;
-  color: #ccc;
+  color: #666;
   font-style: italic;
-  background-color: $light-gray;
+  background-color: #cccccc;
   &:hover {
     cursor: pointer;
     color: #aaa;
