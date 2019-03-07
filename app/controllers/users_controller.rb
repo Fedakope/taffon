@@ -3,9 +3,7 @@ class UsersController < ApplicationController
     set_markers
     @users = User.all
     if params[:query].present?
-      sql_query = " \
-      full_address ILIKE :query"
-      @users = User.where(sql_query, query: "%#{params[:query]}%")
+      @users = User.search_by_skill("%#{params[:query]}%")
     else
       @users = User.all
     end
