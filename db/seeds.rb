@@ -222,13 +222,13 @@ HaveSkill.create!(user: technician4, skill: Skill.find_by(name: "Concepteur vid�
 #---------------------------------
 reviews1 = Review.create!(
   rating: "4",
-  content: "Mario est un un vrai professionnel, notre spectacle de son et lumieres a ete un vraie reussite grace a son intervention de derniere minute, Merci Mario!",
+  content: "Mario est un vrai professionnel, notre spectacle de son et lumière a été une vraie reussite grâce a son intervention de dernière minute, Merci Super Mario! 🍄",
   creator_id: organizer1.id,
   destinator_id: technician1.id)
 
 reviews1 = Review.create!(
   rating: "3",
-  content: "Un bon technicien son mais quelques difficultes de communiction due a la barriere de la langue",
+  content: "Un bon technicien son mais quelques difficultés de communication dues à la barrière de la langue",
   creator_id: organizer2.id,
   destinator_id: technician1.id
   )
