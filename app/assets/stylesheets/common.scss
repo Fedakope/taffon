@@ -17,4 +17,11 @@
   display: block;
   background-position: center;
   background-size: cover;
+  overflow: hidden;
+}
+
+
+.label_photo:hover{
+cursor: copy;
+transform: scale(1.05);
 }
