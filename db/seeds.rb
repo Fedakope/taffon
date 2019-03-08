@@ -65,7 +65,7 @@ technician1 = User.create!(
   photo: "https://st3.depositphotos.com/1662991/18902/i/1600/depositphotos_189024340-stock-photo-male-sound-technician-working-sound.jpg",
   first_name: "Mario",
   last_name: "Berlusconi",
-  full_address: "82 Boulevard Marius Vivier Merle, 69003 Lyon",
+  full_address: "82 Boulevard Merle, 69003 Lyon",
   phone_number: 0424242432,
   organizer: false
   )
