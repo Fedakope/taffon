@@ -26,7 +26,6 @@
               <% end %>
               <p><%= apply.user.description %></p>
             </div>
-
             <div class="modal-accept-reject">
               <div>
                 <div class="">
@@ -43,6 +42,9 @@
                     <%= f.hidden_field :status, value: "Rejected" %>
                     <%= f.submit 'refuser', class: "accept-reject-btn btn btn-sm btn-danger" %>
                   <% end %>
+                <% end %>
+                <% if (apply.status == "Accepted") %>
+                  <a href="users/<%= apply.user.id %> " class='btn btn-sm btn-primary accept-reject-btn'>Ecrire un avis</a>
                 <% end %>
                 </div>
               </div>

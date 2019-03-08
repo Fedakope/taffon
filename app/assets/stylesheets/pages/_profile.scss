@@ -28,7 +28,11 @@
   width: 60%;
 }
 
-
+.number-of-applicant {
+  font-size: 28px;
+  font-weight: bold;
+  color: $blue-bootstrap ;
+}
 
 .status {
   // font-weight: bold;
@@ -169,7 +173,7 @@
 .modal-accept-reject {
   position: absolute;
   display: inline-block;
-  width: 180px;
+  width: 200px;
   right: 0;
   top: 20px;
 }
@@ -184,7 +188,7 @@
 }
 
 .accept-reject-btn {
-  width: 80px;
+  width: 90px;
 }
 
 .profile-event-card {
@@ -203,9 +207,7 @@
   top: 10px;
 }
 
-#myBtn {
-  padding: 0;
-}
+
 
 .job-date {
   display: inline-block;
