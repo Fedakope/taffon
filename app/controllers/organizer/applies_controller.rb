@@ -10,9 +10,9 @@ class Organizer::AppliesController < ApplicationController
     @apply.user = @user
     @apply.job = @job
     if @apply.save
-      redirect_to user_path(@user), notice: "Candidate invited"
+      redirect_to user_path(@user), notice: "Candidat invité"
     else
-      redirect_to job_path(@job), alert: "You already invited this candidate"
+      redirect_to job_path(@job), alert: "Vous avez déjà invité ce candidat"
     end
   end
 
