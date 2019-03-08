@@ -1,8 +1,13 @@
-<h1>Order</h1>
-<h2>Your payment has been processed!</h2>
-<h3>SMS & Emails will be sent shortly to technicians in the area!</h3>
-<ul>
-  <li>Status: <%= @order.state %></li>
-  <li>Item: <%= @order.job_sku %></li>
-  <li>Amount: 5€</li>
-<ul>
+<div class="container pay-style">
+  <div class="row">
+      <h1>Commande # <%= @order.id %></h1>
+
+      <h2>Votre paiment est bien effectué.</h2>
+      <h3>Les SMS & les emails seront envoyés dans quelques instants.</h3>
+      <ul>
+        <li>Status: <%= @order.state %></li>
+        <li>Prix payé: 5€</li>
+      <ul>
+
+  </div>
+</div>

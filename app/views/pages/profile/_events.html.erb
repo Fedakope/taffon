@@ -63,6 +63,14 @@
               <div class="card-product-description">
                 <h2><%= job.skill.category %></h2>
                 <p><%= job.description %></p>
+                <div class="promote-job-btn">
+                  <%= csrf_meta_tags %>
+                  <%= form_tag orders_path do %>
+                    <%= hidden_field_tag 'job_id', job.id %>
+                    <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+                    <%= submit_tag 'Promouvoir cette mission', class: 'btn btn-primary' %>
+                  <% end %>
+                </div>
               </div>
 
             </div>

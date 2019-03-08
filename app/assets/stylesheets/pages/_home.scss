@@ -332,9 +332,16 @@ font-weight: bold;
 }
 .footer-links a {
   color: black;
-  opacity: 0.15;
+  opacity: 0.50;
   text-decoration: none;
-  font-size: 24px;
+  font-size: 20px;
+  padding: 0px 10px;
+}
+.footer-copyright {
+  color: black;
+  opacity: 0.50;
+  text-decoration: none;
+  font-size: 16px;
   padding: 0px 10px;
 }
 .footer-links a:hover {
