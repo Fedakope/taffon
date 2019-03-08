@@ -49,8 +49,8 @@ organizer1 = User.create!(
 organizer2 = User.create!(
   email: "davidghetto@gmail.com",
   password: "azerty",
-  photo: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/David_Guetta_2013-04-12_001.jpg/1200px-David_Guetta_2013-04-12_001.jpg",
-  picture_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/David_Guetta_2013-04-12_001.jpg/1200px-David_Guetta_2013-04-12_001.jpg",
+  photo: "https://www.famousbirthdays.com/headshots/david-guetta-4.jpg",
+  picture_url: "https://www.famousbirthdays.com/headshots/david-guetta-4.jpg",
   first_name: "David",
   last_name: "Ghetto",
   phone_number: 0624252474,
@@ -106,8 +106,8 @@ technician4 = User.create!(
 technician5 = User.create!(
   email: "kevcha@gmail.com",
   password: "azerty",
-  photo: "https://res.cloudinary.com/wagon/image/upload/c_fill,w_200/v1550747756/klvaudhtu5pw5qzneqiv.jpg",
-  picture_url: "https://res.cloudinary.com/wagon/image/upload/c_fill,w_200/v1550747756/klvaudhtu5pw5qzneqiv.jpg",
+  photo: "https://media.licdn.com/dms/image/C4D03AQHUnsMnSk674w/profile-displayphoto-shrink_200_200/0?e=1555545600&v=beta&t=j5xZLW8UaN9Rcgd_MveY_UQ2Ob8ayQTZWfh9HqJPwVw",
+  picture_url: "https://media.licdn.com/dms/image/C4D03AQHUnsMnSk674w/profile-displayphoto-shrink_200_200/0?e=1555545600&v=beta&t=j5xZLW8UaN9Rcgd_MveY_UQ2Ob8ayQTZWfh9HqJPwVw",
   first_name: "Kevin",
   last_name: "Chavanne",
   full_address: "2 Ruelle de St Etienne, 69007 Lyon",
@@ -123,7 +123,7 @@ technician6 = User.create!(
   first_name: "Joseph",
   last_name: "Blanchard",
   full_address: "73 Rue de Toto, 69009 Lyon",
-  phone_number: 0424242497,
+  phone_number: 0612530076 ,
   organizer: false
   )
 
@@ -256,8 +256,29 @@ reviews1 = Review.create!(
   rating: "3",
   content: "Un bon technicien son mais quelques difficultés de communication dues à la barrière de la langue",
   creator_id: organizer2.id,
-  destinator_id: technician1.id
+  destinator_id: technician1.id)
+
+reviews2 = Review.create!(
+  rating: "5",
+  content: "Technicien hors pair",
+  creator_id: organizer2.id,
+  destinator_id: technician4.id
   )
+
+reviews3 = Review.create!(
+  rating: "2",
+  content: "Effets tres speciaux...on comprend mais on ne voit pas comment cela est fait! ;)",
+  creator_id: organizer2.id,
+  destinator_id: technician5.id
+  )
+
+review4 = Review.create!(
+  rating: "1",
+  content: "Pret a veiller toute la nuit si necessaire.. Ne laisse pas dormir ses collegues!",
+  creator_id: organizer2.id,
+  destinator_id: technician6.id)
+
+
   puts "DB SEEDED THX YOU MAXKRAK"
 
 ######################## FAKE DATA
