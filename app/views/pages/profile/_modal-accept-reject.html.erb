@@ -19,6 +19,25 @@
               <p><i class="fas fa-map-marker-alt"></i> -  <%= apply.user.full_address %></p>
               <p><i class="fas fa-envelope"></i> -  <%= apply.user.email %></p>
               <p><i class="fas fa-phone"></i> -  <%= apply.user.phone_number %></p>
+
+              <% user_reviews = Review.where(destinator: apply.user) %>
+              <% if user_reviews.count == 0 %>
+                  <% average_review = 0 %>
+              <% else %>
+                <% average_review = 0 %>
+                <% user_reviews.each do |review| %>
+                  <% average_review += review.rating %>
+                <% end %>
+                <% average_review = (average_review / user_reviews.count) %>
+              <% end %>
+              <p> <!-- Rating stars -->
+              <% average_review.times do %>
+                <i class="fas fa-star"></i>
+              <% end %>
+              <% (5 - average_review).times do %>
+                <i class="far fa-star"></i>
+              <% end %>
+
             </div>
             <div class="modal-tech-description">
               <% apply.user.skills.each do |skill| %>
@@ -33,14 +52,14 @@
                   <!--Accept Button> -->
                   <%= simple_form_for (apply), html: {class: 'modal-accpt-reject'} do |f| %>
                     <%= f.hidden_field :status, value: "Accepted" %>
-                    <%= f.submit 'accepter', class: "accept-reject-btn btn btn-sm btn-success" %>
+                    <%= f.submit 'Accepter', class: "accept-reject-btn btn btn-sm btn-success" %>
                   <% end %>
                 <% end %>
                 <% if (apply.status == "Pending") || (apply.status == "Accepted") %>
                   <!--Reject Button> -->
                   <%= simple_form_for (apply), html: {class: 'modal-accpt-reject'} do |f| %>
                     <%= f.hidden_field :status, value: "Rejected" %>
-                    <%= f.submit 'refuser', class: "accept-reject-btn btn btn-sm btn-danger" %>
+                    <%= f.submit 'Refuser', class: "accept-reject-btn btn btn-sm btn-danger" %>
                   <% end %>
                 <% end %>
                 <% if (apply.status == "Accepted") %>
@@ -54,7 +73,7 @@
       <% end %>
     <% end %>
 
-    <a href="users?query=<%= job.skill.name %>" class='modal-card-link'>
+    <a href="users?query=<%= job.skill.name %>+Lyon" class='modal-card-link'>
       <div class="card-product card-job-event add-card">
         <div class="card-product-description">
           <h2><i class="fas fa-plus"></i> Ajouter un autre technicien (taffon s'occupe de la recherche)</h2>
