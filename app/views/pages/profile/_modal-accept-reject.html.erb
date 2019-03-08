@@ -19,6 +19,25 @@
               <p><i class="fas fa-map-marker-alt"></i> -  <%= apply.user.full_address %></p>
               <p><i class="fas fa-envelope"></i> -  <%= apply.user.email %></p>
               <p><i class="fas fa-phone"></i> -  <%= apply.user.phone_number %></p>
+
+              <% user_reviews = Review.where(destinator: apply.user) %>
+              <% if user_reviews.count == 0 %>
+                  <% average_review = 0 %>
+              <% else %>
+                <% average_review = 0 %>
+                <% user_reviews.each do |review| %>
+                  <% average_review += review.rating %>
+                <% end %>
+                <% average_review = (average_review / user_reviews.count) %>
+              <% end %>
+              <p> <!-- Rating stars -->
+              <% average_review.times do %>
+                <i class="fas fa-star"></i>
+              <% end %>
+              <% (5 - average_review).times do %>
+                <i class="far fa-star"></i>
+              <% end %>
+
             </div>
             <div class="modal-tech-description">
               <% apply.user.skills.each do |skill| %>
