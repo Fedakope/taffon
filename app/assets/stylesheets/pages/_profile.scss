@@ -201,3 +201,28 @@
 #myBtn {
   padding: 0;
 }
+
+.job-date {
+  display: inline-block;
+}
+
+
+.event-banner {
+  background-size: cover;
+  background-position: center;
+  height: 200px;
+  padding: 40px;
+  h3 {
+    padding: 30px;
+    color: white;
+    border-radius: 10px;
+    background-color: rgba( 255, 255, 255, 0.2 );
+  }
+}
+
+.create-job-close {
+  position: absolute;
+  top: 25px;
+  right: 30px;
+  color: $gray;
+}

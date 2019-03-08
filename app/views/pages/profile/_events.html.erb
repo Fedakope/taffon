@@ -4,11 +4,11 @@
       <div class="hidden-xs col-sm-2">
         <div class="">
 
-          <%= simple_form_for([:organizer, event], html: { class: "update_picture"}) do |f| %> 
+          <%= simple_form_for([:organizer, event], html: { class: "update_picture"}) do |f| %>
             <label for="event_picture" class="label_photo" style="background-image: url('<%= event.picture_url %>')"></label>
             <%= f.input :picture, label: false%>
-            <%= f.input :picture_cache, as: :hidden %> 
-          <% end %> 
+            <%= f.input :picture_cache, as: :hidden %>
+          <% end %>
 
           <% event.jobs.each do |job| %>
               <a class="tag"><%= job.skill.category %></a>
