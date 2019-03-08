@@ -5,7 +5,11 @@
         <div class="">
 
           <%= simple_form_for([:organizer, event], html: { class: "update_picture"}) do |f| %>
-            <label for="event_picture" class="label_photo" style="background-image: url('<%= event.picture_url %>')"></label>
+            <label for="event_picture" 
+                   class="label_photo" 
+                   style="background-image: url('<%= event.picture_url %>')">
+                     <div class="pick-icon"></div>
+            </label>
             <%= f.input :picture, label: false%>
             <%= f.input :picture_cache, as: :hidden %>
           <% end %>
