@@ -23,11 +23,11 @@
       <label class="form-control-label select required" for="">Plage de la mission :</label>
       <div class="">
         <div class="job-date">
-        <%= f.input :start_at, label: false, requierd: true, placeholder: "début de l'embauche", as: :string, input_html: {class: "datetimepicker"} %>
+        <%= f.input :start_at, label: false, requierd: true, placeholder: "début de l'embauche", as: :string, input_html: {class: "datetimepicker", value: event.start_date} %>
         </div>
         - au -
         <div class="job-date">
-        <%= f.input :end_at, label: false, requierd: true, placeholder: "fin de l'embauche", as: :string, input_html: {class: "datetimepicker"} %>
+        <%= f.input :end_at, label: false, requierd: true, placeholder: "fin de l'embauche", as: :string, input_html: {class: "datetimepicker", value: event.end_date} %>
         </div>
       </div>
 
