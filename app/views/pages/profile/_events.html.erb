@@ -50,7 +50,7 @@
                     <% end %>
                   <% end %>
                       <button id="myBtn" class= "modal-event-btn">
-                        <i class="fas fa-user-clock"></i> <%= job.applies.count %>
+                        <i class="fas fa-user-clock"></i><span class="number-of-applicant"> <%= job.applies.count %></span>
                         <p class='status <%= job.status.downcase %>'><%= job.status.capitalize %></p>
                       </button>
                   <!-- The Modal -->

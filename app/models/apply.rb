@@ -2,7 +2,7 @@ class Apply < ApplicationRecord
   belongs_to :job
   belongs_to :user
 
-  validates :job, uniqueness: { scope: :user, message: "You already applied for this position" }
+  validates :job, uniqueness: { scope: :user, message: "Vous avez déjà postulé à cette mission" }
   after_commit :create_notifications, on: :create
 
   def create_notifications
