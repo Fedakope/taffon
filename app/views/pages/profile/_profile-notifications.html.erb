@@ -5,10 +5,8 @@
       <p><br> <br> <br> <br> <br> </p>
     </div>
   <% else %>
-    <% @icount = 0 %>
     <% @notifications.each do |notification| %>
       <%= render 'shared/notification-card', notification: notification %>
-      <% @icount += 1 %>
     <% end %>
   <% end %>
 </div>

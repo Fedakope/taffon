@@ -10,11 +10,10 @@
     </p>
 
     <br>
-    <% user = notification.actor.applies[@icount].user %>
     A postulé à l'evenement :
-    <%= notification.actor.applies[@icount].job.event.name %>
+    <%= notification.target.job.event.name %>
     <br>
-    <%= notification.actor.applies[@icount].job.description %>
+    <%= notification.target.job.description %>
 
   </div>
 </div>

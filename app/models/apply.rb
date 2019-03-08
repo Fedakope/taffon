@@ -10,7 +10,7 @@ class Apply < ApplicationRecord
       notification.notify_type = 'post'
       notification.actor = self.user
       notification.user = self.job.event.user
-      notification.target = @apply
+      notification.target = self
     end
   end
 end
