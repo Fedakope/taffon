@@ -49,8 +49,8 @@ organizer1 = User.create!(
 organizer2 = User.create!(
   email: "davidghetto@gmail.com",
   password: "azerty",
-  photo: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/David_Guetta_2013-04-12_001.jpg/1200px-David_Guetta_2013-04-12_001.jpg",
-  picture_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/David_Guetta_2013-04-12_001.jpg/1200px-David_Guetta_2013-04-12_001.jpg",
+  photo: "https://www.famousbirthdays.com/headshots/david-guetta-4.jpg",
+  picture_url: "https://www.famousbirthdays.com/headshots/david-guetta-4.jpg",
   first_name: "David",
   last_name: "Ghetto",
   phone_number: 0624252474,
@@ -65,7 +65,7 @@ technician1 = User.create!(
   photo: "https://st3.depositphotos.com/1662991/18902/i/1600/depositphotos_189024340-stock-photo-male-sound-technician-working-sound.jpg",
   first_name: "Mario",
   last_name: "Berlusconi",
-  full_address: "82 Boulevard Marius Vivier Merle, 69003 Lyon",
+  full_address: "82 Boulevard Merle, 69003 Lyon",
   phone_number: 0424242432,
   organizer: false
   )
@@ -87,7 +87,7 @@ technician3 = User.create!(
   picture_url: "data:image/jpeg;base64,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",
   first_name: "Alexis",
   last_name: "Dewerdt",
-  full_address: "Place de la Mairie, 01960 Péronnas",
+  full_address: "Place de la Mairie, 69001 Lyon",
   phone_number: 0424242437,
   organizer: false
   )
@@ -103,6 +103,29 @@ technician4 = User.create!(
   organizer: false
   )
 
+technician5 = User.create!(
+  email: "kevcha@gmail.com",
+  password: "azerty",
+  photo: "https://media.licdn.com/dms/image/C4D03AQHUnsMnSk674w/profile-displayphoto-shrink_200_200/0?e=1555545600&v=beta&t=j5xZLW8UaN9Rcgd_MveY_UQ2Ob8ayQTZWfh9HqJPwVw",
+  picture_url: "https://media.licdn.com/dms/image/C4D03AQHUnsMnSk674w/profile-displayphoto-shrink_200_200/0?e=1555545600&v=beta&t=j5xZLW8UaN9Rcgd_MveY_UQ2Ob8ayQTZWfh9HqJPwVw",
+  first_name: "Kevin",
+  last_name: "Chavanne",
+  full_address: "2 Ruelle de St Etienne, 69007 Lyon",
+  phone_number: 0424242477,
+  organizer: false
+  )
+
+technician6 = User.create!(
+  email: "jpheos@gmail.com",
+  password: "azerty",
+  photo: "https://cv.jpheos.fr/assets/images/jpheos.jpg",
+  picture_url: "https://cv.jpheos.fr/assets/images/jpheos.jpg",
+  first_name: "Joseph",
+  last_name: "Blanchard",
+  full_address: "73 Rue de Toto, 69009 Lyon",
+  phone_number: 0612530076 ,
+  organizer: false
+  )
 
 #---------------------------------
 #Events
@@ -216,6 +239,9 @@ HaveSkill.create!(user: technician3, skill: Skill.find_by(name: "Informatique"))
 HaveSkill.create!(user: technician3, skill: Skill.find_by(name: "Concepteur vidéo - image"))
 HaveSkill.create!(user: technician4, skill: Skill.find_by(name: "Régisseur"))
 HaveSkill.create!(user: technician4, skill: Skill.find_by(name: "Technicien lumière"))
+HaveSkill.create!(user: technician5, skill: Skill.find_by(name: "Technicien des effets spéciaux"))
+HaveSkill.create!(user: technician6, skill: Skill.find_by(name: "Gardiennage"))
+
 
 
 
@@ -230,8 +256,29 @@ reviews1 = Review.create!(
   rating: "3",
   content: "Un bon technicien son mais quelques difficultés de communication dues à la barrière de la langue",
   creator_id: organizer2.id,
-  destinator_id: technician1.id
+  destinator_id: technician1.id)
+
+reviews2 = Review.create!(
+  rating: "5",
+  content: "Technicien hors pair",
+  creator_id: organizer2.id,
+  destinator_id: technician4.id
   )
+
+reviews3 = Review.create!(
+  rating: "2",
+  content: "Effets tres speciaux...on comprend mais on ne voit pas comment cela est fait! ;)",
+  creator_id: organizer2.id,
+  destinator_id: technician5.id
+  )
+
+review4 = Review.create!(
+  rating: "1",
+  content: "Pret a veiller toute la nuit si necessaire.. Ne laisse pas dormir ses collegues!",
+  creator_id: organizer2.id,
+  destinator_id: technician6.id)
+
+
   puts "DB SEEDED THX YOU MAXKRAK"
 
 ######################## FAKE DATA
