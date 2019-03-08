@@ -65,7 +65,7 @@ technician1 = User.create!(
   photo: "https://st3.depositphotos.com/1662991/18902/i/1600/depositphotos_189024340-stock-photo-male-sound-technician-working-sound.jpg",
   first_name: "Mario",
   last_name: "Berlusconi",
-  full_address: "147 Avenue du Maréchal Juin, 76230 Bois-Guillaume",
+  full_address: "82 Boulevard Marius Vivier Merle, 69003 Lyon",
   phone_number: 0424242432,
   organizer: false
   )
@@ -98,7 +98,7 @@ technician4 = User.create!(
   picture_url: "https://lh3.googleusercontent.com/a-/AAuE7mCaVtMTSPN8cnxQE-ymdFRG4BIplgGFRSQ6d2Pf6A=s640-rw-il",
   first_name: "Ayoub",
   last_name: "Ben Thabet",
-  full_address: "1 bis Darghouth Pacha, Tunis",
+  full_address: "2 Rue du Griffon, 69001 Lyon",
   phone_number: 0424242447,
   organizer: false
   )
@@ -208,14 +208,14 @@ skill4 = Skill.find_by(name: "Technicien lumière")
 
 
 #---------------------------------
-HaveSkill.create!(user: technician1, skill: Skill.find_by(name: "Concepteur son"))
+HaveSkill.create!(user: technician1, skill: Skill.find_by(name: "Technicien lumière"))
 HaveSkill.create!(user: technician1, skill: Skill.find_by(name: "Technicien des effets spéciaux"))
-HaveSkill.create!(user: technician2, skill: Skill.find_by(name: "Technicien lumière"))
+HaveSkill.create!(user: technician2, skill: Skill.find_by(name: "Concepteur son"))
 HaveSkill.create!(user: technician2, skill: Skill.find_by(name: "Technicien"))
 HaveSkill.create!(user: technician3, skill: Skill.find_by(name: "Informatique"))
 HaveSkill.create!(user: technician3, skill: Skill.find_by(name: "Concepteur vidéo - image"))
 HaveSkill.create!(user: technician4, skill: Skill.find_by(name: "Régisseur"))
-HaveSkill.create!(user: technician4, skill: Skill.find_by(name: "Concepteur vidéo - image"))
+HaveSkill.create!(user: technician4, skill: Skill.find_by(name: "Technicien lumière"))
 
 
 
