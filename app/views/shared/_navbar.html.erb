@@ -38,7 +38,7 @@
             <li><%= link_to pluralize(Notification.unread_count(current_user), 'Notification'), main_app.notifications_path %></li>
             <li>
               <%= link_to main_app.destroy_user_session_path, method: :delete do %>
-                <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Log out") %>
+                <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Se déconnecter") %>
               <% end %>
             </li>
           </ul>
