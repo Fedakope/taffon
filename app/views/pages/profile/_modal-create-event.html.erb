@@ -1,34 +1,39 @@
 <!-- Modal content -->
 <div class="modal-content text-left">
-  <span class="close text-right">&times;</span>
-
-  <h2>Comment s'appelle votre évènement ?</h2>
+  <span class="close text-right create-job-close">&times;</span>
+  <%= render 'shared/card-event', event: Event.new(name: "Créez votre évenement :") %>
+  <br><br>
 
   <%= simple_form_for([:organizer, @event]) do |f| %>
   <%= f.input :name,
           required: true,
           placeholder: "🏷 Salon de l'agriculture, marriage de ma tante...",
+          label: "Nom :",
           input_html: { autocomplete: "email" } %>
   <%= f.input :description,
+          label: "Description :",
           placeholder: "Rapide description de votre évènement" %>
   <%= f.input :full_address,
           required: true,
+          label: "Adresse :",
           placeholder: "Où se situe votre évènement ?",
           input_html: { autocomplete: "full_address" } %>
   <%= f.input :company,
+          label: "Société (facultatif) :",
           placeholder: "Si vous representez une entreprise, vous pouvez l'indiquer ici",
           input_html: { autocomplete: "email" } %>
+  <label class="form-control-label select required" for="">Dates :</label>
   <div class="inlindedate">
-  <%= f.input :start_date, as: :string,
-          required: true,
-          placeholder: "Quand débute votre évènement ?",
-          label: false,
-          input_html: {class: "datepicker", required: true} %>
-  <%= f.input :end_date, as: :string,
-          required: true,
-          placeholder: "Quand se finit-il ?",
-          label: false,
-          input_html: {class: "datepicker", required: true} %>
+    <%= f.input :start_date, as: :string,
+            required: true,
+            placeholder: "Quand débute votre évènement ?",
+            label: false,
+            input_html: {class: "datepicker", required: true} %>
+    <%= f.input :end_date, as: :string,
+            required: true,
+            placeholder: "Quand se finit-il ?",
+            label: false,
+            input_html: {class: "datepicker", required: true} %>
   </div>
   <div class="boutoncreate">
   <%= f.submit "Create", class: "btn btn-primary" %>

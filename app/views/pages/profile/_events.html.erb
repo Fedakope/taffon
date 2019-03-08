@@ -5,7 +5,19 @@
         <div class="">
 
           <%= simple_form_for([:organizer, event], html: { class: "update_picture"}) do |f| %>
-            <label for="event_picture" class="label_photo" style="background-image: url('<%= event.picture_url %>')"></label>
+            <% if event.picture_url.blank? %>
+              <label for="event_picture" 
+                   class="label_photo" 
+                   style="background-image: url('http://dev.myeventon.com/wp-content/uploads/2017/05/Event-Blogging-Strategies.jpg')">
+                     <div class="pick-icon"></div>
+              </label>
+            <% else %>
+              <label for="event_picture" 
+                   class="label_photo" 
+                   style="background-image: url('<%= event.picture_url %>')">
+                     <div class="pick-icon"></div>
+              </label>
+            <% end %>
             <%= f.input :picture, label: false%>
             <%= f.input :picture_cache, as: :hidden %>
           <% end %>
