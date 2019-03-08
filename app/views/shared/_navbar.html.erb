@@ -21,10 +21,10 @@
       <!-- Avatar with dropdown menu -->
       <div class="navbar-wagon-item">
         <div class="dropdown">
-          <% if current_user.photo.blank? %>
-            <%= cl_image_tag "https://icons-for-free.com/free-icons/png/512/1891016.png", class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
+          <% if current_user.picture_url.blank? %>
+            <img class="avatar dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="https://icons-for-free.com/free-icons/png/512/1891016.png" />
           <% else %>
-            <%= cl_image_tag current_user.photo, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
+            <img class="avatar dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="<%= current_user.picture_url %>" />
           <% end %>
             <span><%= link_to pluralize(Notification.unread_count(current_user), ''), main_app.profile_path, class:"badge badge-secondary notif-badge"%></span>
 
