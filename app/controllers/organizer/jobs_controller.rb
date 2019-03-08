@@ -11,7 +11,7 @@ class Organizer::JobsController < ApplicationController
     @job.skill = @skill
     if @job.save
       send_new_job_email
-      redirect_to profile_path, notice: "Mission crée"
+      redirect_to profile_path, notice: "Votre mission a bien été créée, cherchez un technicien ou promouvez cette mission"
     else
       redirect_to profile_path, alert: "Sélectionnez au moins une catégorie"
     end

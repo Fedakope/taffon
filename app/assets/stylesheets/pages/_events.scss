@@ -241,12 +241,12 @@
 }
 
 .tag:hover {
-  background-color: crimson;
+  background-color: $blue;
   color: white;
 }
 
 .tag:hover::after {
-  border-left-color: crimson;
+  border-left-color: $blue;
 }
 
 // middle side

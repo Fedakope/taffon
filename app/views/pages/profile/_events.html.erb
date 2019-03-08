@@ -6,14 +6,14 @@
 
           <%= simple_form_for([:organizer, event], html: { class: "update_picture"}) do |f| %>
             <% if event.picture_url.blank? %>
-              <label for="event_picture" 
-                   class="label_photo" 
+              <label for="event_picture"
+                   class="label_photo"
                    style="background-image: url('http://dev.myeventon.com/wp-content/uploads/2017/05/Event-Blogging-Strategies.jpg')">
                      <div class="pick-icon"></div>
               </label>
             <% else %>
-              <label for="event_picture" 
-                   class="label_photo" 
+              <label for="event_picture"
+                   class="label_photo"
                    style="background-image: url('<%= event.picture_url %>')">
                      <div class="pick-icon"></div>
               </label>
@@ -68,7 +68,7 @@
                   <%= form_tag orders_path do %>
                     <%= hidden_field_tag 'job_id', job.id %>
                     <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
-                    <%= submit_tag 'Promouvoir cette mission', class: 'btn btn-primary' %>
+                    <%= submit_tag 'Promouvoir cette mission', class: 'btn btn-light' %>
                   <% end %>
                 </div>
               </div>

@@ -27,7 +27,7 @@ class Organizer::EventsController < ApplicationController
     @event = Event.new(event_params)
     @event.user = current_user
     if @event.save
-      redirect_to profile_path, notice: "Votre évènement #{@event.name} a été bien crée! Maintenant,joutez des missions"
+      redirect_to profile_path, notice: "Votre évènement #{@event.name} a été bien créé ! Maintenant, ajoutez des missions"
     else
       render :new
     end
@@ -48,7 +48,7 @@ class Organizer::EventsController < ApplicationController
     if @event.destroy
       redirect_to organizer_events_path
     else
-      redirect_to event_path(@event), alert: "You can't delete this event, it contains jobs!"
+      redirect_to event_path(@event), alert: "Vous ne pouvez pas supprimer cet évènement, il contient une mission !"
     end
   end
 
