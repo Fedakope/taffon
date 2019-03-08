@@ -17,6 +17,7 @@
   display: block;
   background-position: center;
   background-size: cover;
+
 }
 
 
@@ -24,3 +25,13 @@
 width: 50vw !important;
 background-color:#D5FFD5;
 }
+
+  overflow: hidden;
+}
+
+
+.label_photo:hover{
+cursor: copy;
+transform: scale(1.05);
+}
+
